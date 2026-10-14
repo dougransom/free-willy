@@ -14,10 +14,11 @@
 - **Multiple Wills / Secondary Wills:** Supports dual will strategies (non-probate wills for private corporation / CCPC shares, shareholder loans, and out-of-province assets to minimize probate fees).
 - **Foreign Will Protection:** Selective revocation clauses that explicitly preserve validly executed wills in other jurisdictions.
 - **Strict Separation of Legal Disclaimers:** Safeguards and statutory warnings are kept on a separate companion sheet, never printed on the will itself.
+- **Dedicated AI Agent Skill:** Includes an interactive agent skill (`.agents/skills/will-preparation/SKILL.md`) guiding AI assistants through conversational intake, provincial validation, and document assembly.
 
 ## Project Documentation
 
-Detailed system requirements and legal specifications are documented in [docs/REQUIREMENTS.md](REQUIREMENTS.md).
+Detailed system requirements and legal specifications are documented in [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md).
 
 ## License
 
