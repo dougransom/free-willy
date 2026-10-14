@@ -15,6 +15,7 @@
 - **Foreign Will Protection:** Selective revocation clauses that explicitly preserve validly executed wills in other jurisdictions.
 - **Strict Separation of Legal Disclaimers:** Safeguards and statutory warnings are kept on a separate companion sheet, never printed on the will itself.
 - **Dedicated AI Agent Skill:** Includes an interactive agent skill (`.agents/skills/will-preparation/SKILL.md`) guiding AI assistants through conversational intake, provincial validation, and document assembly.
+- **French Templates for Bilingual & Civil Jurisdictions:** Source-of-truth French templates for jurisdictions accepting French wills without translation (Quebec, New Brunswick, Ontario, Manitoba, and territories), with a dedicated translation skill (`.agents/skills/translate-canonical-template-to-french/SKILL.md`).
 
 ## Project Documentation
 

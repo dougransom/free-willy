@@ -41,6 +41,14 @@ Quebec succession is governed by the *Civil Code of Québec* (CCQ):
 - **Quebec Notarial Will Compatibility:** English clauses, terminology (e.g., *Liquidator* instead of *Executor*, *Tutor* instead of *Guardian*, *Legacy* instead of *Bequest*), and structural provisions suitable for formalization before a Quebec notary.
 - **Probate vs. Non-Probate Distinction in Quebec:** Clear guidance reflecting that notarial wills do not require probate, whereas wills before witnesses require probate before the Superior Court or a notary.
 
+### 2.3 French-Language Testamentary Templates (Bilingual & Civil Jurisdictions)
+For Canadian provinces and territories that accept French wills directly for probate without requiring translation into English, **French source-of-truth templates will be provided**:
+- **Quebec:** French is the official language; French templates provided for Wills Before Witnesses (*testament devant témoins*, Arts. 712–715 CCQ) and Notarial Wills (*testament notarié*, Art. 717 CCQ).
+- **New Brunswick:** Officially bilingual (Constitution Act, 1982 s. 16(2); *Official Languages Act*); French wills accepted directly in the Court of King's Bench (Probate Division).
+- **Ontario:** Under the *Courts of Justice Act* (s. 125, 126) and *French Language Services Act*, French wills and probate applications are accepted directly.
+- **Manitoba:** Under s. 23 of the *Manitoba Act, 1870*, French is an official language of the courts; French wills are probated directly without translation.
+- **Territories:** Northwest Territories and Nunavut provide statutory court recognition for French testamentary filings.
+
 ---
 
 ## 3. Document Deliverables (System Output)
@@ -120,7 +128,10 @@ Free-Willy must support two distinct scoping options for the generated will:
    - **Parentelic Representation Algorithm (Nearest Ancestor with Surviving Descendants):**
      - For each family half, the system traces back along lineal ancestry to find the **nearest related ancestor(s) from whom the testator (or spouse) descends who have surviving descendants** (e.g., parents, and if no surviving descendants of parents, grandparents, and so forth).
      - That half is then distributed among those surviving descendants **per stirpes** (lineal representation).
-     - This guarantees the estate never fails for lack of heirs and prevents accidental escheat to the provincial Crown.
+   - **Lineage Depth Limit (5 Generations):**
+     - The parentelic lineage search is strictly capped at a maximum of **5 generations of parental/ancestral lineage** (i.e., tracing up to great-great-grandparents and their descendants).
+   - **Ultimate Provincial Intestacy Fallback:**
+     - If no surviving beneficiaries are found within 5 generations of parental lineage on either or both sides, that portion or the entirety of the estate is **distributed according to the intestacy/succession laws of the province or territory governing the will**.
 
 ### 4.5 Minor Testamentary Trusts & Guardian Appointments
 1. **Staged Age of Distribution:**
@@ -273,6 +284,13 @@ legal_notes: "Implements default per stirpes rule. Pre-death and post-execution 
   - Detect broken dependencies or conflicting clauses in assembled manifests.
   - Audit variable completeness against supplied user configurations.
 
+### 6.7 French Canonical Templates & Agent Translation Skill
+- **Bilingual Source-of-Truth Provision:** For Canadian jurisdictions that accept French wills directly for probate without translation (Quebec, New Brunswick, Ontario, Manitoba, and territories), French source-of-truth templates (`templates/clauses_fr/`) will be provided alongside the English library.
+- **Agent Translation Workflow:**
+  - The French source-of-truth templates are translated directly from the canonical English templates by the AI agent using a dedicated skill: **`translate-canonical-template-to-french`** (`.agents/skills/translate-canonical-template-to-french/SKILL.md`).
+  - **Structural Parity:** Preserves identical YAML frontmatter keys, schema bindings, and semantic block markers (`<!-- clause: id --> ... <!-- endclause -->`).
+  - **Jurisdictional Legal French (*Français Juridique*):** Enforces accurate Canadian legal French, distinguishing common law French (*fiduciaire de la succession*, *legs particulier*, *reliquat*) from Quebec civil law (*liquidateur*, *succession*, *légataire à titre particulier*, *legs universel*).
+
 ---
 
 ## 7. Derived Template Forms & Distribution Formats (To Be Completed Later)
@@ -378,6 +396,8 @@ beneficiaries:
   # Default catastrophic wipeout clause for the entire will:
   ultimate_fallback:
     rule: "parentelic_50_50_spousal_split" # 50% testator family, 50% spouse family via nearest ancestor with surviving issue per stirpes
+    max_generations: 5 # Capped at 5 generations of parental/ancestral lineage
+    no_beneficiaries_fallback: "provincial_intestacy_laws" # If no beneficiaries found within 5 generations, distribute per governing province's intestacy statutes
     enabled: true
 
 digital_assets:
@@ -477,7 +497,7 @@ The Advisory Preamble **must clearly explain both the share division mathematics
      > *"Backup / Conditional Beneficiaries:*  
      > *You may name backup beneficiaries to any number of levels for any gift. However, if a gift is given 'per stirpes' (the default rule), your backup beneficiary will ONLY receive the gift if the primary beneficiary dies leaving NO living children or grandchildren. If the primary beneficiary leaves children, the gift passes directly down to those children instead.*  
      > *Ultimate Family Disaster / Wipeout Clause:*  
-     > *If everyone you named in your entire will passes away without surviving descendants, your estate will not be lost to the government. Instead, your estate is split 50/50 between your family and your spouse's family. For each side, the law traces up to the closest ancestors who have living descendants and distributes that half to them per stirpes."*
+     > *If everyone you named in your entire will passes away without surviving descendants, your estate will not be lost to the government. Instead, your estate is split 50/50 between your family and your spouse's family. For each side, the law traces up through your parental lineage (up to a maximum of 5 generations) to the closest ancestors who have living descendants and distributes that half to them per stirpes. If no living descendants can be found within 5 generations of parental lineage, that portion is distributed according to the intestacy laws of your province or territory."*
 
 ---
 
@@ -491,7 +511,9 @@ The Advisory Preamble **must clearly explain both the share division mathematics
   │   └── skills/
   │       ├── will-preparation/
   │       │   └── SKILL.md
-  │       └── review-will-skill/
+  │       ├── review-will-skill/
+  │       │   └── SKILL.md
+  │       └── translate-canonical-template-to-french/
   │           └── SKILL.md
   ├── docs/
   │   ├── REQUIREMENTS.md
@@ -510,6 +532,7 @@ The Advisory Preamble **must clearly explain both the share division mathematics
   │   │   ├── trusts/
   │   │   ├── administration/
   │   │   └── jurisdictions/
+  │   ├── clauses_fr/
   │   └── affidavits/
   └── examples/
       ├── ontario_general_will.yaml

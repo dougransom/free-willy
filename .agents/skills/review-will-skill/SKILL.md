@@ -23,7 +23,7 @@ When reviewing `.agents/skills/will-preparation/SKILL.md`, verify that each of t
 | **Dynamic Share Arithmetic** | §4.4.3 | Total share pool equals sum of granted shares. Unallocatable shares cease to exist, automatically contracting the denominator and preventing partial intestacy. |
 | **90-Day Survivorship Rule** | §4.4.5 | Unified 90-day survival rule applies equally to pre- and post-will deaths; non-survival treats beneficiary as having predeceased. |
 | **Multi-Level Conditionals** | §4.4.6 | Arbitrary-level conditional alternates supported. Under *per stirpes*, alternates **only take if primary leaves no surviving descendants**. |
-| **50/50 Catastrophic Wipeout** | §4.4.7 | Default ultimate fallback divides estate 50/50 between spouse's and testator's families via parentelic representation (nearest common ancestors with living issue *per stirpes*). |
+| **50/50 Catastrophic Wipeout** | §4.4.7 | Default ultimate fallback divides estate 50/50 between spouse's and testator's families via parentelic representation capped at 5 generations of parental lineage; falls back to governing province's intestacy laws if no beneficiaries exist within 5 generations. |
 | **Inherited Property Provenance** | §4.6.2 | Inherited gifts are explicitly identified as such, documenting the source/donor estate. |
 | **Tax on Financial Gifts** | §4.6.3 | Beneficiary must pay taxes arising from specific gifts of financial value via residuary offset, partial sale, or direct reimbursement to estate. |
 | **Same-Name Disambiguation** | §4.7, §11.1.5 | Distinguishing attributes (relationship, address, seniority qualifier, parentage, birth year) are enforced for identical legal names. |
