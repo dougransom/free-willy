@@ -18,7 +18,7 @@ When reviewing `.agents/skills/will-preparation/SKILL.md`, verify that each of t
 
 | Invariant / Feature | Section in Requirements | Verification Criteria in `will-preparation/SKILL.md` |
 | :--- | :--- | :--- |
-| **Strict Preamble Separation** | §3, §11.2 | Preamble/advisory notices, AI metadata, and statutory warnings are kept strictly separate; the Last Will and Testament remains pristine for probate. |
+| **Tripartite Architecture & Separation** | §3, §4.4.10, §11.2 | Concise operative dispositive clauses (prose or ultra-terse tabular/symbolic formal notation) with internal legal definitions in preamble; concrete illustrative examples in incorporated testamentary appendix (Schedule A, executed with initials/signatures as part of will); software notices/AI metadata/statutory warnings strictly relegated to external Advisory Safeguards Report. |
 | **Per Stirpes Default** | §4.4.1 | Residuary distribution defaults to *per stirpes* unless explicitly overridden to *per capita*. |
 | **Dynamic Share Arithmetic** | §4.4.3 | Total share pool equals sum of granted shares. Unallocatable shares cease to exist, automatically contracting the denominator and preventing partial intestacy. |
 | **90-Day Survivorship Rule** | §4.4.5 | Unified 90-day survival rule applies equally to pre- and post-will deaths; non-survival treats beneficiary as having predeceased. |
@@ -26,8 +26,10 @@ When reviewing `.agents/skills/will-preparation/SKILL.md`, verify that each of t
 | **50/50 Catastrophic Wipeout** | §4.4.7 | Default ultimate fallback divides estate 50/50 between spouse's and testator's families via parentelic representation capped at 5 generations of parental lineage; falls back to governing province's intestacy laws if no beneficiaries exist within 5 generations. |
 | **Inherited Property Provenance** | §4.6.2 | Inherited gifts are explicitly identified as such, documenting the source/donor estate. |
 | **Tax on Financial Gifts** | §4.6.3 | Beneficiary must pay taxes arising from specific gifts of financial value via residuary offset, partial sale, or direct reimbursement to estate. |
+| **Beneficiary Sets & Class Gifts** | §4.4.8 | Supports gifts to sets (e.g., "my children", "descendants of X") divided equally among 90-day survivors (with per stirpes representation where applicable). |
+| **Dual Capacity / Multiple Appearances** | §4.4.9 | Defines rules when an individual can appear twice under per stirpes (cumulative branch representation by default vs. deduplication). |
 | **Same-Name Disambiguation** | §4.7, §11.1.5 | Distinguishing attributes (relationship, address, seniority qualifier, parentage, birth year) are enforced for identical legal names. |
-| **Dual Will Strategy** | §4.2 | Accommodates Secondary / Non-Probate Wills for CCPC shares and private assets to minimize provincial probate fees. |
+| **Dual Will Strategy & Executor Independence** | §4.1.4, §4.2, §11.1.6 | Accommodates Secondary / Non-Probate Wills for CCPC shares and private assets to minimize probate fees; mandates distinct executors for probate vs. non-probate wills with express cross-disqualification provisions. |
 | **Selective Revocation** | §4.3 | Allows preservation of foreign / extra-provincial wills. |
 | **Provincial Validation** | §11.1 | Audits witness disqualification (no beneficiaries/spouses as witnesses), age of majority, and provincial family relief / dependant support duties. |
 | **Quebec CCQ Formalities** | §2.2, §11.1.4 | Distinguishes between English-language wills before witnesses (Arts. 712–715 CCQ, requiring probate) and notarial wills (not requiring probate). |

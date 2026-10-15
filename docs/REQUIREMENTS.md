@@ -57,10 +57,10 @@ For each generation run, Free-Willy produces three core documents plus an adviso
 
 | Document | Purpose | Placement / Rules |
 | :--- | :--- | :--- |
-| **Last Will and Testament** | The formal testamentary instrument. | **Strictly clean.** No software warnings, metadata disclaimers, or watermarks on the face of the instrument that could jeopardize probate or court acceptance. |
+| **Last Will and Testament** | The formal testamentary instrument. | **Strictly clean of software/AI metadata.** Structured into three integrated parts: (1) Preliminary Definitions & Rules of Construction (Internal Preamble); (2) Concise Operative Dispositive Clauses (configurable as concise English prose, or an ultra-terse tabular/symbolic formal notation); and (3) Schedule / Appendix of Illustrative Examples (formally incorporated into the will, signed/initialed on execution for probate). |
 | **Affidavit of Execution / Attestation** | Sworn statement by one of the subscribing witnesses before a Commissioner of Oaths or Notary Public. | Province-specific format (e.g., Ontario Form 74D / Rule 74, BC WESA Supreme Court Civil Rules affidavits, Alberta Form NC 8). Required or strongly recommended for probate in all common law provinces. |
-| **Signing and Witnessing Guide** | Detailed plain-language execution protocol. | Specifies local rules: physical presence requirement, minimum age of witnesses, disqualification of beneficiaries and spouses of beneficiaries, blue ink signing, initialing every page, and notary/commissioner formalities. |
-| **Advisory Preamble & Safeguard Summary** | Separate companion sheet providing legal notices, statutory maintenance warnings, share calculation rules, and input validation results. | Packaged strictly **outside** the will itself (as a preceding cover sheet or separate document) to preserve legal sanctity. |
+| **Signing and Witnessing Guide** | Detailed plain-language execution protocol. | Specifies local rules: physical presence requirement, minimum age of witnesses, disqualification of beneficiaries and spouses of beneficiaries, blue ink signing, initialing every page (including schedules/appendices), and notary/commissioner formalities. |
+| **Advisory Safeguards & Validation Report** | Separate companion sheet providing software legal notices, statutory maintenance warnings, execution checklist, and input validation audit results. | Packaged strictly **outside** the will itself (as a preceding cover sheet or separate document) to preserve legal sanctity. |
 
 ---
 
@@ -75,19 +75,25 @@ For each generation run, Free-Willy produces three core documents plus an adviso
    - Ability to specify sole executor with alternates, or joint co-executors with survivorship powers.
 3. **Compensation & Expense Reimbursement:**
    - Standard trustee compensation clauses or explicit waiver of executor fees beyond reasonable out-of-pocket expenses.
+4. **Mandatory Executor Separation for Dual/Multiple Wills (Probate vs. Non-Probate):**
+   - **Strict Non-Identity Rule:** The executor (estate trustee / liquidator) of a Secondary / Non-Probate Will **CANNOT** be the same person as the executor of the Primary / Probate Will. Different, distinct individuals must be appointed.
+   - **Mandatory Will Disqualification Language:** The language in both the probate will and the non-probate will must explicitly prevent the same person from being executor of both. Every will in a dual-will plan must contain an express cross-disqualification clause:
+     > *"No person who is, becomes, or at any time acts as an Executor or Estate Trustee of my Primary (Probate) Will shall be qualified, eligible, or permitted to act as an Executor or Estate Trustee of this my Secondary (Non-Probate) Will [and vice-versa]. If any person named or eligible to act hereunder also qualifies or acts under my Primary Will, such person shall immediately be deemed disqualified and to have renounced and vacated office under this Will, and the next eligible alternate executor named in the priority list herein shall act as my sole Executor."*
+   - **Legal Purpose & Jurisprudential Protection:** Prevents "merger of estates" or unified representation arguments before provincial probate registries (e.g., in Ontario under *Granovsky* / *Milne* jurisprudence, or BC), ensuring the non-probate estate (e.g., private corporate CCPC shares) remains legally independent and immune from mandatory submission to probate and Estate Administration Tax.
 
 ### 4.2 Scope of Will & Asset Segregation
 Free-Willy must support two distinct scoping options for the generated will:
-1. **General Will (Primary):**
-   - Applies to the worldwide estate or general assets within the province/country of residence.
+1. **General Will (Primary / Probate):**
+   - Applies to the worldwide estate or general assets within the province/country of residence that require probate (e.g., real estate titled solely in testator's name, public bank/brokerage accounts).
 2. **Secondary / Non-Probate Will (Dual Will Strategy):**
-   - Essential for jurisdictions with high probate fees (e.g., Ontario Estate Administration Tax).
-   - Governs assets that do not require probate to transfer, specifically:
+   - Essential for jurisdictions with high probate fees (e.g., Ontario Estate Administration Tax, BC probate fees).
+   - Governs assets that do not require court-certified probate to transfer, specifically:
      - Shares in private corporations (e.g., CCPCs - Canadian-Controlled Private Corporations).
      - Shareholder loans and promissory notes.
      - Tangible personal property (art, jewelry, collections).
      - Private partnership interests or real estate held under beneficial trust arrangements in other provinces.
    - Distinct definitions ensuring no overlap with the Primary Will to prevent accidental total revocation.
+   - **Independent Executor Requirement:** Must appoint an executor separate and distinct from the Primary Will executor, fortified by the mandatory cross-disqualification clause described in §4.1.4.
 
 ### 4.3 Selective Revocation & Preservation of Foreign Wills
 1. **Default Revocation:**
@@ -132,6 +138,45 @@ Free-Willy must support two distinct scoping options for the generated will:
      - The parentelic lineage search is strictly capped at a maximum of **5 generations of parental/ancestral lineage** (i.e., tracing up to great-great-grandparents and their descendants).
    - **Ultimate Provincial Intestacy Fallback:**
      - If no surviving beneficiaries are found within 5 generations of parental lineage on either or both sides, that portion or the entirety of the estate is **distributed according to the intestacy/succession laws of the province or territory governing the will**.
+8. **Beneficiary Sets & Class Gifts (Equal Division Among Survivors):**
+   - The system must support designating sets or classes of beneficiaries rather than requiring individual names and fixed shares:
+     - Kinship / Lineal sets (e.g., *"my children"*, *"my descendants"*, *"the descendants of [Person X]"*).
+     - Named groups of individuals (e.g., `["Alice Doe", "Bob Roe", "Charlie Smith"]`).
+   - **Equal Division Among Survivors:** The gifted property or fund is divided in equal shares among the members of the designated set who survive the 90-day survivorship period.
+   - **Interaction with Distribution Rules:**
+     - Under *per capita*, the pool divides strictly among living members of the set surviving 90 days; deceased members' potential shares drop out.
+     - Under *per stirpes*, if any member of the set fails to survive the 90-day period leaving living issue, their equal share descends to their issue *per stirpes*.
+9. **Dual Capacity & Multiple Appearance in a Per Stirpes Gift ("Double Dipping" Rules):**
+   - When an individual qualifies for a gift through more than one branch of descent or capacity (e.g., descending from two deceased siblings through intermarriage, or qualifying under both an individual share and a class gift):
+   - **Default Branch Representation Rule (Cumulative Entitlement):**
+     - Under pure *per stirpes*, representation attaches to the **lineal branch of descent (the stirps)** rather than the individual person.
+     - By default, an individual who descends through multiple qualifying branches **inherits through each branch independently in proportion to their entitlement in that branch**. Each branch's share is treated as a separate, cumulative testamentary right.
+   - **Configurable Anti-Duplication / Single-Share Override:**
+     - The configuration may explicitly specify a deduplication rule (`multiple_appearance: "deduplicated"`), providing that an individual may only receive a single share, with any redundant entitlement redistributed among other members of that branch or returning to the residue.
+   - **Named + Class Concurrency Rule:**
+     - If an individual is explicitly named for an individual share and also qualifies under a general class gift in the same disposition, they receive both entitlements cumulatively unless the will clause explicitly states: *"excluding any person otherwise provided for in this Will"*.
+10. **Concise Beneficiary Designations, Internal Preamble Definitions & Incorporated Appendix of Examples:**
+    - **Concision in Operative Clauses:** Beneficiary designations within the body of the will must be formulated as concisely as possible (e.g., crisp statements of shares, sets, or specific gifts), avoiding cumbersome inline repetition of construction rules and arithmetic formulas.
+    - **Interpretive Clarity via Internal Preamble:** Complete legal clarity, statutory rules of construction, and technical definitions (*per stirpes*, *per capita*, *survivorship*, *descendants*, *share contraction / non-existent shares*, *tax allocation*, *dual-capacity representation*) are centralized in the will's preliminary definitions section (internal preamble).
+    - **Incorporated Appendix of Illustrative Examples (Part of the Will):**
+      - Concrete calculation scenarios and mathematical walkthroughs (e.g., worked examples of share contraction when a beneficiary predeceases without issue, per stirpes branch distributions, dual-capacity branch calculations) are set out in an attached **Schedule / Appendix of Construction & Examples**.
+      - **Formal Testamentary Status:** This appendix is an integral **part of the will itself**, formally incorporated by express reference. It is physically executed alongside the will and **receives initials on each page and witness signatures**, ensuring it possesses binding testamentary authority for executors, trustees, and probate courts when construing testator intent.
+    - **Option for Specifying Gifts More Tersely Than English (Symbolic / Tabular Formalism):**
+      - **Terse Formal Notation Option:** As an alternative or supplement to concise narrative English prose, Free-Willy supports specifying testamentary gifts using a structured, formal notation that is substantially more terse than English sentences:
+        1. **Tabular Matrix Notation:** Presenting residuary and specific gifts in an unambiguous structured schedule or table within the operative clause:
+           | Beneficiary / Set | Allocation | Mode | Alternate / Gift-Over | Tax Allocation |
+           | :--- | :--- | :--- | :--- | :--- |
+           | Jane Doe | 3 shares | PS | Richard Roe → CWF | Residue offset |
+           | Richard Roe | 2 shares | PS | Issue | Residue offset |
+           | John Smith (nephew) | 1 share | PC | ⊘ (Extinguish) | Residue offset |
+           | descendants_of(Richard Roe) | 2 shares (equal) | PS | Issue | Residue offset |
+           | Canadian Red Cross | $5,000.00 | Cash | None | Direct remittance |
+        2. **Symbolic / Algebraic Shorthand Notation:** Expressing dispositions through a rigorous, domain-specific formal grammar:
+           `Residue := 3: Jane Doe [PS -> Richard Roe -> CWF] + 2: Richard Roe [PS] + 1: John Smith (nephew) [PC] + 2: descendants(Richard Roe) [PS, equal]`
+           `Specific := $5,000.00 -> Canadian Red Cross [tax: direct_remittance]`
+      - **Legal Grounding & Judicial Enforceability:**
+        - Under Canadian testamentary jurisprudence (the common-law *armchair rule*), probate courts interpret the testator's intention from the face of the document as a whole.
+        - Because every symbol, acronym, and column header (`PS` = *per stirpes*, `PC` = *per capita*, `+` = share sum forming dynamic denominator, `->` = conditional gift-over, `⊘` = non-existent share extinguishment) is explicitly defined in the **Internal Definitions Preamble**, and fully demonstrated through worked scenarios in the **Incorporated Appendix of Examples (Schedule A)** executed with initials and signatures, the terse formal notation is legally sound, unambiguous, and impervious to misinterpretation.
 
 ### 4.5 Minor Testamentary Trusts & Guardian Appointments
 1. **Staged Age of Distribution:**
@@ -330,6 +375,11 @@ scope_of_will:
         date_of_will: "2021-04-15"
         description: "Real property situated in England and Wales"
 
+drafting_options:
+  gift_clause_style: "concise_english" # "concise_english" (default) | "terse_tabular" | "terse_symbolic"
+  # "terse_tabular": renders operative gifts in a structured dispositive table
+  # "terse_symbolic": renders operative gifts in formal symbolic algebraic shorthand (e.g. 3: Alice [PS] + 2: Bob [PS])
+
 survivorship_days: 90 # System default: 90 days
 
 appointments:
@@ -340,6 +390,12 @@ appointments:
         relationship: "sister"
         address: "Ottawa, ON"
       - class: "descendants_by_decreasing_age"
+  # In a Dual-Will plan (Primary Probate + Secondary Non-Probate), executors CANNOT be the same person:
+  # secondary_will_executors:
+  #   priority_order:
+  #     - person: "Richard Roe" # Strictly distinct from Primary Will executors (cannot be spouse or Jane Doe)
+  #       relationship: "brother"
+  #       address: "Calgary, AB"
   guardians:
     priority_order:
       - person: "Jane Doe"
@@ -369,6 +425,11 @@ beneficiaries:
         address: "Vancouver, BC"
         shares: 1
         rule_override: "per_capita" # Optional override for specific gift
+      - recipient_set: "descendants_of:Richard Roe" # Kinship / lineal set (e.g. "my_children", "descendants_of:...")
+        division_mode: "equal_division_among_survivors" # divide equally among living members/branches
+        distribution_rule: "per_stirpes"
+        shares: 2
+        multiple_appearance_rule: "cumulative_by_branch" # "cumulative_by_branch" (default) | "deduplicated"
   minor_trust_age: 25
   fractional_payouts:
     - age: 21
@@ -457,13 +518,26 @@ Before generating documents, Free-Willy validates the input data against provinc
 5. **Same-Name Disambiguation Enforcement:**
    - Detects when two or more distinct individuals (executors, trustees, guardians, specific legatees, residuary beneficiaries, or substitute takers) share identical legal names.
    - Mandates that differentiating attributes (relationship, locality/residence, seniority qualifier, parentage, or birth year) are provided in the configuration and rendered in all relevant clauses, preventing court confusion and probate delays.
+6. **Dual-Will Executor Independence Enforcement:**
+   - Verifies that when both a Primary (Probate) Will and a Secondary (Non-Probate) Will are generated, the designated executors and alternate lists do not share the same primary appointee.
+   - Enforces strict appointment of different, independent persons for probate and non-probate estates.
+   - Validates that the mandatory testamentary cross-disqualification / exclusion clause is rendered in both instruments to prevent joint representation and probate fee exposure.
 
-### 11.2 Strict Preamble Separation Principle
-- **Absolute Rule:** Any advisory note, validation warning, software metadata, or legal disclaimer generated by Free-Willy **MUST NEVER** be embedded into the body of the Last Will and Testament.
-- All cautionary guidance and validation reports must output to a distinct **Advisory Preamble / Summary** or separate companion file.
+### 11.2 Separation of Software Metadata & External Advisory Safeguards Report
+- **Absolute Rule on Software Disclaimers:** Any software notice, AI metadata, execution checklist, or statutory dependant support / family relief warning generated by Free-Willy **MUST NEVER** be embedded into the Last Will and Testament.
+- All non-testamentary cautionary guidance and validation audit logs output strictly to a distinct **External Advisory Safeguards & Validation Report** companion document.
 
-### 11.3 Plain-Language Educational Guidance in Preamble: Distribution Mechanics & Share Arithmetic
-The Advisory Preamble **must clearly explain both the share division mathematics, the 90-day survivorship condition, and the *per stirpes* vs. *per capita* rules** in plain, accessible language:
+### 11.3 Will Architecture: Internal Definitions Preamble & Incorporated Testamentary Appendix
+To ensure beneficiary designations within the operative body of the will remain as concise as possible, explanatory clarity is achieved through two formal testamentary components **within the will itself**:
+
+1. **Internal Definitions Preamble (Within the Body of the Will):**
+   - Preceding the dispositive clauses, the will contains a formal preliminary section establishing binding legal definitions for terms used throughout the will (*per stirpes*, *per capita*, *survivor / 90-day survivorship*, *descendants*, *share allocation / non-existent shares*, *tax allocation*, *dual-capacity representation*).
+   - This keeps operative gift clauses crisp and uncluttered while eliminating legal ambiguity.
+
+2. **Incorporated Testamentary Appendix of Illustrative Examples (Part of the Will):**
+   - Concrete mathematical walkthroughs and calculation scenarios are placed in an attached **Schedule / Appendix of Construction & Illustrative Examples** (e.g., *Schedule "A"*).
+   - **Formally Executed as Part of the Will:** This appendix is an integral, legally binding part of the testamentary instrument. It is executed concurrently with the will and **receives initials on every page and witness signatures**, providing definitive evidence of testator intent for probate registries, trustees, and the courts.
+   - The Appendix sets out the following illustrative examples in plain language:
 
 1. **Dynamic Share Arithmetic & Non-Existent Shares:**
    - The preamble must explicitly document how shares work:
@@ -498,6 +572,13 @@ The Advisory Preamble **must clearly explain both the share division mathematics
      > *You may name backup beneficiaries to any number of levels for any gift. However, if a gift is given 'per stirpes' (the default rule), your backup beneficiary will ONLY receive the gift if the primary beneficiary dies leaving NO living children or grandchildren. If the primary beneficiary leaves children, the gift passes directly down to those children instead.*  
      > *Ultimate Family Disaster / Wipeout Clause:*  
      > *If everyone you named in your entire will passes away without surviving descendants, your estate will not be lost to the government. Instead, your estate is split 50/50 between your family and your spouse's family. For each side, the law traces up through your parental lineage (up to a maximum of 5 generations) to the closest ancestors who have living descendants and distributes that half to them per stirpes. If no living descendants can be found within 5 generations of parental lineage, that portion is distributed according to the intestacy laws of your province or territory."*
+
+6. **Beneficiary Sets & Dual-Capacity Representation Rules:**
+   - The Advisory Preamble must clearly explain how class gifts and multiple appearances operate:
+     > *"Gifts to Groups or Sets of Beneficiaries:*  
+     > *You may leave gifts to a group or class (such as 'my children', 'my descendants', or 'the descendants of [Person]'). The property is divided in equal shares among the members of the group who survive you by at least 90 days (with children inheriting their parent's share under per stirpes).*  
+     > *If an Individual Inherits Through Multiple Branches:*  
+     > *Under a per-stirpes gift, shares attach to family branches rather than specific individuals. If family connections allow an individual to inherit through more than one branch (for example, if cousins married and an heir descends through two branches, or if an heir is given an individual share and also belongs to a class), they receive the share belonging to each branch by default, unless you choose to limit them to a single share."*
 
 ---
 
