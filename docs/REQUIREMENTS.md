@@ -208,6 +208,16 @@ Free-Willy must support distinct scoping options for the generated will:
     - **Operative Clauses in Standard Legal Prose:** To guarantee probate certainty without court intervention or probate registry requisitions, all dispositive clauses within the body of the will must be formulated in concise, unambiguous traditional legal English prose.
     - **Prohibition of Shorthand/Symbolic Notation in Operative Clauses:** Symbolic or algebraic expressions (such as `Residue := 3: Alice [PS]...`) are strictly prohibited in the operative clauses of the will, as they jeopardize probate grant issuance and invite litigation.
     - **Optional Appendix / Schedule of Illustrative Calculations:** Where beneficial for complex share models, an attached Schedule of Construction & Examples may be incorporated, providing worked arithmetic scenarios to demonstrate testator intent.
+11. **Lifetime Advances, Family Loans & Hotchpot Clauses:**
+    - To address intra-family financial transactions and advances made prior to death (such as housing down payments, tuition assistance, or business capitalization), the system supports two distinct dispositive mechanisms:
+    - **Option A: Explicit Debt Forgiveness and Discharge:**
+      - The will contains an express testamentary release completely canceling and forgiving any outstanding loan, promissory note, or indebtedness owed by a named beneficiary (e.g., child) to the testator at the date of death.
+      - **Tax Structuring Note:** Accompanied by standard legal recitals establishing the forgiveness as a testamentary bequest (gift) rather than a commercial debt settlement, mitigating adverse income inclusions under **s. 80 of the *Income Tax Act***.
+    - **Option B: Hotchpot Accounting (Advance Equalization):**
+      - Where the testator's overarching intent is strict financial equality among beneficiaries (e.g., children), the will incorporates a formal **hotchpot clause**.
+      - Under hotchpot accounting, any documented lifetime advance or outstanding loan principal is conceptually added back to the gross distributable residuary estate to form a unified pool.
+      - The advance amount is then credited against and deducted from that specific borrowing beneficiary's final share of residue, allowing the non-borrowing beneficiaries to receive compensating cash equalization without requiring the executor to commence legal enforcement action against the debtor.
+      - The clause must specify whether hotchpot advances are calculated with or without accrued interest, and include an exculpatory provision establishing the executor's written calculation as final and binding on all parties.
 
 ### 4.5 Minor Testamentary Trusts & Comprehensive Administrative Powers
 1. **Age-Graduated Testamentary Trusts (Delayed Vesting Beyond Age of Majority):**
@@ -235,16 +245,24 @@ Free-Willy must support distinct scoping options for the generated will:
    - **Real Estate Management Powers:** Power to manage, lease, repair, alter, develop, insure, or mortgage any real estate held by the estate.
    - **Trustee Investment Discretion (Prudent Investor Expansion):** Broad authority to invest in modern asset classes (mutual funds, index funds, ETFs, real estate, private business debt/equity, digital assets) without regard to statutory diversification ratios or income/capital balancing rules, accompanied by standard exculpatory protections for good-faith decisions.
    - **Discretionary Protective Trusts / Henson Trust Principles:** Discretion to hold funds in a fully discretionary trust for any beneficiary who is incapacitated or receiving provincial disability assistance (e.g., Ontario ODSP, Alberta AISH), ensuring estate distributions do not disqualify them from provincial social support benefits.
+   - **Option to Purchase / Right of First Refusal for Family Assets (Cottages & CCPC Shares):** Authority to grant a designated beneficiary or group of beneficiaries an exclusive right of first refusal or purchase option for specific unique estate assets (such as a family cottage, real estate parcel, or shares in a family CCPC) within a defined period (e.g., 90 days following grant of probate) at fair market value established by independent accredited appraisal (AACI for real estate; CBV for business shares), optionally less estimated real estate commission savings (e.g., 3–5%), with all net purchase proceeds paid into general residue for distribution.
+4. **Spendthrift & Creditor Protective Trusts (Insolvent / At-Risk Beneficiaries):**
+   - For beneficiaries subject to active bankruptcy, substantial judgment debts, high-risk commercial liabilities, or contentious matrimonial property litigation at the distribution date:
+   - **Determinable Trust Mechanism:** The will incorporates a protective determinable condition: if the beneficiary is declared bankrupt, attempts to assign, charge, or alienate their interest, or if any creditor attempts legal seizure or attachment, their absolute or fixed entitlement **immediately and determinably terminates**.
+   - **Conversion to Discretionary Maintenance Trust:** Upon such terminating event, the fund automatically converts into a fully discretionary protective trust. The trustee is vested with absolute discretion to apply all or any portion of net income and capital for the personal support, maintenance, and living expenses of the beneficiary and/or their dependents, without conferring any enforceable property right that creditors or a bankruptcy trustee can attach or garnish.
 
 ### 4.6 Registered Plans, Insurance, Inherited Property, and Digital Assets
 1. **Confirmation of Registered Plans (RRSP, RRIF, TFSA, FHSA) & Insurance Designations:**
    - **Non-Revocation & Confirmation Clause:** The will contains an express declaration confirming all prior beneficiary designations for registered retirement savings plans (RRSPs), registered retirement income funds (RRIFs), tax-free savings accounts (TFSAs), first home savings accounts (FHSAs), and life insurance policies made outside the will.
    - **General Revocation Protection:** Explicitly provides that the general revocation clause in the will does **NOT** revoke any instrument designating beneficiaries for registered plans or insurance policies under provincial succession/insurance statutes.
    - **Tax Liability on Registered Accounts Borne by Residue:** Specifies that any terminal income taxes arising from the deemed collapse or disposition of registered plans on death (e.g., RRSP/RRIF deemed income inclusion under the *Income Tax Act*) shall be **borne and paid out of the general residue of the estate**, ensuring the designated beneficiary receives the proceeds without deduction unless a contrary intention is explicitly configured.
-2. **Specific Bequests, Inherited Property & Capital Gains Allocation:**
+2. **Specific Bequests, Inherited Property, Encumbered Real Estate & Capital Gains:**
    - Specific sums of money (pecuniary legacies) or identified personal/real property bequeathed to named individuals or registered charities.
    - **No Tax Allocation on Cash Bequests:** In Canada, general pecuniary (cash) bequests carry no inheritance or income tax; cash bequests are never subjected to tax apportionment.
    - **Elective Capital Gains Indemnity on Appreciated Property:** Under s. 70(5) of the *Income Tax Act*, capital property (e.g., real estate, CCPC shares) is deemed disposed of at fair market value at death. By default under Canadian estate law, this terminal tax liability is an estate debt payable out of residue. However, Free-Willy supports an **elective capital gains indemnity clause**: if the testator chooses, the specific beneficiary of appreciated property must indemnify the estate for the terminal capital gains tax attributable to that specific property (via deduction from their residuary share, partial liquidation, or direct payment) as a condition of receiving the bequest. If not elected, the standard legal default applies and taxes are borne by residue.
+   - **Encumbered Real Estate (Mortgage Exoneration vs. Assumption):**
+     - *Provincial Statutory Presumption (Assumption):* Under provincial succession statutes (e.g., Ontario *Succession Law Reform Act* s. 32; BC *Wills, Estates and Succession Act* s. 47), encumbered real property bears its own mortgage debt by default; the specific devisee takes title subject to the mortgage.
+     - *Elective Residuary Exoneration Option:* The testator may explicitly override the statutory default, directing the executor to satisfy, pay off, and discharge the outstanding mortgage balance in full out of the general estate residue, delivering free and unencumbered title to the beneficiary.
    - **Provenance Attribution:** Inherited property is explicitly identified along with its ancestral/family source to maintain transparent estate records.
 3. **Digital Assets Provision & Password Manager Credential Management:**
    - Express executor authority to access, control, manage, modify, archive, or delete digital accounts, emails, financial portals, cryptocurrencies, cloud storage, and domain names in compliance with service provider terms of service.
@@ -264,6 +282,50 @@ Free-Willy must support distinct scoping options for the generated will:
    - When identical names occur across any role (executors, trustees, guardians, specific legatees, residuary beneficiaries, or substitute takers), the template rendering engine mandates and incorporates distinguishing attributes (relationship, locality/domicile, seniority qualifier, parentage, or birth year) into the generated legal text, eliminating registry requisitions.
 3. **Data Model Representation (Entity Separation):**
    - In declarative configurations, every person has an independent unique identifier (`id`), ensuring they are never conflated by compilers or AI drafting agents, even when string values for `legal_name` or `full_name` are identical.
+
+### 4.8 Life Interests & Residential Rights of Occupancy (Blended Family Housing Trusts)
+1. **Exclusive Right of Occupancy / Determinable Life Interest:**
+   - To reconcile the competing interests of a surviving spouse and children from a previous relationship in blended families, the system supports establishing an exclusive right of occupancy or determinable life estate in residential real property (e.g., family home or condominium).
+   - The surviving spouse is granted the exclusive right to use, occupy, and enjoy the residential property without paying rent.
+2. **Explicit Terminating Events:**
+   - The residential right terminates automatically upon the occurrence of the earliest of:
+     - (a) The death of the surviving spouse;
+     - (b) The spouse's remarriage or entry into a common-law or marriage-like relationship;
+     - (c) The spouse ceasing to occupy the home as their primary personal residence for more than a defined continuous period (default: 180 consecutive days), abandonment, or formal written release; or
+     - (d) The spouse's permanent admission into a licensed long-term care facility, nursing home, or assisted living institution where medical certification confirms no reasonable prospect of returning home.
+3. **Allocation of Carrying Costs & Maintenance Responsibilities:**
+   - The clause must unequivocally partition financial obligations to prevent disputes between life tenant and remainder beneficiaries:
+     - *Spouse's Obligation (Life Tenant Expenses):* Municipal property taxes, utilities, domestic services, tenant/homeowner insurance premiums, routine maintenance, and minor non-structural repairs.
+     - *Estate / Capital Obligation (Trustee Expenses):* Major structural alterations, foundation repairs, roof replacement, furnace/heating capital replacements, and municipal local improvement charges (and mortgage principal, unless configured otherwise).
+4. **Trustee Powers to Sell, Downsize, and Substitute:**
+   - The trustees are granted discretionary power, with the spouse's prior written consent, to sell the residence and apply the net sale proceeds toward the purchase of a suitable replacement residence (e.g., downsizing to a condominium or townhome) subject to the identical trust terms.
+   - Any surplus sale proceeds remaining after purchasing a replacement home must be invested by the trustees in accordance with trustee investment powers, with all net income generated paid periodically to the surviving spouse during the continuation of the trust.
+5. **Vesting of Remainder in Lineal Heirs:**
+   - Immediately upon the termination of the life interest, the trustees are directed to sell the real property (or transfer it in specie) and distribute the entire net capital proceeds to the testator's designated children or issue in equal shares *per stirpes*.
+6. **Compliance with Qualifying Spousal Trust Rules (*Income Tax Act* s. 70(6)):**
+   - Where the life interest is granted in favour of a spouse or common-law partner, the clause must strictly comply with **s. 70(6) of the *Income Tax Act***: the spouse must be entitled to receive all income of the trust arising before their death, and no person other than the spouse may receive or obtain the use of any income or capital of the trust before the spouse's death. This guarantees a complete tax-deferred rollover of any accrued capital gains at the testator's death.
+
+### 4.9 Tangible Personal Property & Precision Allocation (Personal Effects)
+1. **Blanket Bequest to Executors & Precision Offloading:**
+   - Rather than listing numerous individual personal effects, jewelry, heirlooms, tools, or art pieces within the formal will (which inflates probate disclosures and triggers requisitions upon minor changes), the will bequeaths all tangible personal property in a blanket gift to the estate trustees.
+2. **Direction to Distribute Pursuant to Memorandum of Personal Wishes:**
+   - The trustees are directed to distribute specific articles in accordance with any signed, dated, informal **Memorandum of Personal Wishes** or inventory list left by the testator.
+3. **Precatory Drafting Guarantee (Probate Inviolability):**
+   - To prevent provincial probate courts from deeming the informal memorandum an incorporated testamentary document (which would delay probate grant issuance, freeze estate assets until the memorandum is proven, or trigger formal requisitions if unwitnessed), the operative clause must be drafted in strictly **precatory legal prose** (e.g., *"I express the hope and desire, without creating any binding legal trust or condition, that my Trustees will distribute..."*).
+4. **Executor Binding Dispute Resolution Fallback:**
+   - If any personal article is not itemized in a memorandum, or if multiple beneficiaries assert competing claims to the same heirloom, the executor is granted final, conclusive, and binding authority to resolve the distribution:
+     - (a) By mutual agreement among the beneficiaries;
+     - (b) By a rotational choice lottery (round-robin selection); or
+     - (c) By public or private sale, with the net financial proceeds added to the estate residue.
+
+### 4.10 Personal Directives: Funeral Wishes, Remains & Anatomical Gifts
+1. **Precatory Character & Common-Law Custody:**
+   - Under Canadian common law, an executor has the exclusive legal right and solemn duty of custody and disposal of the deceased's bodily remains. A testator cannot legally bind their executor by testamentary directions regarding the method or place of burial.
+   - Accordingly, all provisions governing bodily remains are formulated as **precatory (advisory) expressions of solemn personal preference**, providing decisive evidential weight to guide the executor and prevent bitter disputes between surviving spouses and biological children under provincial burial statutes (e.g., Ontario *Funeral, Burial and Cremation Services Act*; BC *Cremation, Interment and Funeral Services Act*).
+2. **Supported Funeral & Disposition Modalities:**
+   - **Cremation & Disposition of Ashes:** Direction for immediate cremation, accompanied by specific instructions regarding the scattering of cremated remains, interment in a designated columbarium niche, or retention by a designated person.
+   - **Traditional Earth Burial:** Direction for traditional burial in a designated cemetery, family plot, or mausoleum, including reference to any pre-purchased interment rights or pre-arranged funeral service contracts.
+   - **Anatomical Gifts & Scientific Donation:** Explicit testamentary consent for the donation of organs and tissue for therapeutic transplantation, medical education, or scientific research in accordance with governing provincial organ donation legislation (e.g., Ontario *Trillium Gift of Life Network Act*; BC *Human Tissue Gift Act*; Alberta *Human Tissue and Organ Donation Act*).
 
 ---
 

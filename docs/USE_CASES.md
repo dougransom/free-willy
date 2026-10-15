@@ -111,8 +111,8 @@
   * Contingent gift-over provisions in the event the beneficiary dies before attaining age $Y$.
 
 ### UC-TRUST-02: Spendthrift & Creditor Protective Trusts (Insolvent / At-Risk Beneficiaries)
-* **Status:** Pending Processing
-* **Mapped Requirements:** Unmapped (Requires extension to §4.5: Protective & Discretionary Trusts)
+* **Status:** Processed
+* **Mapped Requirements:** [§4.5.4 Spendthrift & Creditor Protective Trusts (Insolvent / At-Risk Beneficiaries)](file:///home/doug/code/free-willy/docs/REQUIREMENTS.md#45-minor-testamentary-trusts--comprehensive-administrative-powers)
 * **Scenario:** A designated beneficiary (e.g., an adult child) is in active bankruptcy, has substantial judgment creditors, operates a high-liability business, or is undergoing contentious matrimonial litigation at the time of distribution.
 * **Intent & Legal Invariants:**
   * An outright bequest or fixed trust interest would be seized by a bankruptcy trustee or judgment creditors under provincial execution statutes.
@@ -124,8 +124,8 @@
 ## 5. Real Property & Family Asset Scenarios
 
 ### UC-PROP-01: Life Interest / Exclusive Right of Residence (Blended Families & Qualifying Spousal Trust)
-* **Status:** Pending Processing
-* **Mapped Requirements:** Unmapped (Requires new §4.8: Life Interests & Residential Rights of Occupancy)
+* **Status:** Processed
+* **Mapped Requirements:** [§4.8 Life Interests & Residential Rights of Occupancy (Blended Family Housing Trusts)](file:///home/doug/code/free-willy/docs/REQUIREMENTS.md#48-life-interests--residential-rights-of-occupancy-blended-family-housing-trusts)
 * **Scenario:** The testator owns residential real estate (solely or as tenant-in-common) and has children from a previous relationship, alongside a surviving spouse or partner.
 * **Intent & Practical Allocation:**
   * The surviving spouse is granted the exclusive right to occupy, use, and enjoy the family home for the duration of the spouse's life (or until an earlier terminating event, such as remarriage, entry into a common-law partnership, permanent vacancy for >$N$ consecutive months, or permanent admission into a specialized long-term care facility).
@@ -137,8 +137,8 @@
   * **Tax Invariants:** Must be drafted to satisfy the strict criteria of a **Qualifying Spousal Trust under s. 70(6) of the *Income Tax Act*** to preserve the tax-deferred spousal capital gains rollover at death.
 
 ### UC-PROP-02: Option to Purchase / Right of First Refusal for Family Assets (Cottages & Private Business Shares)
-* **Status:** Pending Processing
-* **Mapped Requirements:** Unmapped (Requires extension to §4.5.3: Administrative Powers & Asset Realization)
+* **Status:** Processed
+* **Mapped Requirements:** [§4.5.3 Comprehensive Executor & Trustee Administrative Powers (Option to Purchase)](file:///home/doug/code/free-willy/docs/REQUIREMENTS.md#45-minor-testamentary-trusts--comprehensive-administrative-powers)
 * **Scenario:** The estate includes a unique asset that cannot be practically subdivided—such as a family recreational cottage, rural real estate, or shares in a closely held family business (CCPC).
 * **Intent & Practical Allocation:**
   * One child or group of beneficiaries has a deep personal or operational connection to the asset, while other beneficiaries prefer cash/liquidity.
@@ -147,8 +147,8 @@
   * **Equalization:** The purchase proceeds are paid into the general residue of the estate and distributed among all beneficiaries under the residuary distribution formula, preventing family disputes and forced partition sales under provincial partition legislation.
 
 ### UC-PROP-03: Specific Real Estate Gifts Subject to Encumbrance (Mortgage Exoneration vs. Assumption)
-* **Status:** Pending Processing
-* **Mapped Requirements:** Unmapped (Requires extension to §4.6.2: Specific Bequests & Real Estate Debt Apportionment)
+* **Status:** Processed
+* **Mapped Requirements:** [§4.6.2 Specific Bequests, Inherited Property, Encumbered Real Estate & Capital Gains](file:///home/doug/code/free-willy/docs/REQUIREMENTS.md#46-registered-plans-insurance-inherited-property-and-digital-assets)
 * **Scenario:** The testator devises a specific real property (e.g., a recreational property or rental condominium) to a specific named beneficiary, but the property is encumbered by an outstanding mortgage, collateral loan, or line of credit.
 * **Intent & Practical Allocation:**
   * Under Canadian common law and provincial statutes (e.g., Ontario *Succession Law Reform Act* s. 32; BC *Wills, Estates and Succession Act* s. 47), the statutory default presumption is that **encumbered property bears its own debt**—the specific devisee takes the property subject to the mortgage without exoneration from the residue.
@@ -161,8 +161,8 @@
 ## 6. Personal Effects & Lifetime Advancements
 
 ### UC-ASSET-01: Tangible Personal Property & Informal Memorandum of Wishes
-* **Status:** Pending Processing
-* **Mapped Requirements:** Unmapped (Requires new §4.9: Tangible Personal Property & Precision Allocation)
+* **Status:** Processed
+* **Mapped Requirements:** [§4.9 Tangible Personal Property & Precision Allocation (Personal Effects)](file:///home/doug/code/free-willy/docs/REQUIREMENTS.md#49-tangible-personal-property--precision-allocation-personal-effects)
 * **Scenario:** The testator owns a variety of personal effects, jewelry, heirlooms, furniture, art, vehicles, and tools. They desire to allocate specific items to specific family members, but wish to update their choices periodically without executing a formal will or codicil.
 * **Intent & Practical Allocation:**
   * The will bequeaths all tangible personal property to the executor, with a direction to distribute individual items in accordance with any signed, dated, informal **Memorandum of Personal Wishes** left with the will.
@@ -170,8 +170,8 @@
   * **Dispute Fallback Mechanism:** If an item is not mentioned in the memorandum, or if beneficiaries dispute an item, the executor has final binding authority to distribute by agreement, round-robin selection lottery, or sale with proceeds passing into residue.
 
 ### UC-LOAN-01: Family Loans, Advances & Hotchpot (Equalization vs. Debt Forgiveness)
-* **Status:** Pending Processing
-* **Mapped Requirements:** Unmapped (Requires extension to §4.4: Lifetime Advances & Loan Adjustment)
+* **Status:** Processed
+* **Mapped Requirements:** [§4.4.11 Lifetime Advances, Family Loans & Hotchpot Clauses](file:///home/doug/code/free-willy/docs/REQUIREMENTS.md#44-residuary-estate-distribution)
 * **Scenario:** During their lifetime, the testator advanced significant funds to one child (e.g., $150,000 for a home purchase or business startup), documented by a promissory note, loan agreement, or family records.
 * **Two Mutually Exclusive Intentions:**
   1. **Debt Forgiveness:** The testator intends for the outstanding debt to be completely canceled and forgiven upon death, releasing the child and their estate from all liability (with clear tax structuring regarding commercial debt forgiveness under **s. 80 of the *Income Tax Act***).
@@ -182,8 +182,8 @@
 ## 7. Administrative & Personal Directives
 
 ### UC-ADMIN-01: Precatory Funeral, Cremation, and Anatomical Gift Directions
-* **Status:** Pending Processing
-* **Mapped Requirements:** Unmapped (Requires new §4.10: Funeral Wishes, Remains & Anatomical Gifts)
+* **Status:** Processed
+* **Mapped Requirements:** [§4.10 Personal Directives: Funeral Wishes, Remains & Anatomical Gifts](file:///home/doug/code/free-willy/docs/REQUIREMENTS.md#410-personal-directives-funeral-wishes-remains--anatomical-gifts)
 * **Scenario:** The testator holds strong personal, philosophical, or religious wishes regarding the disposition of their earthly remains (e.g., immediate cremation and scattering of ashes in a specific location; traditional burial in a family plot; or anatomical donation of body/organs for medical research and transplant).
 * **Legal Invariants & Provincial Nuance:**
   * Under Canadian common law, the estate executor has the exclusive legal right and duty of custody and disposal of the deceased's body, and **testamentary directions regarding burial or cremation are legally precatory (advisory)** rather than strictly binding.
