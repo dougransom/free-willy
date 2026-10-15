@@ -71,6 +71,7 @@ For each generation run, Free-Willy produces core legal documents plus companion
 | **Advisory Safeguards & Validation Report** | Separate companion sheet providing software legal notices, statutory maintenance warnings, execution checklist, and input validation audit results. | Packaged strictly **outside** the will itself (as a preceding cover sheet or separate document) to preserve legal sanctity. Alerts executors to inter-provincial land resealing, matrimonial property elections, and dependant relief / moral claim duties. |
 | **Confidential Digital Asset Memorandum** | Private, unprobated personal memorandum for digital accounts, password manager vaults, and hardware security keys. | Maintained strictly **outside** the public probate process with the testator's personal records to preserve password secrecy, referenced by general authority in the will. |
 | **Statement of Reasons for Disinheritance (Optional)** | Evidentiary memorandum / statutory declaration explaining the testator's rationale for excluding or providing unequally for a child or spouse. | Kept with the executor strictly **outside** the will to avoid probate publicity/defamation. Admissible under BC WESA s. 62 and common-law evidence rules to defend against moral claim variation or dependant relief claims. |
+| **Estate Executor Guide** | Practical, plain-language administration handbook for the appointed executor (never executed or signed). | Packaged strictly **outside** the will. Provides step-by-step guidance on estate administration, obtaining CRA Clearance Certificates (TX19), cross-border non-resident remittances (anti-bank-draft hazard warnings, SWIFT wire protocols, Part XIII withholding, and US IRS Form 3520 reporting), asset liquidation rules, and passing of accounts. |
 
 ---
 
@@ -218,6 +219,24 @@ Free-Willy must support distinct scoping options for the generated will:
       - Under hotchpot accounting, any documented lifetime advance or outstanding loan principal is conceptually added back to the gross distributable residuary estate to form a unified pool.
       - The advance amount is then credited against and deducted from that specific borrowing beneficiary's final share of residue, allowing the non-borrowing beneficiaries to receive compensating cash equalization without requiring the executor to commence legal enforcement action against the debtor.
       - The clause must specify whether hotchpot advances are calculated with or without accrued interest, and include an exculpatory provision establishing the executor's written calculation as final and binding on all parties.
+12. **Residuary In-Specie Distribution Protocol (In-Kind Securities Preference vs. Real Estate Liquidation Default):**
+    - To balance investment continuity against administrative practicality and dispute prevention, the system implements an asset-differentiated residuary distribution protocol:
+    - **Publicly Traded Securities (In-Kind Preference & Proportional Slicing):**
+      - Publicly traded securities (equities, ETFs, mutual funds, bonds) forming part of the residue are distributed **in kind (in specie)** by default directly to the investment accounts of residuary beneficiaries.
+      - *Tax & Economic Rationale:* Avoids forced market timing/liquidation during market downturns, preserves uninterrupted investment compounding, and passes on securities with an Adjusted Cost Base (ACB) stepped up to Fair Market Value (FMV) at death under **s. 70(5) and s. 107(2) of the *Income Tax Act*** without secondary taxation.
+      - *Proportional Slicing:* Each residuary beneficiary receives their exact pro-rata share of *each* individual security holding (e.g., if Alice and Bob are equal 50/50 residuary heirs and the estate holds 100 shares of Bank A and 200 units of Index ETF B, Alice receives 50 shares of A + 100 units of B, and Bob receives 50 shares of A + 100 units of B), preventing any fiduciary dispute or suspicion of "cherry-picking" higher-yielding or volatile assets.
+    - **The 5 Practical Frustration Off-Ramps (Liquidation to Cash):**
+      - The executor is authorized and instructed to liquidate securities to cash where in-kind transfer is frustrated by:
+        1. *Estate Debts & Tax Liabilities:* Liquid cash in the estate is insufficient to pay funeral expenses, testamentary debts, probate fees, and terminal income taxes (under ITA s. 70(5)). The executor exercises prudent investor discretion to sell cash-equivalents or securities with capital losses / minimal gains first to preserve preferred growth assets;
+        2. *Beneficiary Express Cash Request:* A beneficiary provides written direction requesting their share in cash rather than securities;
+        3. *Custodial / Platform Impracticability:* A receiving broker, platform, or transfer agent refuses or is unable to accept an in-kind transfer;
+        4. *Odd Lots & Fractional Shares:* Fractional units or odd lots that cannot be cleanly divided pro-rata are liquidated for cash and equalized; or
+        5. *Cross-Border / Non-Resident Beneficiary Compliance:* A beneficiary resides outside Canada (e.g., US or UK), where Canadian mutual funds or securities cannot be lawfully transferred or would trigger punitive foreign compliance or Part XIII withholding complications.
+    - **Real Estate in Residue (Presumption of Sale to Cash):**
+      - Any real property forming part of the general residue (not specifically devised to an individual) is **presumed to be sold by the executor on the open market at fair market value**, with all net cash proceeds distributed into residue.
+      - *Dispute Prevention Rationale:* Transferring undivided tenant-in-common title to multiple adult heirs is a notorious recipe for family deadlock, non-payment of property expenses, and forced litigation under provincial *Partition Acts* (e.g., Ontario *Partition Act*, BC *Partition of Property Act*).
+      - *Off-Ramp 1 (Option to Purchase / Buyout):* Any beneficiary may exercise an exclusive option to purchase or buyout the property at independent accredited appraisal (AACI) under §4.5.3.
+      - *Off-Ramp 2 (Unanimous In-Kind Written Election):* If all residuary beneficiaries unanimously sign a written direction requesting an in-kind transfer of title as tenants-in-common (e.g., for a shared rental property), the executor transfers title in kind.
 
 ### 4.5 Minor Testamentary Trusts & Comprehensive Administrative Powers
 1. **Age-Graduated Testamentary Trusts (Delayed Vesting Beyond Age of Majority):**
@@ -270,6 +289,12 @@ Free-Willy must support distinct scoping options for the generated will:
    - **Strict Public Will Privacy:** All sensitive master keys, seed phrases, and passwords are kept strictly out of the public will and housed in the confidential **Digital Asset Memorandum**.
 4. **Pet Care Provisions:**
    - Bequest of pets to designated caregivers, accompanied by an honorary cash fund or trust for veterinary care and maintenance.
+5. **Flexible Charitable Bequests (In-Kind Securities vs. Cash & Cy-Près Replacement):**
+   - **Supported Gift Formats:** Applies to all charitable gifts in the estate plan: fixed pecuniary dollar legacies, percentage/share portions of residue, identified non-registered investment accounts, and the default catastrophic wipeout fallback ([§4.4.7](file:///home/doug/code/free-willy/docs/REQUIREMENTS.md#44-residuary-estate-distribution)).
+   - **Absolute Executor Satisfaction Discretion:** The executor is granted sole discretion to assess the estate's tax position upon death, inspect non-registered holdings, and elect whether to satisfy the charitable gift in cash, directly in kind with publicly traded securities (stocks, bonds, mutual funds, ETFs), or a combination of both.
+   - **Zero Capital Gains Inclusion (*ITA* s. 38(a.1)):** Under paragraph 38(a.1) of the *Income Tax Act*, donating publicly traded securities directly in kind to a registered Canadian charity reduces the capital gains inclusion rate on accrued appreciation from 50% (or 66.67%) to **0%**, completely eliminating terminal capital gains taxes while generating an official donation tax credit for **100% of the fair market value** of the securities.
+   - **Valuation Benchmark:** Securities transferred in kind are valued at their **Fair Market Value on the date of transfer / distribution** (closing market price on a prescribed stock exchange), ensuring the charity receives exact economic value equivalent to the dollar gift amount.
+   - **Express Cy-Près Replacement Power:** If any designated charity has ceased to exist, amalgamated, or lost its registered charity status with the Canada Revenue Agency prior to distribution, the gift does not fail or lapse. The executor is granted express testamentary authority to substitute and distribute the gift to one or more registered Canadian charities with similar charitable objects or purposes (or to the default Cancer Research Society, Charitable Registration No. `11915 3229 RR0001`).
 
 ### 4.7 Matrimonial Property Elections & Person Disambiguation
 1. **Spousal Matrimonial Property Rights & Common-Law Distinction:**
@@ -330,6 +355,27 @@ Free-Willy must support distinct scoping options for the generated will:
    - **Cremation & Disposition of Ashes:** Direction for immediate cremation, accompanied by specific instructions regarding the scattering of cremated remains, interment in a designated columbarium niche, or retention by a designated person.
    - **Traditional Earth Burial:** Direction for traditional burial in a designated cemetery, family plot, or mausoleum, including reference to any pre-purchased interment rights or pre-arranged funeral service contracts.
    - **Anatomical Gifts & Scientific Donation:** Explicit testamentary consent for the donation of organs and tissue for therapeutic transplantation, medical education, or scientific research in accordance with governing provincial organ donation legislation (e.g., Ontario *Trillium Gift of Life Network Act*; BC *Human Tissue Gift Act*; Alberta *Human Tissue and Organ Donation Act*).
+
+### 4.11 Non-Resident Beneficiaries & Cross-Border Remittance Safeguards
+1. **Fiduciary Personal Liability Protection (*Income Tax Act* s. 159(2) & (3)):**
+   - Under Canadian tax law, an estate executor who distributes estate assets to a beneficiary prior to obtaining a **CRA Clearance Certificate (Form TX19)** is **personally liable** for all unpaid income taxes, interest, and penalties owed by the deceased or the estate, up to the value of the distributed property.
+   - Because the Canada Revenue Agency cannot easily seize foreign assets once funds leave Canadian territory, the executor's personal assets are the primary target for unremitted taxes.
+   - **Express Clearance Holdback Power:** The will grants the executor explicit administrative authority to establish a reasonable cash tax reserve (holdback) and postpone final distributions to non-resident beneficiaries until the CRA issues a formal final Certificate of Clearance under ITA s. 159(2).
+2. **Mandatory Canadian Part XIII Non-Resident Withholding (*Income Tax Act* s. 212):**
+   - Testamentary distributions to non-resident beneficiaries that include estate income, interest, or taxable capital gains are subject to mandatory Canadian non-resident withholding tax (statutory 25%, typically reduced to 15% under bilateral treaties such as Article XXII of the Canada-US Tax Convention).
+   - The will expressly empowers the executor to deduct, withhold, and remit all applicable Part XIII withholding taxes directly to the Receiver General for Canada, and file required annual **NR4 information returns**, shielding the estate trustee from failure-to-withhold penalties.
+   - The executor is authorized to require non-resident beneficiaries to provide foreign tax identification numbers (e.g., US Social Security Number / ITIN), CRA/IRS residency declarations (e.g., Form W-8BEN), and certified proof of tax residency prior to releasing funds.
+3. **The "Bank Draft Hazard" & Mandatory Electronic Wire Remittance:**
+   - To counteract common retail bank teller advice recommending paper bank drafts (cashier's checks) for international payments, Free-Willy establishes clear safeguards:
+   - Physical paper bank drafts mailed internationally create extreme risks: they are routinely lost in foreign postal streams, intercepted, or subjected to multi-week fraud verification holds by foreign banks. If a bank draft is lost, Canadian financial institutions mandate a personal indemnity bond (frequently 100%–150% of the draft amount) before reissuing. Furthermore, retail bank branches charge steep 2.5%–3.5% foreign exchange markups.
+   - The system guidelines mandate that international remittances be executed exclusively via **secure electronic wire transfers (SWIFT / Fedwire)** or through commercial institutional foreign exchange specialists.
+4. **US-Resident Beneficiaries & IRS Form 3520 Compliance:**
+   - Where a beneficiary is a US citizen, US resident, or Green Card holder:
+   - Under US tax law (Internal Revenue Code s. 6039F), a US person receiving distributions from a foreign estate or foreign trust aggregating over $100,000 USD (or lower thresholds for foreign trusts) must report the bequest to the IRS on **Form 3520**.
+   - If the executor fails to provide proper accounting breakdown and a **Foreign Non-Grantor Trust Beneficiary Statement**, the IRS may treat the entire distribution as accumulated ordinary income or impose draconian failure-to-file penalties starting at 25% to 35% of the gross inheritance.
+   - The executor is directed to furnish timely testamentary statements classifying capital bequests vs. current estate income.
+5. **Companion Unexecuted Estate Executor Guide:**
+   - All practical banking instructions, anti-bank-draft warnings, institutional FX guidance, CRA clearance protocols, and IRS Form 3520 documentation packages are incorporated into the companion, unexecuted **Estate Executor Guide** delivered alongside each will (preventing probate clutter and maintaining solemnity in the formal will).
 
 ---
 
@@ -639,6 +685,47 @@ personal_directives_funeral:
   precatory_instructions: "Ashes scattered along Georgian Bay"
   pre_arranged_contract_reference: "Mount Pleasant Group pre-need contract #789012"
   anatomical_donation_consent: true
+
+charitable_bequests:
+  flexible_satisfaction_mode: "executor_discretion" # "executor_discretion" (assess tax position and select cash or securities) | "mandatory_in_kind_if_available" | "cash_only"
+  valuation_timing: "date_of_distribution" # "date_of_distribution" (closing exchange price) | "date_of_death"
+  cy_pres_replacement:
+    enabled: true
+    fallback_charity: "Cancer Research Society"
+  gifts:
+    - recipient_name: "Cancer Research Society"
+      registration_number: "11915 3229 RR0001"
+      type: "pecuniary"
+      amount: 25000.00
+      currency: "CAD"
+      satisfaction_options: ["cash", "in_kind_public_securities"]
+    - recipient_name: "Nature Conservancy of Canada"
+      registration_number: "11924 6544 RR0001"
+      type: "residue_share"
+      shares: 1
+      satisfaction_options: ["cash", "in_kind_public_securities"]
+
+residuary_distribution_policy:
+  securities:
+    default_treatment: "in_kind_proportional" # "in_kind_proportional" | "liquidate_all_to_cash"
+    proportional_division: true # Pro-rata slicing of each holding across heirs
+    odd_fractional_shares: "liquidate_to_cash"
+    frustration_off_ramps:
+      pay_debts_and_taxes: true
+      beneficiary_cash_election: true
+      custodial_unavailability: true
+      non_resident_beneficiaries: true
+    debt_tax_liquidation_priority: "minimal_capital_gain_first" # "minimal_capital_gain_first" | "pro_rata"
+  real_estate:
+    default_treatment: "liquidate_to_cash" # "liquidate_to_cash" (standard open market sale) | "in_kind_joint"
+    allow_unanimous_in_kind_request: true
+    recognize_family_buyout_option: true
+
+non_resident_safeguards:
+  executor_tax_holdback_authorized: true
+  require_cra_clearance_before_final_distribution: true
+  mandatory_electronic_remittance_advice: true # Recommends SWIFT wire over physical bank drafts
+  generate_executor_guide: true
 ```
 
 ---
@@ -739,6 +826,15 @@ Before generating documents, Free-Willy validates the input data against provinc
       - (a) Interest terms (0% or prescribed interest rate) and calculation benchmarks are explicitly stated;
       - (b) Pre-existing debt instruments (promissory notes or loan agreements) are referenced with specificity; and
       - (c) An exculpatory provision establishes the executor's hotchpot equalization calculations as final, binding, and conclusive on all beneficiaries.
+16. **Non-Resident Beneficiary & Cross-Border Compliance Audit:**
+    - Scans the beneficiary roster for non-residents of Canada (especially US residents, citizens, or Green Card holders).
+    - Automatically triggers generation of the companion, unexecuted **Estate Executor Guide** containing anti-bank-draft hazard warnings, SWIFT wire remittance instructions, and US IRS Form 3520 compliance packages.
+    - Verifies inclusion of testamentary administrative powers authorizing the executor to withhold a reasonable tax reserve until a CRA Clearance Certificate (Form TX19) is issued, and to deduct and remit mandatory Part XIII non-resident withholding taxes.
+17. **Charitable Donee Registration & Cy-Près Audit:**
+    - Validates that every named charitable organization holds a verified Canada Revenue Agency registration number (Business Number ending in `RR0001`).
+    - Enforces inclusion of an express cy-près substitution clause authorizing the executor to redirect the gift to another registered Canadian charity with similar purposes (or the default Cancer Research Society) if the charity deregisters, merges, or dissolves prior to distribution.
+18. **Residuary In-Specie Securities Proportionality Audit:**
+    - Where an in-kind securities distribution policy is selected, verifies that the policy mandates proportional pro-rata slicing across all holdings with automatic cash liquidation of odd lots and fractional shares, preventing fiduciary conflicts over picking preferred stocks.
 
 ### 11.2 Separation of Software Metadata & External Advisory Safeguards Report
 - **Absolute Rule on Software Disclaimers:** Any software notice, AI metadata, execution checklist, or statutory dependant support / family relief warning generated by Free-Willy **MUST NEVER** be embedded into the Last Will and Testament.
@@ -813,6 +909,18 @@ To ensure beneficiary designations within the operative body of the will remain 
      > *If your remaining estate at death is $500,000, Alice's $100,000 loan is added back to make a total pool of $600,000 ($300,000 each).*  
      > *Alice is credited with the $100,000 she already received, so she is paid $200,000 from the estate, while Bob receives $300,000. Both children receive exactly equal economic value ($300,000 each) without the executor having to sue Alice."*
 
+9. **Flexible Charitable Gifts (Donating Stocks vs. Cash):**
+   - The Appendix illustrates the tax advantage of in-kind public stock donations:
+     > *"Donating Stocks Instead of Cash to Charity:*  
+     > *If you leave a gift to a registered charity, your executor can pay it in cash or transfer publicly traded shares directly to the charity.*  
+     > *Under Canadian tax law, transferring appreciated public stocks directly to charity wipes out 100% of the capital gains tax on those shares (0% inclusion rate), while giving your estate a full tax receipt for the total market value to reduce taxes on your final tax return."*
+
+10. **Residuary Stocks vs. Real Estate Distribution:**
+    - The Appendix illustrates why stocks are shared in kind and real estate is sold:
+      > *"Sharing Your Investment Portfolio and Real Estate:*  
+      > *Publicly traded stocks and ETFs are divided 'in kind' so each beneficiary gets their equal share of each stock without forcing sales during a market dip.*  
+      > *Real estate in your residue is sold for cash by default, because forcing multiple family members to co-own a house or cottage together almost always causes bitter family disputes over maintenance and taxes. If one family member wants to buy the property, they can exercise a purchase option at appraised fair market value."*
+
 ---
 
 ## 12. Technical Stack & Implementation Guidelines
@@ -823,6 +931,8 @@ To ensure beneficiary designations within the operative body of the will remain 
   free-willy/
   ├── .agents/
   │   └── skills/
+  │       ├── add-use-case/
+  │       │   └── SKILL.md
   │       ├── will-preparation/
   │       │   └── SKILL.md
   │       ├── review-will-skill/
