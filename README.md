@@ -11,7 +11,7 @@
   3. *Signing and Witnessing Guide* (strict compliance rules for physical execution).
   4. *Advisory Preamble & Safeguards Report* (separate advisory sheet).
 - **Dynamic Priority Appointments:** Prioritized lists for executors and guardians ("first person willing and legally able to act", including dynamic class expressions like descendants by decreasing age).
-- **Multiple Wills / Secondary Wills:** Supports dual will strategies (non-probate wills for private corporation / CCPC shares, shareholder loans, and out-of-province assets to minimize probate fees).
+- **Multiple / Dual Wills Architecture:** Supports multiple will strategies to minimize probate taxes on private CCPC shares, shareholder loans, and nominee assets, respecting provincial frameworks: **Primary / Secondary Wills** in Ontario (shared executors permitted under *Granovsky*) and **Probate / Non-Probate Wills** in British Columbia (with mandatory distinct executor guardrails under *Berkner Estate*).
 - **Foreign Will Protection:** Selective revocation clauses that explicitly preserve validly executed wills in other jurisdictions.
 - **Strict Separation of Legal Disclaimers:** Safeguards and statutory warnings are kept on a separate companion sheet, never printed on the will itself.
 - **Dedicated AI Agent Skill:** Includes an interactive agent skill (`.agents/skills/will-preparation/SKILL.md`) guiding AI assistants through conversational intake, provincial validation, and document assembly.
@@ -38,6 +38,11 @@ Requirements and use cases in Free-Willy are designed to be edited and evolved b
 
 3. **Audit Requirements (`/review-requirements`):**
    - Verify that requirements remain legally watertight across all 10 provinces and 3 territories using the **[`review-requirements`](.agents/skills/review-requirements/SKILL.md)** skill, auditing against the 7 Pillars of Challenge-Resistant Testamentary Design.
+
+## Contributing & Feature Requests
+
+- **Requesting a Use Case or Feature:** If you have a testamentary use case, estate scenario, or feature to request, please submit an issue on GitHub with an explanation of the scenario and its intended practical outcome.
+- **Submitting Pull Requests:** Contributions are welcome via Pull Request if you can follow the agent-driven workflow described above (using `/add-use-case`, `/update-requirements-from-use-cases`, and `/review-requirements`) to ensure all additions are legally vetted, battle-tested against provincial invariants, and bidirectionally traced across [`docs/USE_CASES.md`](docs/USE_CASES.md) and [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md).
 
 ## TODO / Roadmap
 

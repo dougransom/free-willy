@@ -171,7 +171,10 @@
   1. Shares in one or more closely held, privately held Canadian corporations (CCPCs); and/or
   2. Tangible personal property or real estate in jurisdictions with low, capped, or zero probate fees (e.g., Quebec with nominal flat court fees, Alberta with capped fees at $525, or US/foreign situs).
 * **Requirements Coverage:**
-  * Support for **Primary and Secondary (Multiple) Wills** (e.g., Ontario *Granovsky* doctrine; BC *Berkner* regime) to isolate non-probate corporate shares and shareholder loans from public probate tax.
+  * **Provincial Nomenclature Standards:** Uses **"Primary Will"** and **"Secondary Will"** in Ontario; uses **"Probate Will"** and **"Non-Probate Will"** in British Columbia.
+  * **British Columbia Distinct Executor Guardrail (*Berkner Estate*, 2017 BCSC 619):** Under BC Supreme Court Civil Rule 25-3(2) and WESA s. 122, an applicant for probate must disclose all assets passing to that applicant. If the same executor is named in both wills, non-probate assets become subject to BC probate fees (~1.4%). Therefore, in BC, the executors and alternates of the Probate Will and Non-Probate Will **must be completely different individuals or entities** (enforced via system guardrail `BC_DUAL_WILL_SHARED_EXECUTOR_PROHIBITED`).
+  * **Ontario Common Executor Permissibility (*Granovsky* / *Milne*):** Under Ontario *Estates Act* s. 32(1), a limited grant of probate is issued; the same executor may act under both the Primary and Secondary Wills.
+  * **Asset Segregation & Real Estate Caution:** Isolates CCPC shares, shareholder loans, and nominee/first-dealing real estate from probate, while ensuring ordinary Land Titles Absolute real estate remains in the Primary/Probate Will to prevent probate contamination.
   * Clear situs allocation clauses designating specific assets to specific testamentary instruments without cross-contamination.
 
 ### UC-JUR-02: Co-existence and Harmonization with Foreign Wills

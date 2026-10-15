@@ -97,13 +97,19 @@ For each generation run, Free-Willy produces core legal documents plus companion
      - **Commencement Date:** Escalation commences on **January 1st of the calendar year immediately following the date of execution** of the will, and compounds every January 1st thereafter.
      - **Formula:** $\text{Effective Rate} = \text{Base Rate} \times (1 + x)^N$, where $N$ represents the number of completed calendar years elapsed between the initial January 1st benchmark date and the date of the testator's death (or date of billing/settlement).
      - **Statutory Override:** The operative clause must explicitly declare that this testamentary fee agreement governs and supersedes default statutory remuneration tariffs under provincial *Trustee Acts* (e.g., Ontario *Trustee Act* s. 61, BC *Trustee Act* s. 88, Alberta *Trustee Act* s. 44).
-4. **Dual/Multiple Wills Executor Rules (Probate vs. Non-Probate):**
-   - **Ontario Common Executor Rule (*Granovsky*):** Under established Ontario jurisprudence (*Granovsky Estate v. Ontario*, 1998; *Milne Estate*, 2019), the executor of the Primary (Probate) Will and the Secondary (Non-Probate) Will **MAY BE THE EXACT SAME PERSON**. The division between the estates is established by the limited scope of the grant of probate issued by the court (limited to assets under the Primary Will), not by trustee identity. Testators are not forced to appoint different individuals.
-   - **Provincial Jurisdictional Nuances:**
-     - **Ontario:** Fully supported and widely utilized to minimize Estate Administration Tax (1.5% on estates over $50,000) on private CCPC shares, shareholder loans, and tangible personal property.
-     - **British Columbia:** Probate registries scrutinize multiple wills closely under WESA; while secondary wills are used, practitioners may designate distinct trustees or rely on alter ego / joint partner trusts or bare trusts due to registry practices.
-     - **Alberta:** Because Alberta caps its probate grant fees at a flat maximum of $525, dual wills to save probate fees are unnecessary and discouraged.
-     - **Quebec:** Because non-notarial wills have nominal court filing fees and notarial wills bypass probate entirely, dual wills are unnecessary.
+4. **Dual/Multiple Wills Executor Rules & Provincial Regimes:**
+   - **Provincial Nomenclature Standards:**
+     - **Ontario:** Formally designated as **"Primary Will"** (for assets requiring court probate, subject to Estate Administration Tax) and **"Secondary Will"** (for non-probate assets such as CCPC shares, shareholder debt, and personal chattels).
+     - **British Columbia:** Formally designated as **"Probate Will"** (or General Will) and **"Non-Probate Will"** (or Specific / Corporate Will) under the *Wills, Estates and Succession Act* (WESA).
+     - **Other Provinces:** In Alberta (capped $525 fee) and Quebec (notarial wills bypass probate; nominal non-notarial court fees), single wills are the established standard. In other common law provinces (e.g., Nova Scotia, where *Re Murray Estate* rejected partial probate applications without clear statutory authorization and separate trustees), dual wills are high-risk and require strict executor segregation if attempted.
+   - **British Columbia Distinct Executor Guardrail (*Berkner Estate*, 2017 BCSC 619):**
+     - Under WESA s. 122 and Supreme Court Civil Rules Rule 25-3(2), an applicant applying for a grant of probate in BC must file an Affidavit of Assets and Liabilities (Form P10 or P11) disclosing **all property passing to the applicant as personal representative**.
+     - In *Berkner Estate*, the BC Supreme Court confirmed that an executor cannot pick and choose which assets to disclose. If the **same person or entity** is appointed executor under both the Probate Will and Non-Probate Will, that executor is legally bound to disclose all assets passing to them under both instruments. This subjects the non-probate assets to BC probate fees (~1.4% on gross estate value exceeding $50,000 under the *Probate Fee Act*), destroying the entire non-probate strategy.
+     - **Mandatory BC Guardrail:** In British Columbia, the executor(s) and all alternate executor(s) of the Probate Will and the Non-Probate Will **MUST BE COMPLETELY DIFFERENT INDIVIDUALS OR CORPORATE TRUSTEES**. The system validation engine enforces that `set(probate_will_executors) ∩ set(non_probate_will_executors) == ∅`. If any individual or alternate appears in both appointment lists, the engine halts generation with a fatal validation error (`BC_DUAL_WILL_SHARED_EXECUTOR_PROHIBITED`).
+   - **Ontario Common Executor Rule (*Granovsky* / *Milne*):**
+     - Under established Ontario jurisprudence (*Granovsky Estate v. Ontario*, 1998; *Milne Estate*, 2019) and Ontario *Estates Act* s. 32(1), the Ontario Superior Court of Justice grants a Certificate of Appointment of Estate Trustee limited to the property of the Primary Will. The division between the estates is established by the limited scope of the court grant, not by trustee identity.
+     - Consequently, in Ontario, the executor of the Primary Will and the Secondary Will **MAY BE THE EXACT SAME PERSON** (or distinct persons at the testator's election). Testators are not forced to find different trustees.
+
 5. **Anticipatory / Deferred Executor Capacity & Devolution (Temporal Logic):**
    - **Anticipatory Appointment of Minors:** Where a named candidate (e.g., a child or sibling) is a minor under the governing provincial age of majority (18 in ON, AB, SK, MB, QC, PE; 19 in BC, NB, NS, NL, YT, NT, NU) at the time of execution ($t_{\text{exec}}$), the clause must include an explicit recital confirming the testator is of sound mind and anticipates that the appointee will attain the age of majority prior to the will taking effect. This recital affirmatively insulates the will against probate requisitions alleging lack of capacity or confusion (*Banks v. Goodfellow*).
    - **Dynamic Evaluation at Operative Date ($t_{\text{death}}$):** Legal capacity and eligibility to act as estate trustee speak from the date of the testator's death. If the named appointee has reached the age of majority at $t_{\text{death}}$, the grant of probate issues directly to them.
@@ -113,17 +119,18 @@ For each generation run, Free-Willy produces core legal documents plus companion
      - (b) The alternate acts under a limited grant during minority (*durante minore aetate*), reserving leave for the minor to apply for probate upon attaining full age.
 
 ### 4.2 Scope of Will & Asset Segregation
-Free-Willy must support distinct scoping options for the generated will:
-1. **General Will (Primary / Probate):**
-   - Applies to the worldwide estate or general assets within the province/country of residence that require probate (e.g., real estate titled solely in testator's name, public bank/brokerage accounts).
-2. **Secondary / Non-Probate Will (Dual Will Strategy - Chiefly Ontario):**
-   - Essential for jurisdictions with high ad-valorem probate fees (Ontario Estate Administration Tax).
-   - Governs assets that do not require court-certified probate to transfer, specifically:
-     - Shares in private corporations (e.g., CCPCs - Canadian-Controlled Private Corporations).
-     - Shareholder loans and promissory notes.
-     - Tangible personal property (art, jewelry, collections).
-     - Private partnership interests or beneficial interests held under bare nominee agreements.
-   - Distinct definitions ensuring no overlap with the Primary Will to prevent accidental revocation or probate fee contamination.
+Free-Willy supports distinct scoping options tailored to provincial multiple-will frameworks:
+1. **General / Probate Will (Ontario: Primary Will; BC: Probate Will):**
+   - Governs the worldwide estate or general assets within the province that require court-certified probate to transfer (e.g., publicly traded securities, institutional bank accounts, and real estate titled solely in the testator's personal name).
+2. **Specific / Non-Probate Will (Ontario: Secondary Will; BC: Non-Probate Will):**
+   - Implemented in high-probate jurisdictions (Ontario ~1.5% EAT; British Columbia ~1.4% probate fees) to isolate assets that do not require court probate to transfer, including:
+     - Shares and equity interests in private Canadian-controlled private corporations (CCPCs) and family holding companies.
+     - Shareholder loans, promissory notes, and intra-family debt receivables.
+     - Tangible personal property (art, jewelry, heirlooms, wine, collections, vehicles).
+     - Beneficial interests in real estate held under bare trustee / nominee corporation agreements (where registered legal title does not change upon death).
+     - Ontario real estate qualifying under the **"First Dealing" exemption** (Land Titles Conversion Qualified properties continuously held since conversion without subsequent title dealings).
+   - **Probate Contamination Safeguard:** Personal-name real estate registered under Land Titles Absolute **MUST NOT** be placed in a Secondary or Non-Probate Will; doing so forces the executor to submit the non-probate will for court probate, subjecting all non-probate corporate assets to provincial probate fees.
+   - **Mutually Exclusive Scoping:** Operative clauses in both wills must contain reciprocal exclusionary clauses ensuring zero overlap, preventing accidental revocation or probate fee contamination.
 3. **Inter-Provincial Real Estate, Resealing & Multi-Jurisdictional Scoping:**
    - **Single Canadian Will with Resealing (Default Approach):** A single General Canadian Will legally governs all real and personal property across Canadian provinces and territories. Where a testator owns real property in an additional province (e.g., an Ontario domiciliary owning recreational land in BC or rental real estate in Alberta), local land title registries require a local court confirmation. The estate transfers such land via **inter-provincial resealing** (where the probate grant issued in the home province is resealed under local provincial statutes, such as BC WESA / Supreme Court Civil Rules or Alberta Surrogate Rules) or an ancillary grant. The Safeguards Report alerts the executor to necessary resealing steps.
    - **Elective Separate Provincial Property Wills:** If a testator specifically elects to execute a separate will for real property located in another province (or for closely held private shares to minimize probate taxes), Free-Willy accommodates this dual/multiple will architecture with mutual revocation carve-outs (§4.3).
@@ -549,11 +556,20 @@ appointments:
         relationship: "sister"
         address: "Ottawa, ON"
       - class: "descendants_by_decreasing_age"
-  # In a Dual-Will plan (e.g. Ontario Primary Probate + Secondary Corporate), executors can be the same person under Granovsky:
+  # In an Ontario Dual-Will plan (Primary Probate + Secondary Corporate), executors can be identical under Granovsky:
   # secondary_will_executors:
   #   priority_order:
   #     - person: "spouse"
   #     - person: "Jane Doe"
+  #
+  # In a British Columbia Multiple-Will plan (Probate Will + Non-Probate Will), executors MUST be completely
+  # different individuals under Berkner Estate (2017 BCSC 619). Shared executors trigger fatal error BC_DUAL_WILL_SHARED_EXECUTOR_PROHIBITED:
+  # non_probate_will_executors:
+  #   priority_order:
+  #     - person: "Michael Smith" # Must NOT appear in primary/probate executor priority order
+  #       relationship: "brother"
+  #       address: "Vancouver, BC"
+  #     - person: "David Brown"
   guardians:
     priority_order:
       - person: "Jane Doe"
@@ -785,10 +801,19 @@ Before generating documents, Free-Willy validates the input data against provinc
 5. **Same-Name Disambiguation Enforcement:**
    - Detects when two or more distinct individuals (executors, trustees, guardians, specific legatees, residuary beneficiaries, or substitute takers) share identical legal names.
    - Mandates that differentiating attributes (relationship, locality/residence, seniority qualifier, parentage, or birth year) are provided in the configuration and rendered in all relevant clauses, preventing court confusion and probate delays.
-6. **Dual-Will Asset Segregation & Provincial Suitability Audit:**
-   - Verifies that when both a Primary (Probate) Will and a Secondary (Non-Probate) Will are generated, the asset definitions are mutually exclusive, preventing probate fee contamination or accidental total revocation.
-   - Confirms that in Ontario, the same executor may act under both wills in compliance with *Granovsky* and *Milne*.
-   - Alerts testators in Alberta and Quebec that dual wills are unnecessary due to Alberta's flat $525 fee cap and Quebec's nominal court fees.
+6. **Dual/Multiple Wills Provincial Nomenclature, Segregation & Executor Disjointness Audit:**
+   - **Provincial Nomenclature Enforcement:** Validates that output document titles, revocations, and court references reflect correct statutory terminology: "Primary Will" and "Secondary Will" for Ontario; "Probate Will" and "Non-Probate Will" for British Columbia.
+   - **British Columbia Strict Executor Disjointness Guardrail (*Berkner Estate*, 2017 BCSC 619):**
+     - For British Columbia multiple-will plans, the engine verifies that the executor appointment set (including all primary appointees and alternate priority appointees) of the Probate Will is completely disjoint from that of the Non-Probate Will (`set(probate_executors) ∩ set(non_probate_executors) == ∅`).
+     - If any individual, corporate trustee, or alternate appears on both appointment lists, the validation engine halts compilation with a fatal error: `BC_DUAL_WILL_SHARED_EXECUTOR_PROHIBITED: Under BC Supreme Court Civil Rule 25-3(2) and Berkner Estate, an executor applying for probate in BC must disclose all assets passing to that executor, subjecting non-probate assets to probate fees if the same executor acts under both wills. Distinct executors are legally mandatory in British Columbia.`
+   - **Ontario Common Executor Permissibility (*Granovsky* / *Milne*):**
+     - In Ontario, confirms that the same executor may act under both the Primary Will and Secondary Will in compliance with *Granovsky Estate v. Ontario* (1998) and Ontario *Estates Act* s. 32(1), while also permitting distinct executors if the testator prefers.
+   - **Mutual Exclusion & Real Estate Contamination Audit:**
+     - Verifies that asset definitions between the two wills are strictly mutually exclusive, preventing probate fee contamination or accidental total revocation.
+     - Flags a fatal configuration error if real property titled in personal name under Land Titles Absolute is placed in a Secondary / Non-Probate Will (as Land Titles offices will demand probate, destroying the secondary shelter).
+   - **Jurisdictional Appropriateness Warnings:**
+     - Alerts testators in Alberta (capped $525 maximum fee) and Quebec (nominal flat court fees; notarial wills bypass probate) that multiple wills are unnecessary and discouraged.
+     - Issues a cautionary advisory for other common law provinces (e.g., Nova Scotia, where *Re Murray Estate* rejected partial probate applications), noting high legal risk and requiring strict executor segregation.
 7. **Digital Asset Privacy & Credential Hygiene Check:**
    - Validates that no plaintext passwords, master encryption keys, cryptocurrency private keys, recovery seed phrases, or sensitive vault credentials are contained in the Last Will and Testament or its attached schedules.
    - Ensures sensitive digital credentials are directed exclusively to the confidential, unprobated **Digital Asset Memorandum**.
