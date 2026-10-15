@@ -288,7 +288,7 @@ Free-Willy must support distinct scoping options for the generated will:
    - To reconcile the competing interests of a surviving spouse and children from a previous relationship in blended families, the system supports establishing an exclusive right of occupancy or determinable life estate in residential real property (e.g., family home or condominium).
    - The surviving spouse is granted the exclusive right to use, occupy, and enjoy the residential property without paying rent.
 2. **Explicit Terminating Events:**
-   - The residential right terminates automatically upon the occurrence of the earliest of:
+   - The residential occupancy right terminates upon the occurrence of the earliest of:
      - (a) The death of the surviving spouse;
      - (b) The spouse's remarriage or entry into a common-law or marriage-like relationship;
      - (c) The spouse ceasing to occupy the home as their primary personal residence for more than a defined continuous period (default: 180 consecutive days), abandonment, or formal written release; or
@@ -300,10 +300,14 @@ Free-Willy must support distinct scoping options for the generated will:
 4. **Trustee Powers to Sell, Downsize, and Substitute:**
    - The trustees are granted discretionary power, with the spouse's prior written consent, to sell the residence and apply the net sale proceeds toward the purchase of a suitable replacement residence (e.g., downsizing to a condominium or townhome) subject to the identical trust terms.
    - Any surplus sale proceeds remaining after purchasing a replacement home must be invested by the trustees in accordance with trustee investment powers, with all net income generated paid periodically to the surviving spouse during the continuation of the trust.
-5. **Vesting of Remainder in Lineal Heirs:**
-   - Immediately upon the termination of the life interest, the trustees are directed to sell the real property (or transfer it in specie) and distribute the entire net capital proceeds to the testator's designated children or issue in equal shares *per stirpes*.
-6. **Compliance with Qualifying Spousal Trust Rules (*Income Tax Act* s. 70(6)):**
-   - Where the life interest is granted in favour of a spouse or common-law partner, the clause must strictly comply with **s. 70(6) of the *Income Tax Act***: the spouse must be entitled to receive all income of the trust arising before their death, and no person other than the spouse may receive or obtain the use of any income or capital of the trust before the spouse's death. This guarantees a complete tax-deferred rollover of any accrued capital gains at the testator's death.
+5. **Two Distinct Structural Models (*Income Tax Act* s. 70(6) Rollover Integrity):**
+   - Under subsection 70(6)(b)(ii) of the federal *Income Tax Act*, a spousal trust qualifies for the tax-deferred spousal rollover ONLY IF no person other than the spouse may, before the spouse's death, receive or obtain the use of any of the income or capital of the trust. Free-Willy supports two distinct architectural options:
+   - **Model A: Qualifying Spousal Trust (Rollover-Preserving Standard):**
+     - If the spouse dies, the trust terminates and the capital distributes to the testator's children in equal shares *per stirpes*.
+     - If an early terminating event occurs during the spouse's lifetime (e.g., remarriage, moving to long-term care, or vacating the home), the spouse's physical occupancy terminates and the residence is sold or leased; however, **all net proceeds remain in trust for the spouse's lifetime**. Net income is paid to the spouse for life, and capital distribution to the children is strictly deferred until the spouse's death. This guarantees compliance with ITA s. 70(6) and completely preserves the tax-deferred spousal rollover.
+   - **Model B: Determinable Life Estate with Immediate Inter-Vivos Gift-Over (Rollover-Forfeiting):**
+     - Where the testator prioritizes immediate capital distribution to their children upon the spouse's remarriage, cohabitation, or permanent vacancy during the spouse's lifetime, the trust immediately terminates and capital is distributed directly to the children.
+     - *Fiscal Implication Warning:* The requirements and Safeguards Report must explicitly warn the testator that under ITA s. 70(6)(b)(ii), permitting children to receive trust capital before the spouse's death **disqualifies the trust as an ITA s. 70(6) spousal trust *ab initio***, triggering a deemed disposition at fair market value at death under ITA s. 70(5). If the property qualifies for the Principal Residence Exemption (PRE) under ITA s. 40(2)(b) and s. 54, accrued gains on the home may be sheltered; however, if the home has non-exempt appreciation, excess acreage (>0.5 hectares), or represents a secondary property (cottage/rental), terminal capital gains taxes will be immediately payable out of estate residue.
 
 ### 4.9 Tangible Personal Property & Precision Allocation (Personal Effects)
 1. **Blanket Bequest to Executors & Precision Offloading:**
@@ -580,6 +584,61 @@ digital_assets:
 pets:
   caregiver: "Jane Doe"
   cash_allocation: 2000.00
+
+residential_life_interest:
+  enabled: true
+  property_description: "123 Maple Leaf Way, Toronto, ON"
+  life_tenant: "spouse"
+  model: "qualifying_spousal_trust" # "qualifying_spousal_trust" (Model A: ITA s. 70(6) rollover preserved) | "immediate_gift_over" (Model B: rollover forfeited, early capital gift-over)
+  terminating_events:
+    on_death: true
+    on_remarriage_or_cohabitation: true
+    on_vacancy_days: 180
+    on_permanent_long_term_care: true
+  carrying_costs:
+    tenant_expenses: ["property_taxes", "utilities", "homeowner_insurance", "routine_maintenance"]
+    estate_capital_expenses: ["structural_repairs", "roof_furnace_replacement", "local_improvement_charges"]
+  trustee_downsizing_power: true
+  remainder_beneficiaries:
+    rule: "per_stirpes"
+    recipients: ["all_my_children"]
+
+tangible_personal_property:
+  mode: "blanket_to_executors_with_precatory_memo" # "blanket_to_executors_with_precatory_memo" | "specific_distributions"
+  memorandum_reference: "Memorandum of Personal Wishes"
+  dispute_resolution: "executor_binding_discretion" # "executor_binding_discretion" (lottery, agreement, or sale to residue)
+
+advances_and_loans:
+  treatment: "hotchpot" # "hotchpot" | "debt_forgiveness"
+  debtors:
+    - recipient: "John Smith"
+      relationship: "child"
+      principal_amount: 150000.00
+      accrue_interest: false
+      interest_rate_percent: 0.0
+      documentation_reference: "Promissory note dated 2022-06-15"
+  executor_certificate_binding: true
+
+options_to_purchase_family_assets:
+  enabled: true
+  assets:
+    - description: "Family recreational cottage situated at Lake of Bays, District of Muskoka, ON"
+      designated_buyers: ["Jane Doe"]
+      exercise_window_days: 90 # Days post grant of probate
+      valuation_method: "independent_accredited_appraisal" # AACI for real estate, CBV for CCPC shares
+      commission_discount_percent: 4.0 # Deduction reflecting saved realtor fees
+      equalization_proceeds: "paid_to_estate_residue"
+
+encumbered_real_estate:
+  - property_description: "Unit 402, 55 Waterfront Trail, Barrie, ON"
+    recipient: "Richard Roe"
+    treatment: "mortgage_assumption" # "mortgage_assumption" (statutory default) | "residuary_exoneration"
+
+personal_directives_funeral:
+  disposition: "cremation" # "cremation" | "traditional_burial" | "anatomical_gift"
+  precatory_instructions: "Ashes scattered along Georgian Bay"
+  pre_arranged_contract_reference: "Mount Pleasant Group pre-need contract #789012"
+  anatomical_donation_consent: true
 ```
 
 ---
@@ -658,6 +717,28 @@ Before generating documents, Free-Willy validates the input data against provinc
     - Checks testator marital status and province of domicile.
     - Ensures that statutory equalization election clauses under the Ontario *Family Law Act* (s. 5 & 6) are generated only for legally married testators, warning that Ontario common-law partners have no statutory property equalization rights (relegating claims to *SLRA* Part V dependant support or constructive trust claims).
     - Confirms proper application of spousal rights in BC (*WESA* 2-year cohabitation) and Alberta (*Adult Interdependent Relationships Act*).
+11. **Qualifying Spousal Trust (*ITA* s. 70(6)) Rollover Integrity Audit:**
+    - Scans residential life interest and spousal trust provisions for early terminating events (e.g., remarriage, common-law cohabitation, vacating residence) paired with inter-vivos capital gift-overs.
+    - If immediate capital distribution to children upon early termination during the spouse's lifetime is selected (Model B), issues a high-priority tax alert confirming that under ITA s. 70(6)(b)(ii), this forfeits the tax-deferred spousal rollover *ab initio*, triggering deemed realization of capital gains at death under ITA s. 70(5).
+    - Checks whether the property is eligible for the Principal Residence Exemption (PRE) under ITA s. 40(2)(b) / s. 54 or will trigger terminal taxes payable from residue.
+    - If the testator elects to preserve the s. 70(6) rollover (Model A), validates that upon physical vacancy or remarriage, sale/rental proceeds remain held in trust with net income paid to the spouse for life, postponing remainder capital distribution strictly until the spouse's death.
+12. **Encumbered Real Estate Exoneration & Residuary Liquidity Audit:**
+    - Audits specific devises of encumbered real property.
+    - If the testator elects mortgage exoneration (directing the executor to discharge the mortgage from general estate residue, overriding the statutory presumption of mortgage assumption under Ontario *SLRA* s. 32 or BC *WESA* s. 47), audits estate configuration to verify sufficient liquid assets exist in residue.
+    - Warns the testator of potential estate abatement or forced liquidation of other testamentary gifts if residuary cash is insufficient to clear the encumbrance.
+13. **Tangible Personal Property Precatory Audit:**
+    - Verifies that testamentary provisions referencing informal memoranda of personal wishes remain strictly precatory (advisory) and non-binding.
+    - Prevents use of mandatory trust language that would lead probate court registrars to treat the informal memorandum as an incorporated testamentary document, which would delay probate grant issuance or trigger formal requisitions.
+14. **Family Asset Option to Purchase Validation:**
+    - Audits exclusive rights of first refusal or purchase options for unique family assets (cottages, CCPC shares) to confirm:
+      - (a) A definite exercise window is established (e.g., 90 days from grant of probate);
+      - (b) Valuation is anchored to recognized accredited appraisal standards (AACI for real estate; CBV for business shares);
+      - (c) Net sale proceeds fall into general estate residue for equalization among all beneficiaries.
+15. **Hotchpot Accounting & Debt Documentation Audit:**
+    - Audits lifetime advance provisions to ensure:
+      - (a) Interest terms (0% or prescribed interest rate) and calculation benchmarks are explicitly stated;
+      - (b) Pre-existing debt instruments (promissory notes or loan agreements) are referenced with specificity; and
+      - (c) An exculpatory provision establishes the executor's hotchpot equalization calculations as final, binding, and conclusive on all beneficiaries.
 
 ### 11.2 Separation of Software Metadata & External Advisory Safeguards Report
 - **Absolute Rule on Software Disclaimers:** Any software notice, AI metadata, execution checklist, or statutory dependant support / family relief warning generated by Free-Willy **MUST NEVER** be embedded into the Last Will and Testament.
@@ -715,6 +796,22 @@ To ensure beneficiary designations within the operative body of the will remain 
      > *You may leave gifts to a group or class (such as 'my children', 'my descendants', or 'the descendants of [Person]'). The property is divided in equal shares among the members of the group who survive you by at least 30 days (with children inheriting their parent's share under per stirpes).*  
      > *If an Individual Inherits Through Multiple Branches:*  
      > *Under a per-stirpes gift, shares attach to family branches rather than specific individuals. If family connections allow an individual to inherit through more than one branch (for example, if cousins married and an heir descends through two branches, or if an heir is given an individual share and also belongs to a class), they receive the share belonging to each branch by default, unless you choose to limit them to a single share."*
+
+7. **Residential Life Interests, Carrying Costs & Downsizing:**
+   - The Appendix demonstrates how the life interest and housing trust operate:
+     > *"Living in the Family Home (Right of Occupancy / Spousal Trust):*  
+     > *If you give your spouse the right to live in your home, they are entitled to occupy it without paying rent.*  
+     > *To keep things clear and avoid disputes with other family members, everyday costs (property taxes, utilities, minor repairs) are paid by your spouse, while major structural replacements (like a new roof or furnace) are paid by the trust.*  
+     > *If your spouse wishes to downsize, the trustees have the power to sell the home and buy a suitable smaller replacement home under the same terms. Any surplus cash from downsizing is safely invested, with investment income paid to your spouse.*  
+     > *When your spouse passes away (or the occupancy ends under the terms chosen), the home is sold and the proceeds pass down to your children per stirpes."*
+
+8. **Hotchpot Accounting for Family Loans and Advances:**
+   - The Appendix illustrates how lifetime advances are equalized among beneficiaries:
+     > *"Equalizing Lifetime Loans (Hotchpot Example):*  
+     > *If you advanced money to one child during your life and want all your children to end up with equal total benefits, your will uses 'hotchpot' accounting.*  
+     > *Example: If you leave your estate equally to two children (Alice and Bob), and you previously loaned Alice $100,000:*  
+     > *If your remaining estate at death is $500,000, Alice's $100,000 loan is added back to make a total pool of $600,000 ($300,000 each).*  
+     > *Alice is credited with the $100,000 she already received, so she is paid $200,000 from the estate, while Bob receives $300,000. Both children receive exactly equal economic value ($300,000 each) without the executor having to sue Alice."*
 
 ---
 
