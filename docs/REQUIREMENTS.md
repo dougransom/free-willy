@@ -12,9 +12,15 @@
 
 **Free-Willy** is an open-source, extensible legal template and document generation system designed to produce legally robust, English-language testamentary documents for residents across all Canadian provinces and territories.
 
-Rather than offering one-size-fits-all static forms, Free-Willy provides parameterized legal templates paired with province-specific statutory boilerplate, formal execution affidavits, and detailed signing guides. The system specifically accommodates complex real-world estate planning needs such as:
+Rather than offering one-size-fits-all static forms, Free-Willy provides parameterized legal templates paired with province-specific statutory boilerplate, formal execution affidavits, and detailed signing guides. The system is founded on two paramount legal principles:
+1. **Absolute Testamentary Validity:** Strict compliance with statutory formalities (e.g., signature placement, witness qualifications, attestation language) across all 10 provinces and 3 territories.
+2. **Probate Certainty without Court Intervention:** All operative clauses must be formulated in unambiguous, traditional legal English prose designed to pass provincial probate registries (e.g., Ontario Estates Court, BC Supreme Court Probate Registry) without requisition, procedural delay, or expensive applications for court directions.
+
+The system specifically accommodates complex real-world estate planning needs such as:
 - Prioritized appointment hierarchies (e.g., dynamic selection such as descendants by decreasing age).
-- Multiple wills / secondary wills to minimize probate taxes on Canadian-Controlled Private Corporation (CCPC) shares and private assets.
+- Multiple wills / secondary wills to minimize probate taxes on Canadian-Controlled Private Corporation (CCPC) shares and private assets (principally in Ontario and British Columbia).
+- Confirmation of registered accounts (RRSP, RRIF, TFSA, FHSA) and life insurance designations.
+- Comprehensive executor administrative powers eliminating the need for court orders.
 - Selective revocation clauses that protect and preserve foreign or extra-provincial wills.
 - Clean separation between the executed legal instrument and cautionary advisory/preamble notices.
 - Multi-modal consumption: direct human editing, AI-agent collaborative drafting, and programmatic headless compilation.
@@ -38,8 +44,10 @@ Templates and statutory clauses must adhere to local succession legislation, inc
 ### 2.2 Quebec (Civil Law)
 Quebec succession is governed by the *Civil Code of Québec* (CCQ):
 - **English-Language Will Made in the Presence of Witnesses (Art. 712–715 CCQ):** Full English template satisfying the formal requirements of two witnesses and attestation clause.
-- **Quebec Notarial Will Compatibility:** English clauses, terminology (e.g., *Liquidator* instead of *Executor*, *Tutor* instead of *Guardian*, *Legacy* instead of *Bequest*), and structural provisions suitable for formalization before a Quebec notary.
+- **Quebec Notarial Will Compatibility:** English clauses, terminology (e.g., *Liquidator* instead of *Executor*, *Tutor* instead of *Guardian*, *Legacy* instead of *Bequest*), and structural provisions suitable for formalization before a Quebec notary (Art. 717 CCQ).
 - **Probate vs. Non-Probate Distinction in Quebec:** Clear guidance reflecting that notarial wills do not require probate, whereas wills before witnesses require probate before the Superior Court or a notary.
+- **Single Will Recommendation for Quebec Residents:** Quebec residents must be explicitly warned to create **only one will** (preferably a Notarial Will, or a single Will Before Witnesses). Because Quebec probate fees on non-notarial wills are nominal flat court filing fees (~$100–$200) rather than ad-valorem taxes, and notarial wills bypass probate entirely, dual/multiple wills offer zero probate tax savings in Quebec and only create administrative confusion.
+- **Extra-Provincial Situs Wills for Quebec Property:** Non-Quebec residents who own immovable (real) property situated in Quebec frequently execute a separate Quebec will specifically governing their Quebec immovables to avoid cumbersome cross-border probate/homologation proceedings under the CCQ.
 
 ### 2.3 French-Language Testamentary Templates (Bilingual & Civil Jurisdictions)
 For Canadian provinces and territories that accept French wills directly for probate without requiring translation into English, **French source-of-truth templates will be provided**:
@@ -53,15 +61,16 @@ For Canadian provinces and territories that accept French wills directly for pro
 
 ## 3. Document Deliverables (System Output)
 
-For each generation run, Free-Willy produces three core documents plus an advisory preamble:
+For each generation run, Free-Willy produces core legal documents plus companion advisory and evidence materials:
 
 | Document | Purpose | Placement / Rules |
 | :--- | :--- | :--- |
-| **Last Will and Testament** | The formal testamentary instrument. | **Strictly clean of software/AI metadata.** Structured into three integrated parts: (1) Preliminary Definitions & Rules of Construction (Internal Preamble); (2) Concise Operative Dispositive Clauses (configurable as concise English prose, or an ultra-terse tabular/symbolic formal notation); and (3) Schedule / Appendix of Illustrative Examples (formally incorporated into the will, signed/initialed on execution for probate). |
+| **Last Will and Testament** | The formal testamentary instrument. | **Strictly clean of software/AI metadata.** Structured into two integrated parts: (1) Preliminary Definitions & Rules of Construction (Internal Preamble); and (2) Operative Dispositive and Administrative Clauses in traditional, unambiguous legal English prose. (An optional Schedule / Appendix of Illustrative Calculations may be attached for construction clarity, signed/initialed on execution). |
 | **Affidavit of Execution / Attestation** | Sworn statement by one of the subscribing witnesses before a Commissioner of Oaths or Notary Public. | Province-specific format (e.g., Ontario Form 74D / Rule 74, BC WESA Supreme Court Civil Rules affidavits, Alberta Form NC 8). Required or strongly recommended for probate in all common law provinces. |
 | **Signing and Witnessing Guide** | Detailed plain-language execution protocol. | Specifies local rules: physical presence requirement (primary default across Canada), minimum age of witnesses, disqualification of beneficiaries and spouses of beneficiaries, blue ink signing, initialing every page (including schedules/appendices), and notary/commissioner formalities. Also provides statutory remote audio-visual witnessing protocols where permanently authorized (Ontario LSO licensee requirement under SLRA s. 4(3); BC electronic/counterpart execution under WESA s. 35.2). |
-| **Advisory Safeguards & Validation Report** | Separate companion sheet providing software legal notices, statutory maintenance warnings, execution checklist, and input validation audit results. | Packaged strictly **outside** the will itself (as a preceding cover sheet or separate document) to preserve legal sanctity. Alerts executors to inter-provincial land resealing and dependant relief duties. |
+| **Advisory Safeguards & Validation Report** | Separate companion sheet providing software legal notices, statutory maintenance warnings, execution checklist, and input validation audit results. | Packaged strictly **outside** the will itself (as a preceding cover sheet or separate document) to preserve legal sanctity. Alerts executors to inter-provincial land resealing, matrimonial property elections, and dependant relief / moral claim duties. |
 | **Confidential Digital Asset Memorandum** | Private, unprobated personal memorandum for digital accounts, password manager vaults, and hardware security keys. | Maintained strictly **outside** the public probate process with the testator's personal records to preserve password secrecy, referenced by general authority in the will. |
+| **Statement of Reasons for Disinheritance (Optional)** | Evidentiary memorandum / statutory declaration explaining the testator's rationale for excluding or providing unequally for a child or spouse. | Kept with the executor strictly **outside** the will to avoid probate publicity/defamation. Admissible under BC WESA s. 62 and common-law evidence rules to defend against moral claim variation or dependant relief claims. |
 
 ---
 
@@ -76,28 +85,29 @@ For each generation run, Free-Willy produces three core documents plus an adviso
    - Ability to specify sole executor with alternates, or joint co-executors with survivorship powers.
 3. **Compensation & Expense Reimbursement:**
    - Standard trustee compensation clauses or explicit waiver of executor fees beyond reasonable out-of-pocket expenses.
-4. **Mandatory Executor Separation for Dual/Multiple Wills (Probate vs. Non-Probate):**
-   - **Strict Non-Identity Rule:** The executor (estate trustee / liquidator) of a Secondary / Non-Probate Will **CANNOT** be the same person as the executor of the Primary / Probate Will. Different, distinct individuals must be appointed.
-   - **Mandatory Will Disqualification Language:** The language in both the probate will and the non-probate will must explicitly prevent the same person from being executor of both. Every will in a dual-will plan must contain an express cross-disqualification clause:
-     > *"No person who is, becomes, or at any time acts as an Executor or Estate Trustee of my Primary (Probate) Will shall be qualified, eligible, or permitted to act as an Executor or Estate Trustee of this my Secondary (Non-Probate) Will [and vice-versa]. If any person named or eligible to act hereunder also qualifies or acts under my Primary Will, such person shall immediately be deemed disqualified and to have renounced and vacated office under this Will, and the next eligible alternate executor named in the priority list herein shall act as my sole Executor."*
-   - **Legal Purpose & Jurisprudential Protection:** Prevents "merger of estates" or unified representation arguments before provincial probate registries (e.g., in Ontario under *Granovsky* / *Milne* jurisprudence, or BC), ensuring the non-probate estate (e.g., private corporate CCPC shares) remains legally independent and immune from mandatory submission to probate and Estate Administration Tax.
+4. **Dual/Multiple Wills Executor Rules (Probate vs. Non-Probate):**
+   - **Ontario Common Executor Rule (*Granovsky*):** Under established Ontario jurisprudence (*Granovsky Estate v. Ontario*, 1998; *Milne Estate*, 2019), the executor of the Primary (Probate) Will and the Secondary (Non-Probate) Will **MAY BE THE EXACT SAME PERSON**. The division between the estates is established by the limited scope of the grant of probate issued by the court (limited to assets under the Primary Will), not by trustee identity. Testators are not forced to appoint different individuals.
+   - **Provincial Jurisdictional Nuances:**
+     - **Ontario:** Fully supported and widely utilized to minimize Estate Administration Tax (1.5% on estates over $50,000) on private CCPC shares, shareholder loans, and tangible personal property.
+     - **British Columbia:** Probate registries scrutinize multiple wills closely under WESA; while secondary wills are used, practitioners may designate distinct trustees or rely on alter ego / joint partner trusts or bare trusts due to registry practices.
+     - **Alberta:** Because Alberta caps its probate grant fees at a flat maximum of $525, dual wills to save probate fees are unnecessary and discouraged.
+     - **Quebec:** Because non-notarial wills have nominal court filing fees and notarial wills bypass probate entirely, dual wills are unnecessary.
 
 ### 4.2 Scope of Will & Asset Segregation
-Free-Willy must support two distinct scoping options for the generated will:
+Free-Willy must support distinct scoping options for the generated will:
 1. **General Will (Primary / Probate):**
    - Applies to the worldwide estate or general assets within the province/country of residence that require probate (e.g., real estate titled solely in testator's name, public bank/brokerage accounts).
-2. **Secondary / Non-Probate Will (Dual Will Strategy):**
-   - Essential for jurisdictions with high probate fees (e.g., Ontario Estate Administration Tax, BC probate fees).
+2. **Secondary / Non-Probate Will (Dual Will Strategy - Chiefly Ontario):**
+   - Essential for jurisdictions with high ad-valorem probate fees (Ontario Estate Administration Tax).
    - Governs assets that do not require court-certified probate to transfer, specifically:
      - Shares in private corporations (e.g., CCPCs - Canadian-Controlled Private Corporations).
      - Shareholder loans and promissory notes.
      - Tangible personal property (art, jewelry, collections).
-     - Private partnership interests or real estate held under beneficial trust arrangements in other provinces.
-   - Distinct definitions ensuring no overlap with the Primary Will to prevent accidental total revocation.
-   - **Independent Executor Requirement:** Must appoint an executor separate and distinct from the Primary Will executor, fortified by the mandatory cross-disqualification clause described in §4.1.4.
+     - Private partnership interests or beneficial interests held under bare nominee agreements.
+   - Distinct definitions ensuring no overlap with the Primary Will to prevent accidental revocation or probate fee contamination.
 3. **Inter-Provincial Real Estate, Resealing & Multi-Jurisdictional Scoping:**
    - **Single Canadian Will with Resealing (Default Approach):** A single General Canadian Will legally governs all real and personal property across Canadian provinces and territories. Where a testator owns real property in an additional province (e.g., an Ontario domiciliary owning recreational land in BC or rental real estate in Alberta), local land title registries require a local court confirmation. The estate transfers such land via **inter-provincial resealing** (where the probate grant issued in the home province is resealed under local provincial statutes, such as BC WESA / Supreme Court Civil Rules or Alberta Surrogate Rules) or an ancillary grant. The Safeguards Report alerts the executor to necessary resealing steps.
-   - **Elective Separate Provincial Property Wills:** If a testator specifically elects to execute a separate will for real property located in another province (or for closely held private shares to minimize probate taxes), Free-Willy accommodates this dual/multiple will architecture, strictly enforcing independent executors (§4.1.4) and mutual revocation carve-outs (§4.3).
+   - **Elective Separate Provincial Property Wills:** If a testator specifically elects to execute a separate will for real property located in another province (or for closely held private shares to minimize probate taxes), Free-Willy accommodates this dual/multiple will architecture with mutual revocation carve-outs (§4.3).
    - **Foreign Real Estate (Outside Canada):** For real estate situated outside Canada (e.g., US, Europe, Mexico), Free-Willy recommends executing separate local situs wills drafted under the governing law of the foreign jurisdiction, and preserves them via the Selective Revocation Clause (§4.3).
 
 ### 4.3 Selective Revocation & Preservation of Foreign Wills
@@ -120,37 +130,37 @@ Free-Willy must support two distinct scoping options for the generated will:
 4. **Distribution Models:**
    - **Spousal Rollover with Gift-Over:** 100% to spouse/partner if surviving the survival period; gift-over to children or named beneficiaries (*per stirpes* by default).
    - **Custom Share Allocations:** Custom named beneficiaries assigned relative share units, governed by the dynamic denominator and non-existent share rules.
-5. **Survivorship Condition & 90-Day Default Period:**
-   - **Default Survival Period (90 Days):** Unless overridden in configuration, every beneficiary must survive the testator by a minimum of **90 days** to take any gift, share, or bequest.
-   - **Unified Survival Rule (Pre- vs. Post-Execution Death Neutrality):** The same legal rules apply regardless of whether a beneficiary passed away *before* or *after* the will was made. The test is strictly binary: **a beneficiary either survives the testator by the full 90-day survival period, or they do not**.
-   - **Consequence of Non-Survival:** Any beneficiary who does not survive the 90-day period is legally treated as having predeceased the testator (triggering *per stirpes* descent to children, or share extinguishment under *per capita* / lack of issue).
+5. **Survivorship Condition & 30-Day Default Period:**
+   - **Default Survival Period (30 Days):** Unless overridden in configuration, every beneficiary must survive the testator by a minimum of **30 days** to take any gift, share, or bequest. This 30-day standard aligns with Canadian estate practice, safeguards the spousal rollover under **s. 70(6) of the *Income Tax Act***, and prevents protracted administrative delays.
+   - **Consequence of Non-Survival:** Any beneficiary who does not survive the 30-day period is legally treated as having predeceased the testator (triggering *per stirpes* descent to children, or share extinguishment under *per capita* / lack of issue).
+   - **Handling Beneficiaries Known to be Deceased (Testamentary Capacity Protection):** The system interview must screen for any beneficiaries who have already passed away at the time the will is drafted. To protect against challenges to testamentary capacity (*Banks v. Goodfellow*) or lack of knowledge and approval, the will must **NEVER** name a person known to be deceased as a direct legatee under a fictional survivorship rule. Instead, the language of the will is directly formulated to name their surviving issue, or framed unambiguously (e.g., *"To the surviving issue of my deceased brother, John Smith, in equal shares per stirpes"*).
 6. **Arbitrary Multi-Level Conditional Beneficiaries (Gift-Overs):**
    - Any bequest or residuary allocation may specify an ordered sequence of conditional beneficiaries to **any arbitrary level of nesting or conditions** (e.g., Primary Recipient -> Conditional Alternate 1 -> Conditional Alternate 2 -> ... -> Alternate N).
    - **Per Stirpes Precedence Over Conditional Beneficiaries:**
      - For any gift that operates under *per stirpes* (the system default for all residuary gifts, or explicitly designated), **conditional beneficiaries only take effect if the primary beneficiary leaves NO surviving descendants (issue)**.
-     - If the primary beneficiary does not survive the 90-day period but leaves living descendants, the gift automatically descends to those descendants *per stirpes*.
+     - If the primary beneficiary does not survive the 30-day period but leaves living descendants, the gift automatically descends to those descendants *per stirpes*.
      - The first-tier conditional beneficiary is reached only if the primary beneficiary leaves no surviving descendants. If that conditional beneficiary also fails to survive, their descendants take *per stirpes* (if the gift retains *per stirpes* status), and only if they also leave no descendants does the gift progress to subsequent conditional tiers.
    - For gifts explicitly designated *per capita*, conditional beneficiaries take immediately upon the primary beneficiary's failure to survive, without descending to the primary's children.
-7. **Default Catastrophic / Family Wipeout Fallback Clause (Parentelic Representation):**
+7. **Catastrophic / Family Wipeout Fallback Clause (Grandparent Lineage & Charity Fallback):**
    - The system must provide a default fallback clause for the entire will to prevent partial or complete intestacy if all primary, substitute, and conditional gifts fail (i.e., complete disaster / family wipeout).
    - **50/50 Spousal and Testator Family Division:** The remaining estate is divided into two equal halves:
      - 50% to the testator's family.
      - 50% to the spouse's family (if married or in a common-law relationship; if unmarried or if one side has no qualifying living descendants, 100% passes to the surviving side).
-   - **Parentelic Representation Algorithm (Nearest Ancestor with Surviving Descendants):**
-     - For each family half, the system traces back along lineal ancestry to find the **nearest related ancestor(s) from whom the testator (or spouse) descends who have surviving descendants** (e.g., parents, and if no surviving descendants of parents, grandparents, and so forth).
-     - That half is then distributed among those surviving descendants **per stirpes** (lineal representation).
-   - **Lineage Depth Limit (5 Generations):**
-     - The parentelic lineage search is strictly capped at a maximum of **5 generations of parental/ancestral lineage** (i.e., tracing up to great-great-grandparents and their descendants).
-   - **Ultimate Provincial Intestacy Fallback:**
-     - If no surviving beneficiaries are found within 5 generations of parental lineage on either or both sides, that portion or the entirety of the estate is **distributed according to the intestacy/succession laws of the province or territory governing the will**.
+   - **Parentelic Search Capped at Grandparents' Descendants:**
+     - For each family half, the system traces back along lineal ancestry to find the **nearest related ancestor(s) from whom the testator (or spouse) descends who have surviving descendants**, strictly capped at the descendants of **grandparents** (or great-grandparents if explicitly selected).
+     - That half is then distributed among those surviving descendants **per stirpes**.
+     - Capping the search at grandparents eliminates the multi-generational distant cousin / "heir-hunter" trap, avoiding massive genealogical costs and court *Benjamin Orders*.
+   - **Ultimate Charitable Wipeout Gift:**
+     - If no surviving descendants of grandparents are found on either or both sides, that portion or the entirety of the estate is **distributed to a named Canadian registered charity**.
+     - **Default Registered Charity:** **Cancer Research Society** (*Société de recherche sur le cancer*), Charitable Registration Number: **`11915 3229 RR0001`**, utilizing the testamentary bequest language from the [Cancer Research Society Guide to Writing a Will](file:///home/doug/code/free-willy/docs/crs-guide-to-writing-a-will.pdf).
 8. **Beneficiary Sets & Class Gifts (Equal Division Among Survivors):**
    - The system must support designating sets or classes of beneficiaries rather than requiring individual names and fixed shares:
      - Kinship / Lineal sets (e.g., *"my children"*, *"my descendants"*, *"the descendants of [Person X]"*).
      - Named groups of individuals (e.g., `["Alice Doe", "Bob Roe", "Charlie Smith"]`).
-   - **Equal Division Among Survivors:** The gifted property or fund is divided in equal shares among the members of the designated set who survive the 90-day survivorship period.
+   - **Equal Division Among Survivors:** The gifted property or fund is divided in equal shares among the members of the designated set who survive the 30-day survivorship period.
    - **Interaction with Distribution Rules:**
-     - Under *per capita*, the pool divides strictly among living members of the set surviving 90 days; deceased members' potential shares drop out.
-     - Under *per stirpes*, if any member of the set fails to survive the 90-day period leaving living issue, their equal share descends to their issue *per stirpes*.
+     - Under *per capita*, the pool divides strictly among living members of the set surviving 30 days; deceased members' potential shares drop out.
+     - Under *per stirpes*, if any member of the set fails to survive the 30-day period leaving living issue, their equal share descends to their issue *per stirpes*.
 9. **Dual Capacity & Multiple Appearance in a Per Stirpes Gift ("Double Dipping" Rules):**
    - When an individual qualifies for a gift through more than one branch of descent or capacity (e.g., descending from two deceased siblings through intermarriage, or qualifying under both an individual share and a class gift):
    - **Default Branch Representation Rule (Cumulative Entitlement):**
@@ -160,76 +170,52 @@ Free-Willy must support two distinct scoping options for the generated will:
      - The configuration may explicitly specify a deduplication rule (`multiple_appearance: "deduplicated"`), providing that an individual may only receive a single share, with any redundant entitlement redistributed among other members of that branch or returning to the residue.
    - **Named + Class Concurrency Rule:**
      - If an individual is explicitly named for an individual share and also qualifies under a general class gift in the same disposition, they receive both entitlements cumulatively unless the will clause explicitly states: *"excluding any person otherwise provided for in this Will"*.
-10. **Concise Beneficiary Designations, Internal Preamble Definitions & Incorporated Appendix of Examples:**
-    - **Concision in Operative Clauses:** Beneficiary designations within the body of the will must be formulated as concisely as possible (e.g., crisp statements of shares, sets, or specific gifts), avoiding cumbersome inline repetition of construction rules and arithmetic formulas.
-    - **Interpretive Clarity via Internal Preamble:** Complete legal clarity, statutory rules of construction, and technical definitions (*per stirpes*, *per capita*, *survivorship*, *descendants*, *share contraction / non-existent shares*, *tax allocation*, *dual-capacity representation*) are centralized in the will's preliminary definitions section (internal preamble).
-    - **Incorporated Appendix of Illustrative Examples (Part of the Will):**
-      - Concrete calculation scenarios and mathematical walkthroughs (e.g., worked examples of share contraction when a beneficiary predeceases without issue, per stirpes branch distributions, dual-capacity branch calculations) are set out in an attached **Schedule / Appendix of Construction & Examples**.
-      - **Formal Testamentary Status:** This appendix is an integral **part of the will itself**, formally incorporated by express reference. It is physically executed alongside the will and **receives initials on each page and witness signatures**, ensuring it possesses binding testamentary authority for executors, trustees, and probate courts when construing testator intent.
-    - **Option for Specifying Gifts More Tersely Than English (Symbolic / Tabular Formalism):**
-      - **Terse Formal Notation Option:** As an alternative or supplement to concise narrative English prose, Free-Willy supports specifying testamentary gifts using a structured, formal notation that is substantially more terse than English sentences:
-        1. **Tabular Matrix Notation:** Presenting residuary and specific gifts in an unambiguous structured schedule or table within the operative clause:
-           | Beneficiary / Set | Allocation | Mode | Alternate / Gift-Over | Tax Allocation |
-           | :--- | :--- | :--- | :--- | :--- |
-           | Jane Doe | 3 shares | PS | Richard Roe → CWF | Residue offset |
-           | Richard Roe | 2 shares | PS | Issue | Residue offset |
-           | John Smith (nephew) | 1 share | PC | ⊘ (Extinguish) | Residue offset |
-           | descendants_of(Richard Roe) | 2 shares (equal) | PS | Issue | Residue offset |
-           | Canadian Red Cross | $5,000.00 | Cash | None | Direct remittance |
-        2. **Symbolic / Algebraic Shorthand Notation:** Expressing dispositions through a rigorous, domain-specific formal grammar:
-           `Residue := 3: Jane Doe [PS -> Richard Roe -> CWF] + 2: Richard Roe [PS] + 1: John Smith (nephew) [PC] + 2: descendants(Richard Roe) [PS, equal]`
-           `Specific := $5,000.00 -> Canadian Red Cross [tax: direct_remittance]`
-      - **Legal Grounding & Judicial Enforceability:**
-        - Under Canadian testamentary jurisprudence (the common-law *armchair rule*), probate courts interpret the testator's intention from the face of the document as a whole.
-        - Because every symbol, acronym, and column header (`PS` = *per stirpes*, `PC` = *per capita*, `+` = share sum forming dynamic denominator, `->` = conditional gift-over, `⊘` = non-existent share extinguishment) is explicitly defined in the **Internal Definitions Preamble**, and fully demonstrated through worked scenarios in the **Incorporated Appendix of Examples (Schedule A)** executed with initials and signatures, the terse formal notation is legally sound, unambiguous, and impervious to misinterpretation.
+10. **Operative English Legal Prose & Optional Illustrative Appendix:**
+    - **Operative Clauses in Standard Legal Prose:** To guarantee probate certainty without court intervention or probate registry requisitions, all dispositive clauses within the body of the will must be formulated in concise, unambiguous traditional legal English prose.
+    - **Prohibition of Shorthand/Symbolic Notation in Operative Clauses:** Symbolic or algebraic expressions (such as `Residue := 3: Alice [PS]...`) are strictly prohibited in the operative clauses of the will, as they jeopardize probate grant issuance and invite litigation.
+    - **Optional Appendix / Schedule of Illustrative Calculations:** Where beneficial for complex share models, an attached Schedule of Construction & Examples may be incorporated, providing worked arithmetic scenarios to demonstrate testator intent.
 
-### 4.5 Minor Testamentary Trusts & Guardian Appointments
+### 4.5 Minor Testamentary Trusts & Comprehensive Administrative Powers
 1. **Staged Age of Distribution & Provincial Age of Majority (18 vs. 19):**
    - **Provincial Minimum Age of Majority Alignment:** Milestone distribution ages must be at or above the governing provincial age of majority (minimum **18** in AB, MB, ON, PE, SK, QC; minimum **19** in BC, NB, NL, NS, YT, NT, NU).
    - **Validation Rejection of Premature Payouts:** The validation engine strictly rejects milestone ages below the provincial age of majority, ensuring estate funds are not forced into court custody or the hands of the provincial Public Guardian and Trustee.
-   - **Contingent Gift-Overs (*Saunders v. Vautier* Rule):** Any trust distributing at an age beyond majority (e.g., age 21, 25, or fractional releases such as 50% at 21, balance at 25) must include explicit contingent gift-overs (e.g., gift passing to the beneficiary's issue, or failing issue to other residuary beneficiaries, if the beneficiary dies before attaining that age). This prevents the interest from indefeasibly vesting at the age of majority and legally forecloses the beneficiary from demanding premature trust termination under the rule in *Saunders v. Vautier*.
-2. **Trustee Discretionary Encroachment Powers:**
-   - Discretionary powers to encroach on income and capital for maintenance, education, advancement, and medical care of minor beneficiaries prior to milestone ages.
-3. **Trustee Investment Powers (Varcoe / Prudent Investor Expansion):**
-   - **Express Expansion of Statutory Trustee Acts:** The will explicitly defines expanded investment discretion for trustees, relieving them from the strict, archaic constraints of provincial *Trustee Acts*.
-   - **Broad Asset Class Authorization:** Authorizes investment in modern, diversified asset classes including mutual funds, index funds, exchange-traded funds (ETFs), pooled investment trusts, real estate, private business securities, debt instruments, and digital assets/cryptocurrencies.
-   - **Exemption from Statutory Diversification Ratios & Exculpation:** Authorizes trustees to make investments without regard to fixed statutory diversification ratios or traditional income/capital balancing requirements, and includes a comprehensive exculpatory clause shielding trustees from personal liability for portfolio loss or market downturns provided they act honestly, in good faith, and without gross negligence.
-4. **Guardian / Tutor Nomination:**
+   - **Contingent Gift-Overs (*Saunders v. Vautier* Rule):** Any common-law trust distributing at an age beyond majority (e.g., age 21, 25) must include explicit contingent gift-overs to prevent premature trust termination under the rule in *Saunders v. Vautier*. (In Quebec, testamentary trusts are governed under CCQ Arts. 1260–1298 as patrimonies by appropriation).
+2. **Guardian / Tutor Nomination:**
    - Parental appointment of testamentary guardian/custodian for minor children, subject to provincial court ratification.
+3. **Comprehensive Executor & Trustee Administrative Powers (Avoiding Court Orders):**
+   The will must confer comprehensive administrative powers on executors and trustees so they can administer the estate smoothly and handle reasonable situations without seeking costly court approval:
+   - **Power of Sale and Conversion:** Absolute discretion to sell, call in, and convert any real or personal property by public auction or private contract, on terms they consider best, or to postpone sale indefinitely without liability for loss.
+   - **Power to Distribute in Specie (In-Kind Allocation):** Absolute power to make any division, allocation, or distribution of the estate in kind (in specie) or partly in cash and partly in kind, and to determine the fair market value of any asset for distribution purposes, which valuation shall be conclusive and binding on all beneficiaries.
+   - **Post-Mortem Corporate Tax Reorganization Powers (Crucial for CCPC Secondary Wills):** Comprehensive authority to implement post-mortem corporate reorganizations (e.g., capital loss carrybacks under **s. 164(6) of the *Income Tax Act***, "pipeline" planning, or s. 85 rollovers) to eliminate double taxation on shares of private corporations.
+   - **Power to Make Tax Elections:** Full discretion to make all elections, designations, and determinations under the *Income Tax Act* (federal and provincial), including spousal rollover elections under s. 70(6), capital gains exemption claims, and allocation of tax credits among beneficiaries.
+   - **Power to Borrow, Mortgage, and Pledge:** Authority to borrow money from any lender (including an executor in their personal capacity) for estate administration, tax payments, or preservation of assets, and to mortgage or pledge estate property as security.
+   - **Power to Compromise and Settle Claims:** Broad power to compromise, compound, arbitrate, or abandon any claims, debts, or liabilities owed to or by the estate without court approval.
+   - **Real Estate Management Powers:** Power to manage, lease, repair, alter, develop, insure, or mortgage any real estate held by the estate.
+   - **Trustee Investment Discretion (Prudent Investor Expansion):** Broad authority to invest in modern asset classes (mutual funds, index funds, ETFs, real estate, private business debt/equity, digital assets) without regard to statutory diversification ratios or income/capital balancing rules, accompanied by standard exculpatory protections for good-faith decisions.
+   - **Discretionary Protective Trusts / Henson Trust Principles:** Discretion to hold funds in a fully discretionary trust for any beneficiary who is incapacitated or receiving provincial disability assistance (e.g., Ontario ODSP, Alberta AISH), ensuring estate distributions do not disqualify them from provincial social support benefits.
 
-### 4.6 Specific Bequests, Inherited Property, Pets, and Digital Assets
-1. **Pecuniary & Specific Legacies:**
-   - Specific sums of money or identified personal property items bequeathed to named individuals or registered charities.
-   - **Multi-Level Conditional Alternates:** Any specific bequest can designate conditional beneficiaries to any depth of nesting. If the gift is governed by *per stirpes*, alternate conditional beneficiaries only take if the primary legatee dies leaving no surviving descendants.
-2. **Identification of Inherited Property:**
-   - **Explicit Inherited Property Designation:** Any testamentary gift consisting of property that was inherited by the testator must be expressly identified as inherited property in the clause.
-   - **Source Attribution:** The clause must explicitly state the source(s) of the property (e.g., inherited from a named benefactor, predecessor estate, family lineage, or specific trust).
-3. **Tax Liability & Allocation for Specific Gifts of Financial Value (Beneficiary Responsibility):**
-   - **Beneficiary Obligation:** For any specific gifts possessing financial value (e.g., pecuniary legacies, securities, corporate shares, investment accounts, or appreciated property generating capital gains or deemed disposition taxes upon death), any taxes attributable to or arising from the gift must be borne and paid by the beneficiary receiving the gift, rather than depleting the general residue of the estate.
-   - **Payment Satisfaction Mechanisms:** The recipient beneficiary must satisfy their apportioned tax liability through one of the following three permitted methods:
-     1. **Residuary Offset:** Deducted from the beneficiary's share of any residuary estate (where the recipient is also entitled to a residuary share).
-     2. **Partial Sale of Gifted Property:** Liquidating or selling a sufficient portion of the gifted property or asset to remit the required taxes to the estate.
-     3. **Direct Remittance to Estate:** Remitting funds directly to the estate executors/liquidators in the required amount to satisfy the tax liability prior to the release or transfer of the property.
-   - **Executor Lien / Retention Power:** Executors and trustees are granted the administrative power to hold back delivery or transfer of the specific gift until the beneficiary's tax obligation has been satisfied via one of the three permitted methods.
-4. **Digital Assets Provision & Password Manager Credential Management:**
-   - **Statutory Authority over Electronic Records:** Express executor authority to access, control, manage, modify, archive, or delete digital accounts, emails, financial portals, cryptocurrencies, cloud storage, and domain names in compliance with service provider terms of service.
-   - **Executor Credential & Vault Authority:** Express testamentary authorization for the executor to utilize the testator's password managers (e.g., 1Password, Bitwarden), encrypted vaults, hardware security keys (e.g., YubiKeys), and biometric fallbacks to access digital estate assets.
-   - **Strict Public Will Privacy (External Digital Asset Memorandum):** Specific passwords, master keys, recovery seeds, PINs, and sensitive account inventories **MUST NEVER** be written in the Last Will and Testament itself (which becomes an unsealed public court record upon probate). Instead, the will incorporates standard legal authority while referencing a separate, confidential **Digital Asset Memorandum** (kept securely with personal records and delivered directly to the named executor upon death).
-5. **Pet Care Provisions:**
-   - Bequest of pets to designated caregivers, optionally accompanied by an honorary trust or cash fund for veterinary care and maintenance.
+### 4.6 Registered Plans, Insurance, Inherited Property, and Digital Assets
+1. **Confirmation of Registered Plans (RRSP, RRIF, TFSA, FHSA) & Insurance Designations:**
+   - **Non-Revocation & Confirmation Clause:** The will contains an express declaration confirming all prior beneficiary designations for registered retirement savings plans (RRSPs), registered retirement income funds (RRIFs), tax-free savings accounts (TFSAs), first home savings accounts (FHSAs), and life insurance policies made outside the will.
+   - **General Revocation Protection:** Explicitly provides that the general revocation clause in the will does **NOT** revoke any instrument designating beneficiaries for registered plans or insurance policies under provincial succession/insurance statutes.
+   - **Tax Liability on Registered Accounts Borne by Residue:** Specifies that any terminal income taxes arising from the deemed collapse or disposition of registered plans on death (e.g., RRSP/RRIF deemed income inclusion under the *Income Tax Act*) shall be **borne and paid out of the general residue of the estate**, ensuring the designated beneficiary receives the proceeds without deduction unless a contrary intention is explicitly configured.
+2. **Specific Bequests & Inherited Property Identification:**
+   - Specific sums of money (pecuniary legacies) or identified personal property bequeathed to named individuals or registered charities.
+   - **Provenance Attribution:** Inherited property is explicitly identified along with its ancestral/family source to maintain transparent estate records.
+3. **Digital Assets Provision & Password Manager Credential Management:**
+   - Express executor authority to access, control, manage, modify, archive, or delete digital accounts, emails, financial portals, cryptocurrencies, cloud storage, and domain names in compliance with service provider terms of service.
+   - Express testamentary authorization to utilize password managers (1Password, Bitwarden), encrypted vaults, and hardware security keys (YubiKeys).
+   - **Strict Public Will Privacy:** All sensitive master keys, seed phrases, and passwords are kept strictly out of the public will and housed in the confidential **Digital Asset Memorandum**.
+4. **Pet Care Provisions:**
+   - Bequest of pets to designated caregivers, accompanied by an honorary cash fund or trust for veterinary care and maintenance.
 
-### 4.7 Person Identity & Disambiguation of Identical Names
-1. **Machine-Generated Clarity Guarantee:**
-   - If two or more distinct individuals identified in the will share the exact same legal name (e.g., senior and junior, parent and child, cousins, or unrelated individuals), the machine-generated will must make each person's identity unmistakably distinct in every clause where they are referenced.
-2. **Mandatory Disambiguating Attributes:**
-   - When identical names occur across any role (executors, trustees, guardians, specific legatees, residuary beneficiaries, or substitute takers), the template rendering engine must mandate and incorporate one or more disambiguating attributes into the generated legal text:
-     - **Relationship to Testator:** (e.g., *"my brother John Smith"*, *"my nephew John Smith"*).
-     - **Current Residential Locality / Domicile:** (e.g., *"of the City of Calgary, Alberta"*, *"currently residing in Halifax, Nova Scotia"*).
-     - **Generational / Seniority Qualifiers:** (e.g., *"John Smith, Senior"*, *"John Smith, Junior"*).
-     - **Parentage / Lineage Details:** (e.g., *"the son of my sister Mary Doe"*).
-     - **Date / Year of Birth:** (e.g., *"born July 14, 1980"*), where relationship and address alone are insufficient to distinguish peers.
+### 4.7 Matrimonial Property Elections & Person Disambiguation
+1. **Spousal Matrimonial Property Rights (Family Law Harmonization):**
+   - The will includes a standard declaration stating whether gifts made to a surviving spouse are **in addition to**, and not in satisfaction of, any statutory equalization claim, division of matrimonial property, or family relief allowance under governing provincial family law statutes (e.g., Ontario *Family Law Act* s. 5 & 6, Alberta *Family Property Act*, BC *Family Law Act*).
+2. **Machine-Generated Disambiguation of Identical Names:**
+   - When identical names occur across any role (executors, trustees, guardians, specific legatees, residuary beneficiaries, or substitute takers), the template rendering engine mandates and incorporates distinguishing attributes (relationship, locality/domicile, seniority qualifier, parentage, or birth year) into the generated legal text, eliminating registry requisitions.
 3. **Data Model Representation (Entity Separation):**
-   - In declarative configurations, every person must have an independent, distinct entity representation or unique identifier (`id`), ensuring they are never conflated by compilers or AI drafting agents, even when string values for `legal_name` or `full_name` are identical.
+   - In declarative configurations, every person has an independent unique identifier (`id`), ensuring they are never conflated by compilers or AI drafting agents, even when string values for `legal_name` or `full_name` are identical.
 
 ---
 
@@ -325,7 +311,7 @@ conflicts_with:
   - "residue_per_capita_v1"
 requires:
   - "revocation_general"
-legal_notes: "Implements default per stirpes rule. Pre-death and post-execution deaths treated identically under 90-day survival condition."
+legal_notes: "Implements default per stirpes rule. Governed by 30-day survival condition."
 ```
 
 ### 6.4 Machine-Readable Clause Manifest / Catalog
@@ -389,11 +375,10 @@ scope_of_will:
         description: "Real property situated in England and Wales"
 
 drafting_options:
-  gift_clause_style: "concise_english" # "concise_english" (default) | "terse_tabular" | "terse_symbolic"
-  # "terse_tabular": renders operative gifts in a structured dispositive table
-  # "terse_symbolic": renders operative gifts in formal symbolic algebraic shorthand (e.g. 3: Alice [PS] + 2: Bob [PS])
+  gift_clause_style: "standard_legal_english" # Dispositive clauses rendered in unambiguous legal English prose for probate certainty
+  include_illustrative_appendix: true # Optional Schedule A with worked calculations to assist executor construction
 
-survivorship_days: 90 # System default: 90 days
+survivorship_days: 30 # System default: 30 days (protects ITA s. 70(6) spousal rollover and avoids freezes)
 
 appointments:
   executors:
@@ -403,12 +388,11 @@ appointments:
         relationship: "sister"
         address: "Ottawa, ON"
       - class: "descendants_by_decreasing_age"
-  # In a Dual-Will plan (Primary Probate + Secondary Non-Probate), executors CANNOT be the same person:
+  # In a Dual-Will plan (e.g. Ontario Primary Probate + Secondary Corporate), executors can be the same person under Granovsky:
   # secondary_will_executors:
   #   priority_order:
-  #     - person: "Richard Roe" # Strictly distinct from Primary Will executors (cannot be spouse or Jane Doe)
-  #       relationship: "brother"
-  #       address: "Calgary, AB"
+  #     - person: "spouse"
+  #     - person: "Jane Doe"
   guardians:
     priority_order:
       - person: "Jane Doe"
@@ -454,25 +438,30 @@ beneficiaries:
       type: "pecuniary"
       amount: 5000.00
       currency: "CAD"
-      tax_allocation:
-        borne_by: "beneficiary" # "beneficiary" (default for financial gifts) | "estate_residue"
-        payment_method: "residue_offset" # "residue_offset" | "partial_sale" | "remit_funds"
     - recipient: "Jane Doe"
       type: "tangible_property"
       description: "My grandfather's gold pocket watch"
       is_inherited: true
       source_of_property: "Inherited from grandfather (Arthur Doe, Estate of Arthur Doe)"
-      tax_allocation:
-        borne_by: "beneficiary"
-        payment_method: "remit_funds"
       conditional_beneficiaries:
         - recipient: "Richard Roe"
   # Default catastrophic wipeout clause for the entire will:
   ultimate_fallback:
-    rule: "parentelic_50_50_spousal_split" # 50% testator family, 50% spouse family via nearest ancestor with surviving issue per stirpes
-    max_generations: 5 # Capped at 5 generations of parental/ancestral lineage
-    no_beneficiaries_fallback: "provincial_intestacy_laws" # If no beneficiaries found within 5 generations, distribute per governing province's intestacy statutes
+    rule: "parentelic_50_50_spousal_split_grandparents" # 50% testator family, 50% spouse family via nearest ancestor with surviving issue per stirpes, capped at grandparents
+    capped_lineage: "grandparents" # Tracing capped at grandparents' descendants
+    default_charity:
+      name: "Cancer Research Society"
+      french_name: "Société de recherche sur le cancer"
+      registration_number: "11915 3229 RR0001"
+      bequest_guide_reference: "docs/crs-guide-to-writing-a-will.pdf"
     enabled: true
+
+registered_plans_and_insurance:
+  confirm_existing_designations: true
+  taxes_borne_by_residue: true
+
+spousal_matrimonial_election:
+  treatment: "in_addition_to_equalization" # "in_addition_to_equalization" (default) | "in_satisfaction_of_equalization"
 
 digital_assets:
   authorize_executor_access: true
@@ -526,17 +515,22 @@ Before generating documents, Free-Willy validates the input data against provinc
    - **Testator Age:** Validates testator minimum age requirements (18 in AB, SK, MB, ON, PEI, QC; 19 in BC, NB, NL, NS, YT, NT, NU), flagging exceptions (e.g., military service or married minors where permitted by statute).
    - **Minor Trust Distribution Milestone Validation:** Strictly rejects any trust distribution milestone set below the governing provincial age of majority (18 or 19), preventing court transfer of funds to the provincial Public Guardian and Trustee.
    - **Saunders v. Vautier Gift-Over Audit:** Validates that any trust with distribution milestones extending beyond the age of majority includes contingent gift-overs to prevent premature trust termination.
-3. **Dependant Support Obligations (Family Relief):**
-   - Issues warnings where provincial statutes impose mandatory claims for spouses or dependent children (e.g., Ontario SLRA Part V, BC WESA Part 4) if the distribution omits a dependent.
+3. **Dependant Support Obligations & Moral Claims Audit:**
+   - Evaluates whether any spouse, common-law partner, or child is omitted or provided for unequally:
+     - **Financial Need Provinces (ON, AB, SK, MB, Atlantic):** Audits for omitted spouses, minor children, or adult children who were financially supported at the time of death, issuing statutory warnings under provincial family relief acts (e.g., Ontario *SLRA* Part V, Alberta *WSA*).
+     - **British Columbia Moral Claims (*WESA* s. 60):** In BC, explicitly flags that courts possess statutory authority to vary a will if it fails to make "adequate, just and equitable provision" for adult, financially independent children based on **moral obligations** (*Tataryn v. Tataryn Estate*).
+   - **Generation of Statement of Reasons for Disinheritance:**
+     - Where a child or spouse is excluded or treated unequally, Free-Willy provides an optional companion **Statement / Memorandum of Reasons for Disinheritance** (maintained confidentially outside the public probate will).
+     - Framed to satisfy statutory admissibility requirements (e.g., *WESA* s. 62) by setting out the testator's rational, objective, and substantiated reasons (e.g., lack of relationship, substantial lifetime gifts, greater financial need of other heirs) to assist executors in defending against court variation.
 4. **Quebec Formalities Notice:**
    - Notes that a will before witnesses will require probate upon death, whereas a notarial will does not.
 5. **Same-Name Disambiguation Enforcement:**
    - Detects when two or more distinct individuals (executors, trustees, guardians, specific legatees, residuary beneficiaries, or substitute takers) share identical legal names.
    - Mandates that differentiating attributes (relationship, locality/residence, seniority qualifier, parentage, or birth year) are provided in the configuration and rendered in all relevant clauses, preventing court confusion and probate delays.
-6. **Dual-Will Executor Independence Enforcement:**
-   - Verifies that when both a Primary (Probate) Will and a Secondary (Non-Probate) Will are generated, the designated executors and alternate lists do not share the same primary appointee.
-   - Enforces strict appointment of different, independent persons for probate and non-probate estates.
-   - Validates that the mandatory testamentary cross-disqualification / exclusion clause is rendered in both instruments to prevent joint representation and probate fee exposure.
+6. **Dual-Will Asset Segregation & Provincial Suitability Audit:**
+   - Verifies that when both a Primary (Probate) Will and a Secondary (Non-Probate) Will are generated, the asset definitions are mutually exclusive, preventing probate fee contamination or accidental total revocation.
+   - Confirms that in Ontario, the same executor may act under both wills in compliance with *Granovsky* and *Milne*.
+   - Alerts testators in Alberta and Quebec that dual wills are unnecessary due to Alberta's flat $525 fee cap and Quebec's nominal court fees.
 7. **Digital Asset Privacy & Credential Hygiene Check:**
    - Validates that no plaintext passwords, master encryption keys, cryptocurrency private keys, recovery seed phrases, or sensitive vault credentials are contained in the Last Will and Testament or its attached schedules.
    - Ensures sensitive digital credentials are directed exclusively to the confidential, unprobated **Digital Asset Memorandum**.
@@ -557,7 +551,7 @@ Before generating documents, Free-Willy validates the input data against provinc
 To ensure beneficiary designations within the operative body of the will remain as concise as possible, explanatory clarity is achieved through two formal testamentary components **within the will itself**:
 
 1. **Internal Definitions Preamble (Within the Body of the Will):**
-   - Preceding the dispositive clauses, the will contains a formal preliminary section establishing binding legal definitions for terms used throughout the will (*per stirpes*, *per capita*, *survivor / 90-day survivorship*, *descendants*, *share allocation / non-existent shares*, *tax allocation*, *dual-capacity representation*).
+   - Preceding the dispositive clauses, the will contains a formal preliminary section establishing binding legal definitions for terms used throughout the will (*per stirpes*, *per capita*, *survivor / 30-day survivorship*, *descendants*, *share allocation / non-existent shares*, *dual-capacity representation*).
    - This keeps operative gift clauses crisp and uncluttered while eliminating legal ambiguity.
 
 2. **Incorporated Testamentary Appendix of Illustrative Examples (Part of the Will):**
@@ -572,11 +566,11 @@ To ensure beneficiary designations within the operative body of the will remain 
      > *If a beneficiary cannot receive their share (for example, if they have died and have no children to inherit under per stirpes), their shares simply **do not exist**. The total share count shrinks automatically, and the remaining beneficiaries divide the estate in proportion to their own shares without leaving any undisposed leftover money."*
    - Illustrate with a concrete example (e.g., 3 shares to Alice, 2 to Bob, 1 to Charlie = 6 shares. If Charlie is ineligible, total becomes 5 shares: 3/5 to Alice, 2/5 to Bob).
 
-2. **The 90-Day Survivorship Rule:**
-   - The preamble must clearly explain why and how the 90-day survival rule operates:
-     > *"Survivorship Requirement (90 Days):*  
-     > *To inherit under this will, a beneficiary must survive you by at least 90 days. It does not matter whether a person passed away before or after you wrote this will—if they do not live at least 90 days after your death, they are treated as having predeceased you.*  
-     > *This prevents your estate from passing into a deceased beneficiary's estate, avoiding double probate fees and unwanted delays."*
+2. **The 30-Day Survivorship Rule:**
+   - The preamble clearly explains why and how the 30-day survival rule operates:
+     > *"Survivorship Requirement (30 Days):*  
+     > *To inherit under this will, a beneficiary must survive you by at least 30 days.*  
+     > *This prevents your estate from passing into a deceased beneficiary's estate (avoiding double probate fees and unwanted delays) while fully preserving the spousal rollover under s. 70(6) of the Income Tax Act."*
 
 3. **Per Stirpes vs. Per Capita Distinctions:**
    - The Advisory Preamble **must clearly explain the legal distinction and real-world implications** between *per stirpes* and *per capita* distribution:
@@ -587,8 +581,8 @@ To ensure beneficiary designations within the operative body of the will remain 
 
 4. **Tax Obligations on Specific Financial Gifts & Inherited Property Disclosures:**
    - The Advisory Preamble must clearly educate the testator and beneficiaries regarding tax responsibilities on specific bequests:
-     > *"Taxes on Specific Gifts of Financial Value:*  
-     > *If you leave a specific gift of financial value (such as a cash legacy, securities, or appreciated property), any taxes triggered by that gift are paid by the beneficiary receiving it—not deducted from the residue meant for others.*  
+     > *"Taxes on Specific Gifts of Appreciated Property:*  
+     > *General cash gifts trigger no income tax in Canada. However, if you leave a specific gift of appreciated property (such as real estate or private company shares), any taxes triggered by that gift are paid by the beneficiary receiving it—not deducted from the residue meant for others.*  
      > *The beneficiary can satisfy these taxes by having them deducted from their share of the residue (if they are a residuary beneficiary), by selling a portion of the property, or by remitting funds directly to your estate.*  
      > *Inherited property is explicitly identified along with its original source(s) to maintain transparent provenance and family records."*
 
@@ -597,12 +591,12 @@ To ensure beneficiary designations within the operative body of the will remain 
      > *"Backup / Conditional Beneficiaries:*  
      > *You may name backup beneficiaries to any number of levels for any gift. However, if a gift is given 'per stirpes' (the default rule), your backup beneficiary will ONLY receive the gift if the primary beneficiary dies leaving NO living children or grandchildren. If the primary beneficiary leaves children, the gift passes directly down to those children instead.*  
      > *Ultimate Family Disaster / Wipeout Clause:*  
-     > *If everyone you named in your entire will passes away without surviving descendants, your estate will not be lost to the government. Instead, your estate is split 50/50 between your family and your spouse's family. For each side, the law traces up through your parental lineage (up to a maximum of 5 generations) to the closest ancestors who have living descendants and distributes that half to them per stirpes. If no living descendants can be found within 5 generations of parental lineage, that portion is distributed according to the intestacy laws of your province or territory."*
+     > *If everyone you named in your entire will passes away without surviving descendants, your estate will not be lost to the government. Instead, your estate is split 50/50 between your family and your spouse's family, tracing to the closest ancestors who have living descendants up to grandparents (or great-grandparents). If no living descendants of grandparents can be found, the estate is gifted to our default registered Canadian charity, the **Cancer Research Society** (Société de recherche sur le cancer, Registration: 11915 3229 RR0001), in accordance with their [Guide to Writing a Will](file:///home/doug/code/free-willy/docs/crs-guide-to-writing-a-will.pdf)."*
 
 6. **Beneficiary Sets & Dual-Capacity Representation Rules:**
    - The Advisory Preamble must clearly explain how class gifts and multiple appearances operate:
      > *"Gifts to Groups or Sets of Beneficiaries:*  
-     > *You may leave gifts to a group or class (such as 'my children', 'my descendants', or 'the descendants of [Person]'). The property is divided in equal shares among the members of the group who survive you by at least 90 days (with children inheriting their parent's share under per stirpes).*  
+     > *You may leave gifts to a group or class (such as 'my children', 'my descendants', or 'the descendants of [Person]'). The property is divided in equal shares among the members of the group who survive you by at least 30 days (with children inheriting their parent's share under per stirpes).*  
      > *If an Individual Inherits Through Multiple Branches:*  
      > *Under a per-stirpes gift, shares attach to family branches rather than specific individuals. If family connections allow an individual to inherit through more than one branch (for example, if cousins married and an heir descends through two branches, or if an heir is given an individual share and also belongs to a class), they receive the share belonging to each branch by default, unless you choose to limit them to a single share."*
 
