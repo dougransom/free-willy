@@ -109,3 +109,82 @@
   * Comprehensive testamentary trust terms avoiding the rule in *Saunders v. Vautier* (ensuring gifts do not prematurely collapse and vest absolutely upon the beneficiary reaching provincial age of majority).
   * Discretionary interim encroachment powers for health, education, maintenance, and advancement (*HEMA*).
   * Contingent gift-over provisions in the event the beneficiary dies before attaining age $Y$.
+
+### UC-TRUST-02: Spendthrift & Creditor Protective Trusts (Insolvent / At-Risk Beneficiaries)
+* **Status:** Pending Processing
+* **Mapped Requirements:** Unmapped (Requires extension to §4.5: Protective & Discretionary Trusts)
+* **Scenario:** A designated beneficiary (e.g., an adult child) is in active bankruptcy, has substantial judgment creditors, operates a high-liability business, or is undergoing contentious matrimonial litigation at the time of distribution.
+* **Intent & Legal Invariants:**
+  * An outright bequest or fixed trust interest would be seized by a bankruptcy trustee or judgment creditors under provincial execution statutes.
+  * The will must establish a **protective determinable trust**: if the beneficiary undergoes bankruptcy, attempts to alienate, assign, or mortgage their interest, or if creditors attempt seizure, their fixed interest immediately terminates.
+  * The trust automatically converts into a fully discretionary trust where the trustee may, in absolute discretion, apply income or capital for the maintenance and living expenses of the beneficiary and their dependents, without the beneficiary possessing an enforceable property right that creditors can attach.
+
+---
+
+## 5. Real Property & Family Asset Scenarios
+
+### UC-PROP-01: Life Interest / Exclusive Right of Residence (Blended Families & Qualifying Spousal Trust)
+* **Status:** Pending Processing
+* **Mapped Requirements:** Unmapped (Requires new §4.8: Life Interests & Residential Rights of Occupancy)
+* **Scenario:** The testator owns residential real estate (solely or as tenant-in-common) and has children from a previous relationship, alongside a surviving spouse or partner.
+* **Intent & Practical Allocation:**
+  * The surviving spouse is granted the exclusive right to occupy, use, and enjoy the family home for the duration of the spouse's life (or until an earlier terminating event, such as remarriage, entry into a common-law partnership, permanent vacancy for >$N$ consecutive months, or permanent admission into a specialized long-term care facility).
+  * **Allocation of Carrying Costs:** Clear division of financial obligations:
+    * *Spouse's Responsibility:* Property taxes, homeowner's insurance, utilities, routine maintenance, and minor repairs.
+    * *Estate / Capital Responsibility:* Major structural repairs, replacement of roof/furnace, and mortgage principal (if applicable).
+  * **Power to Sell & Downsize:** Trustee power, with the spouse's consent, to sell the home and use the net proceeds to purchase a smaller replacement residence subject to the same terms, or invest the surplus proceeds with income paid to the spouse.
+  * **Remainder to Children:** Upon the spouse's death or cessation of residence, the property (or proceeds) vests absolutely in the testator's children in equal shares per stirpes.
+  * **Tax Invariants:** Must be drafted to satisfy the strict criteria of a **Qualifying Spousal Trust under s. 70(6) of the *Income Tax Act*** to preserve the tax-deferred spousal capital gains rollover at death.
+
+### UC-PROP-02: Option to Purchase / Right of First Refusal for Family Assets (Cottages & Private Business Shares)
+* **Status:** Pending Processing
+* **Mapped Requirements:** Unmapped (Requires extension to §4.5.3: Administrative Powers & Asset Realization)
+* **Scenario:** The estate includes a unique asset that cannot be practically subdivided—such as a family recreational cottage, rural real estate, or shares in a closely held family business (CCPC).
+* **Intent & Practical Allocation:**
+  * One child or group of beneficiaries has a deep personal or operational connection to the asset, while other beneficiaries prefer cash/liquidity.
+  * The will grants the designated beneficiary an exclusive option to purchase the property or shares from the estate within a defined window (e.g., within 90 days following the issuance of the grant of probate).
+  * **Valuation Mechanism:** The purchase price is determined by an independent accredited appraisal (AACI for real estate; CBV for business shares), optionally with a defined deduction reflecting saved real estate commission (e.g., 3–5%).
+  * **Equalization:** The purchase proceeds are paid into the general residue of the estate and distributed among all beneficiaries under the residuary distribution formula, preventing family disputes and forced partition sales under provincial partition legislation.
+
+### UC-PROP-03: Specific Real Estate Gifts Subject to Encumbrance (Mortgage Exoneration vs. Assumption)
+* **Status:** Pending Processing
+* **Mapped Requirements:** Unmapped (Requires extension to §4.6.2: Specific Bequests & Real Estate Debt Apportionment)
+* **Scenario:** The testator devises a specific real property (e.g., a recreational property or rental condominium) to a specific named beneficiary, but the property is encumbered by an outstanding mortgage, collateral loan, or line of credit.
+* **Intent & Practical Allocation:**
+  * Under Canadian common law and provincial statutes (e.g., Ontario *Succession Law Reform Act* s. 32; BC *Wills, Estates and Succession Act* s. 47), the statutory default presumption is that **encumbered property bears its own debt**—the specific devisee takes the property subject to the mortgage without exoneration from the residue.
+  * The system must allow the testator to make an explicit, informed election:
+    1. **Mortgage Assumption (Default):** Devisee takes the property subject to the mortgage and indemnifies the estate against mortgage debt.
+    2. **Mortgage Exoneration (Residuary Satisfaction):** Directs the executor to pay off and discharge the mortgage balance in full out of the general estate residue, so the devisee receives unencumbered title.
+
+---
+
+## 6. Personal Effects & Lifetime Advancements
+
+### UC-ASSET-01: Tangible Personal Property & Informal Memorandum of Wishes
+* **Status:** Pending Processing
+* **Mapped Requirements:** Unmapped (Requires new §4.9: Tangible Personal Property & Precision Allocation)
+* **Scenario:** The testator owns a variety of personal effects, jewelry, heirlooms, furniture, art, vehicles, and tools. They desire to allocate specific items to specific family members, but wish to update their choices periodically without executing a formal will or codicil.
+* **Intent & Practical Allocation:**
+  * The will bequeaths all tangible personal property to the executor, with a direction to distribute individual items in accordance with any signed, dated, informal **Memorandum of Personal Wishes** left with the will.
+  * **Legal Invariants & Probate Protection:** The clause must be expressly framed as **precatory / advisory** to prevent probate registries from requiring the informal memorandum to be submitted for formal probate as an incorporated document (which would freeze probate until the memorandum is found, or trigger requisitions if undated/unwitnessed).
+  * **Dispute Fallback Mechanism:** If an item is not mentioned in the memorandum, or if beneficiaries dispute an item, the executor has final binding authority to distribute by agreement, round-robin selection lottery, or sale with proceeds passing into residue.
+
+### UC-LOAN-01: Family Loans, Advances & Hotchpot (Equalization vs. Debt Forgiveness)
+* **Status:** Pending Processing
+* **Mapped Requirements:** Unmapped (Requires extension to §4.4: Lifetime Advances & Loan Adjustment)
+* **Scenario:** During their lifetime, the testator advanced significant funds to one child (e.g., $150,000 for a home purchase or business startup), documented by a promissory note, loan agreement, or family records.
+* **Two Mutually Exclusive Intentions:**
+  1. **Debt Forgiveness:** The testator intends for the outstanding debt to be completely canceled and forgiven upon death, releasing the child and their estate from all liability (with clear tax structuring regarding commercial debt forgiveness under **s. 80 of the *Income Tax Act***).
+  2. **Hotchpot / Loan Equalization:** The testator intends for all children to receive equal net economic value from the total estate. The outstanding principal balance of the lifetime loan is brought into "hotchpot"—it is conceptually added back to the estate residue, and deducted from that specific child's residuary distribution, so other siblings receive proportionate cash equalization.
+
+---
+
+## 7. Administrative & Personal Directives
+
+### UC-ADMIN-01: Precatory Funeral, Cremation, and Anatomical Gift Directions
+* **Status:** Pending Processing
+* **Mapped Requirements:** Unmapped (Requires new §4.10: Funeral Wishes, Remains & Anatomical Gifts)
+* **Scenario:** The testator holds strong personal, philosophical, or religious wishes regarding the disposition of their earthly remains (e.g., immediate cremation and scattering of ashes in a specific location; traditional burial in a family plot; or anatomical donation of body/organs for medical research and transplant).
+* **Legal Invariants & Provincial Nuance:**
+  * Under Canadian common law, the estate executor has the exclusive legal right and duty of custody and disposal of the deceased's body, and **testamentary directions regarding burial or cremation are legally precatory (advisory)** rather than strictly binding.
+  * However, clear testamentary recitals provide decisive moral and evidential authority to prevent intra-family deadlock or disputes between surviving spouses and biological children under provincial burial statutes (e.g., Ontario *Funeral, Burial and Cremation Services Act*; BC *Cremation, Interment and Funeral Services Act*).
