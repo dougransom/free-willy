@@ -628,10 +628,13 @@ To ensure beneficiary designations within the operative body of the will remain 
   │       │   └── SKILL.md
   │       ├── review-requirements/
   │       │   └── SKILL.md
+  │       ├── update-requirements-from-use-cases/
+  │       │   └── SKILL.md
   │       └── translate-canonical-template-to-french/
   │           └── SKILL.md
   ├── docs/
   │   ├── REQUIREMENTS.md
+  │   ├── USE_CASES.md
   │   ├── DEFAULT_CHARITY_BENEFICIARY.md
   │   └── AI_ASSEMBLY_GUIDE.md
   ├── README.md
