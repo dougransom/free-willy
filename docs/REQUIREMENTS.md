@@ -59,8 +59,9 @@ For each generation run, Free-Willy produces three core documents plus an adviso
 | :--- | :--- | :--- |
 | **Last Will and Testament** | The formal testamentary instrument. | **Strictly clean of software/AI metadata.** Structured into three integrated parts: (1) Preliminary Definitions & Rules of Construction (Internal Preamble); (2) Concise Operative Dispositive Clauses (configurable as concise English prose, or an ultra-terse tabular/symbolic formal notation); and (3) Schedule / Appendix of Illustrative Examples (formally incorporated into the will, signed/initialed on execution for probate). |
 | **Affidavit of Execution / Attestation** | Sworn statement by one of the subscribing witnesses before a Commissioner of Oaths or Notary Public. | Province-specific format (e.g., Ontario Form 74D / Rule 74, BC WESA Supreme Court Civil Rules affidavits, Alberta Form NC 8). Required or strongly recommended for probate in all common law provinces. |
-| **Signing and Witnessing Guide** | Detailed plain-language execution protocol. | Specifies local rules: physical presence requirement, minimum age of witnesses, disqualification of beneficiaries and spouses of beneficiaries, blue ink signing, initialing every page (including schedules/appendices), and notary/commissioner formalities. |
-| **Advisory Safeguards & Validation Report** | Separate companion sheet providing software legal notices, statutory maintenance warnings, execution checklist, and input validation audit results. | Packaged strictly **outside** the will itself (as a preceding cover sheet or separate document) to preserve legal sanctity. |
+| **Signing and Witnessing Guide** | Detailed plain-language execution protocol. | Specifies local rules: physical presence requirement (primary default across Canada), minimum age of witnesses, disqualification of beneficiaries and spouses of beneficiaries, blue ink signing, initialing every page (including schedules/appendices), and notary/commissioner formalities. Also provides statutory remote audio-visual witnessing protocols where permanently authorized (Ontario LSO licensee requirement under SLRA s. 4(3); BC electronic/counterpart execution under WESA s. 35.2). |
+| **Advisory Safeguards & Validation Report** | Separate companion sheet providing software legal notices, statutory maintenance warnings, execution checklist, and input validation audit results. | Packaged strictly **outside** the will itself (as a preceding cover sheet or separate document) to preserve legal sanctity. Alerts executors to inter-provincial land resealing and dependant relief duties. |
+| **Confidential Digital Asset Memorandum** | Private, unprobated personal memorandum for digital accounts, password manager vaults, and hardware security keys. | Maintained strictly **outside** the public probate process with the testator's personal records to preserve password secrecy, referenced by general authority in the will. |
 
 ---
 
@@ -94,6 +95,10 @@ Free-Willy must support two distinct scoping options for the generated will:
      - Private partnership interests or real estate held under beneficial trust arrangements in other provinces.
    - Distinct definitions ensuring no overlap with the Primary Will to prevent accidental total revocation.
    - **Independent Executor Requirement:** Must appoint an executor separate and distinct from the Primary Will executor, fortified by the mandatory cross-disqualification clause described in §4.1.4.
+3. **Inter-Provincial Real Estate, Resealing & Multi-Jurisdictional Scoping:**
+   - **Single Canadian Will with Resealing (Default Approach):** A single General Canadian Will legally governs all real and personal property across Canadian provinces and territories. Where a testator owns real property in an additional province (e.g., an Ontario domiciliary owning recreational land in BC or rental real estate in Alberta), local land title registries require a local court confirmation. The estate transfers such land via **inter-provincial resealing** (where the probate grant issued in the home province is resealed under local provincial statutes, such as BC WESA / Supreme Court Civil Rules or Alberta Surrogate Rules) or an ancillary grant. The Safeguards Report alerts the executor to necessary resealing steps.
+   - **Elective Separate Provincial Property Wills:** If a testator specifically elects to execute a separate will for real property located in another province (or for closely held private shares to minimize probate taxes), Free-Willy accommodates this dual/multiple will architecture, strictly enforcing independent executors (§4.1.4) and mutual revocation carve-outs (§4.3).
+   - **Foreign Real Estate (Outside Canada):** For real estate situated outside Canada (e.g., US, Europe, Mexico), Free-Willy recommends executing separate local situs wills drafted under the governing law of the foreign jurisdiction, and preserves them via the Selective Revocation Clause (§4.3).
 
 ### 4.3 Selective Revocation & Preservation of Foreign Wills
 1. **Default Revocation:**
@@ -179,11 +184,17 @@ Free-Willy must support two distinct scoping options for the generated will:
         - Because every symbol, acronym, and column header (`PS` = *per stirpes*, `PC` = *per capita*, `+` = share sum forming dynamic denominator, `->` = conditional gift-over, `⊘` = non-existent share extinguishment) is explicitly defined in the **Internal Definitions Preamble**, and fully demonstrated through worked scenarios in the **Incorporated Appendix of Examples (Schedule A)** executed with initials and signatures, the terse formal notation is legally sound, unambiguous, and impervious to misinterpretation.
 
 ### 4.5 Minor Testamentary Trusts & Guardian Appointments
-1. **Staged Age of Distribution:**
-   - Configurable distribution milestone ages (e.g., age 18/19, 21, 25, or fractional releases such as 50% at 21, balance at 25).
-2. **Trustee Discretionary Powers:**
-   - Discretionary powers to encroach on income and capital for maintenance, education, advancement, and medical care of minor beneficiaries.
-3. **Guardian / Tutor Nomination:**
+1. **Staged Age of Distribution & Provincial Age of Majority (18 vs. 19):**
+   - **Provincial Minimum Age of Majority Alignment:** Milestone distribution ages must be at or above the governing provincial age of majority (minimum **18** in AB, MB, ON, PE, SK, QC; minimum **19** in BC, NB, NL, NS, YT, NT, NU).
+   - **Validation Rejection of Premature Payouts:** The validation engine strictly rejects milestone ages below the provincial age of majority, ensuring estate funds are not forced into court custody or the hands of the provincial Public Guardian and Trustee.
+   - **Contingent Gift-Overs (*Saunders v. Vautier* Rule):** Any trust distributing at an age beyond majority (e.g., age 21, 25, or fractional releases such as 50% at 21, balance at 25) must include explicit contingent gift-overs (e.g., gift passing to the beneficiary's issue, or failing issue to other residuary beneficiaries, if the beneficiary dies before attaining that age). This prevents the interest from indefeasibly vesting at the age of majority and legally forecloses the beneficiary from demanding premature trust termination under the rule in *Saunders v. Vautier*.
+2. **Trustee Discretionary Encroachment Powers:**
+   - Discretionary powers to encroach on income and capital for maintenance, education, advancement, and medical care of minor beneficiaries prior to milestone ages.
+3. **Trustee Investment Powers (Varcoe / Prudent Investor Expansion):**
+   - **Express Expansion of Statutory Trustee Acts:** The will explicitly defines expanded investment discretion for trustees, relieving them from the strict, archaic constraints of provincial *Trustee Acts*.
+   - **Broad Asset Class Authorization:** Authorizes investment in modern, diversified asset classes including mutual funds, index funds, exchange-traded funds (ETFs), pooled investment trusts, real estate, private business securities, debt instruments, and digital assets/cryptocurrencies.
+   - **Exemption from Statutory Diversification Ratios & Exculpation:** Authorizes trustees to make investments without regard to fixed statutory diversification ratios or traditional income/capital balancing requirements, and includes a comprehensive exculpatory clause shielding trustees from personal liability for portfolio loss or market downturns provided they act honestly, in good faith, and without gross negligence.
+4. **Guardian / Tutor Nomination:**
    - Parental appointment of testamentary guardian/custodian for minor children, subject to provincial court ratification.
 
 ### 4.6 Specific Bequests, Inherited Property, Pets, and Digital Assets
@@ -200,8 +211,10 @@ Free-Willy must support two distinct scoping options for the generated will:
      2. **Partial Sale of Gifted Property:** Liquidating or selling a sufficient portion of the gifted property or asset to remit the required taxes to the estate.
      3. **Direct Remittance to Estate:** Remitting funds directly to the estate executors/liquidators in the required amount to satisfy the tax liability prior to the release or transfer of the property.
    - **Executor Lien / Retention Power:** Executors and trustees are granted the administrative power to hold back delivery or transfer of the specific gift until the beneficiary's tax obligation has been satisfied via one of the three permitted methods.
-4. **Digital Assets Provision:**
-   - Express executor powers to access, control, modify, archive, or delete digital accounts, email, cryptocurrencies, cloud storage, and domain names in compliance with modern service terms.
+4. **Digital Assets Provision & Password Manager Credential Management:**
+   - **Statutory Authority over Electronic Records:** Express executor authority to access, control, manage, modify, archive, or delete digital accounts, emails, financial portals, cryptocurrencies, cloud storage, and domain names in compliance with service provider terms of service.
+   - **Executor Credential & Vault Authority:** Express testamentary authorization for the executor to utilize the testator's password managers (e.g., 1Password, Bitwarden), encrypted vaults, hardware security keys (e.g., YubiKeys), and biometric fallbacks to access digital estate assets.
+   - **Strict Public Will Privacy (External Digital Asset Memorandum):** Specific passwords, master keys, recovery seeds, PINs, and sensitive account inventories **MUST NEVER** be written in the Last Will and Testament itself (which becomes an unsealed public court record upon probate). Instead, the will incorporates standard legal authority while referencing a separate, confidential **Digital Asset Memorandum** (kept securely with personal records and delivered directly to the named executor upon death).
 5. **Pet Care Provisions:**
    - Bequest of pets to designated caregivers, optionally accompanied by an honorary trust or cash fund for veterinary care and maintenance.
 
@@ -509,8 +522,10 @@ All system components—input files (YAML/JSON), template files, internal string
 Before generating documents, Free-Willy validates the input data against provincial legal rules:
 1. **Witness Eligibility:**
    - Warns if any designated executor, beneficiary, or spouse of a beneficiary is listed in execution instructions.
-2. **Age of Majority Checks:**
-   - Validates testator minimum age requirements (18 in AB, SK, MB, ON, PEI, QC; 19 in BC, NB, NL, NS, YT, NT, NU), flagging exceptions (e.g., military service or married minors where permitted by statute).
+2. **Age of Majority Checks & Minor Trust Validation:**
+   - **Testator Age:** Validates testator minimum age requirements (18 in AB, SK, MB, ON, PEI, QC; 19 in BC, NB, NL, NS, YT, NT, NU), flagging exceptions (e.g., military service or married minors where permitted by statute).
+   - **Minor Trust Distribution Milestone Validation:** Strictly rejects any trust distribution milestone set below the governing provincial age of majority (18 or 19), preventing court transfer of funds to the provincial Public Guardian and Trustee.
+   - **Saunders v. Vautier Gift-Over Audit:** Validates that any trust with distribution milestones extending beyond the age of majority includes contingent gift-overs to prevent premature trust termination.
 3. **Dependant Support Obligations (Family Relief):**
    - Issues warnings where provincial statutes impose mandatory claims for spouses or dependent children (e.g., Ontario SLRA Part V, BC WESA Part 4) if the distribution omits a dependent.
 4. **Quebec Formalities Notice:**
@@ -522,6 +537,17 @@ Before generating documents, Free-Willy validates the input data against provinc
    - Verifies that when both a Primary (Probate) Will and a Secondary (Non-Probate) Will are generated, the designated executors and alternate lists do not share the same primary appointee.
    - Enforces strict appointment of different, independent persons for probate and non-probate estates.
    - Validates that the mandatory testamentary cross-disqualification / exclusion clause is rendered in both instruments to prevent joint representation and probate fee exposure.
+7. **Digital Asset Privacy & Credential Hygiene Check:**
+   - Validates that no plaintext passwords, master encryption keys, cryptocurrency private keys, recovery seed phrases, or sensitive vault credentials are contained in the Last Will and Testament or its attached schedules.
+   - Ensures sensitive digital credentials are directed exclusively to the confidential, unprobated **Digital Asset Memorandum**.
+8. **Inter-Provincial Real Estate & Resealing Advisory Audit:**
+   - Scans asset schedules for real estate situated outside the testator's home province.
+   - Generates advisory alerts in the Safeguards Report outlining inter-provincial court resealing or ancillary grant procedures required to transfer out-of-province land title, or validates separate provincial will segregation where chosen.
+9. **Virtual Witnessing Statutory Compliance Audit:**
+   - Audits signing instructions against provincial remote execution laws:
+     - In **Ontario**, verifies inclusion of the statutory mandate requiring at least one witness to be a licensed Law Society of Ontario (LSO) lawyer or paralegal (SLRA s. 4(3)).
+     - In **British Columbia**, verifies compliance with WESA s. 35.2 remote audio-visual presence and electronic/counterpart will execution standards.
+     - In other common law provinces and territories, warns that physical in-person execution is legally required.
 
 ### 11.2 Separation of Software Metadata & External Advisory Safeguards Report
 - **Absolute Rule on Software Disclaimers:** Any software notice, AI metadata, execution checklist, or statutory dependant support / family relief warning generated by Free-Willy **MUST NEVER** be embedded into the Last Will and Testament.

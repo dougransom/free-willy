@@ -62,9 +62,10 @@ Guide the testator through a calm, systematic intake process:
   - Common law provinces/territories vs. Quebec (*Civil Code of Québec*).
   - For Quebec, clarify whether preparing an English-language Will Made in the Presence of Witnesses (Arts. 712–715 CCQ) or provisions for formalization before a notary.
 
-### Step 2: Will Scoping & Multiple Wills
+### Step 2: Will Scoping, Inter-Provincial Real Estate & Multiple Wills
 - Ask if the testator owns shares in private Canadian corporations (CCPCs), shareholder loans, or private assets suitable for a **Secondary / Non-Probate Will** to minimize provincial probate fees (e.g., Ontario Estate Administration Tax).
 - **Enforce Separate Executors for Dual Wills:** Explicitly inform the testator that if a Secondary Non-Probate Will is created, **the executor CANNOT be the same person as the executor of the Primary Probate Will**. Distinct individuals must be chosen, and both wills must incorporate cross-disqualification provisions.
+- **Inter-Provincial Real Estate:** Ask if the testator owns real property in other Canadian provinces. Note that a single Canadian will covers this via inter-provincial court resealing (or ancillary probate), unless the testator specifically elects to execute separate provincial real property wills.
 - Ask if the testator has executed wills in foreign jurisdictions (e.g., UK, US) that must be preserved via a **Selective Revocation Clause**.
 
 ### Step 3: Fiduciary Appointments (Executors & Guardians)
@@ -92,9 +93,10 @@ Guide the testator through a calm, systematic intake process:
 - Confirm adoption of the default 50/50 parentelic catastrophic wipeout clause (capped at 5 generations of parental lineage, falling back to provincial intestacy laws if no beneficiaries exist).
 - **Drafting Style Preference:** Elicit whether gifts should be rendered in concise plain-language English prose, or using an **ultra-terse formal notation (tabular matrix or symbolic shorthand)** backed by the internal preamble definitions and appendix examples.
 
-### Step 6: Minor Trusts & Digital Assets
-- Milestone age for distribution (e.g., 18, 21, 25) and staged payouts (e.g., 50% at 21, 100% at 25).
-- Executor powers over digital accounts, email, cryptocurrencies, and cloud storage.
+### Step 6: Minor Trusts, Trustee Investments & Digital Asset Credentials
+- **Minor Trust Milestones & Saunders v. Vautier:** Milestone distribution ages must be at or above provincial age of majority (minimum 18 in ON/AB/SK/MB/PE/QC; minimum 19 in BC/NB/NL/NS/Territories). For payouts beyond majority (e.g., 21, 25), include contingent gift-overs to prevent premature trust termination.
+- **Expanded Trustee Investment Powers:** Provide broad trustee investment discretion beyond statutory Trustee Acts (authorizing mutual funds, ETFs, pooled funds, real estate, private securities, digital assets) and include exculpation for non-negligent good-faith decisions.
+- **Digital Asset Management & Credential Privacy:** Grant express legal authority to access digital accounts, password managers, and encrypted vaults in the will, while directing all passwords, master keys, and recovery seeds to an external, confidential **Digital Asset Memorandum**.
 - Pet care provisions (designated caregiver + maintenance fund).
 
 ---
@@ -106,17 +108,20 @@ Before assembling the output, audit the gathered profile against provincial requ
 | Validation Rule | Verification Criteria |
 | :--- | :--- |
 | **Witness Disqualification** | Ensure no designated executor, beneficiary, or spouse of a beneficiary acts as an attesting witness. |
-| **Age of Majority** | Verify testator meets provincial minimum age (18 in AB, SK, MB, ON, PEI, QC; 19 in BC, NB, NL, NS, Territories), flagging statutory exceptions. |
+| **Age of Majority & Minor Trust Milestones** | Verify testator meets provincial minimum age (18 in AB, SK, MB, ON, PEI, QC; 19 in BC, NB, NL, NS, Territories). Strictly reject minor trust milestone payouts below provincial age of majority, and verify contingent gift-overs for milestones beyond majority to prevent premature collapse under *Saunders v. Vautier*. |
 | **Dependant Support / Family Relief** | Flag omissions of spouses or dependent children under provincial family relief acts (e.g., Ontario SLRA Part V, BC WESA Part 4). |
 | **Name Disambiguation** | Verify all parties with identical names have relationship, locality, or parentage specified. |
 | **Dual-Will Executor Independence** | When primary and secondary wills exist, verify distinct executors are appointed and enforce inclusion of cross-disqualification provisions. |
+| **Digital Asset Privacy & Credential Hygiene** | Ensure no plaintext passwords, master encryption keys, seed phrases, or vault PINs appear in the probated will; verify redirection to the confidential Digital Asset Memorandum. |
+| **Inter-Provincial Real Estate & Resealing** | Verify that out-of-province real property under a single Canadian will is flagged with court resealing/ancillary probate instructions in the Safeguards Report. |
+| **Virtual Witnessing Statutory Compliance** | Audit execution instructions against local statutes (e.g., Ontario requirement for an LSO licensee witness under SLRA s. 4(3); BC WESA s. 35.2 electronic/counterpart rules; in-person default elsewhere). |
 | **Quebec Notarial Formalities** | Remind Quebec testators that a will before witnesses requires probate upon death, whereas a notarial will does not. |
 
 ---
 
 ## 4. Document Generation Suite
 
-Produce the complete four-part deliverable package:
+Produce the complete five-part deliverable package:
 
 1. **Last Will and Testament (`.md` / `.txt`):**
    - Clean, formal legal instrument (zero software disclaimers or AI metadata).
@@ -129,11 +134,16 @@ Produce the complete four-part deliverable package:
    - Statutory court form for the specific province (e.g., Ontario Form 74D, BC WESA Supreme Court affidavit, Alberta Form NC 8).
 
 3. **Provincial Signing and Witnessing Guide:**
-   - Physical presence rules (two adult witnesses present at the same time).
+   - Physical presence rules (two adult witnesses present at the same time as primary Canadian standard).
+   - Remote audio-visual witnessing protocols where authorized by provincial statute (Ontario LSO licensee rule; BC WESA s. 35.2).
    - Invalidation risks if beneficiaries sign as witnesses.
    - Initialing all pages in blue ink (including the Incorporated Testamentary Appendix), date, and signature block.
 
 4. **Advisory Safeguards & Validation Report (External Companion Document):**
    - Software and informational disclaimers (recommending review by qualified legal counsel).
-   - Summary of validation checks and provincial statutory considerations (e.g., dependant relief duties, witness eligibility).
+   - Summary of validation checks and provincial statutory considerations (e.g., dependant relief duties, witness eligibility, out-of-province land resealing procedures).
    - Kept strictly separate from the executed will.
+
+5. **Confidential Digital Asset Memorandum:**
+   - Private, unprobated personal memorandum for the testator to record password manager vaults, master keys, hardware tokens, and account access credentials.
+   - Kept securely outside the public probate record with personal papers and delivered directly to the designated executor.

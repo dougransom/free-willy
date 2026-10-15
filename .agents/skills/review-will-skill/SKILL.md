@@ -31,7 +31,11 @@ When reviewing `.agents/skills/will-preparation/SKILL.md`, verify that each of t
 | **Same-Name Disambiguation** | §4.7, §11.1.5 | Distinguishing attributes (relationship, address, seniority qualifier, parentage, birth year) are enforced for identical legal names. |
 | **Dual Will Strategy & Executor Independence** | §4.1.4, §4.2, §11.1.6 | Accommodates Secondary / Non-Probate Wills for CCPC shares and private assets to minimize probate fees; mandates distinct executors for probate vs. non-probate wills with express cross-disqualification provisions. |
 | **Selective Revocation** | §4.3 | Allows preservation of foreign / extra-provincial wills. |
-| **Provincial Validation** | §11.1 | Audits witness disqualification (no beneficiaries/spouses as witnesses), age of majority, and provincial family relief / dependant support duties. |
+| **Provincial Validation & Age of Majority** | §11.1.1-2 | Audits witness disqualification (no beneficiaries/spouses as witnesses), age of majority (18 vs 19), minor trust milestones (rejecting payouts below majority), and *Saunders v. Vautier* contingent gift-overs. |
+| **Trustee Investment Powers** | §4.5.3 | Expands trustee investment discretion beyond statutory Trustee Acts (ETFs, pooled funds, real estate, digital assets) with good-faith exculpation. |
+| **Digital Asset Privacy & Credential Memo** | §4.6.4, §11.1.7 | Enforces executor legal authority in the will while strictly isolating passwords, seeds, and vault credentials to a private unprobated memorandum. |
+| **Inter-Provincial Real Estate & Resealing** | §4.2.3, §11.1.8 | Governs Canadian land via single will with resealing alerts, or separate provincial property wills with independent executors. |
+| **Virtual Witnessing Statutory Compliance** | §3, §11.1.9 | Provides physical in-person execution as default, plus provincial remote witnessing protocols (Ontario LSO lawyer requirement; BC WESA s. 35.2). |
 | **Quebec CCQ Formalities** | §2.2, §11.1.4 | Distinguishes between English-language wills before witnesses (Arts. 712–715 CCQ, requiring probate) and notarial wills (not requiring probate). |
 
 ---
