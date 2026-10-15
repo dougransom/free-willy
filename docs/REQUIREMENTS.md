@@ -77,14 +77,25 @@ For each generation run, Free-Willy produces core legal documents plus companion
 ## 4. Functional Requirements & Estate Features
 
 ### 4.1 Prioritized Appointment Lists (Executors & Guardians)
-1. **Dynamic Priority List Evaluation:**
+1. **Dynamic Priority List Evaluation & Generational Sequences:**
    - The user specifies an ordered candidate list for Executors (Liquidators in QC) and Guardians (Tutors in QC).
    - The appointee clause must designate the **first individual in the list who is willing and legally competent/able to act**.
-   - Must support named individuals (e.g., `[John Doe, Jane Doe]`) as well as dynamic class expressions (e.g., `my descendants in order of decreasing age`).
+   - Must support named individuals (e.g., `[John Doe, Jane Doe]`) as well as dynamic class and generational expressions:
+     - `my descendants in order of birth` (oldest surviving child, then second oldest, descending through living issue).
+     - `my parents' descendants in order of birth` (testator's siblings/half-siblings in descending chronological order).
 2. **Co-Executors & Alternates:**
    - Ability to specify sole executor with alternates, or joint co-executors with survivorship powers.
-3. **Compensation & Expense Reimbursement:**
-   - Standard trustee compensation clauses or explicit waiver of executor fees beyond reasonable out-of-pocket expenses.
+3. **Compensation, Selective Exclusions & Indexed Fee Schedules:**
+   - **Selective Exclusions (Gratuitous Service):** Capability to designate specific named individuals (e.g., `[Person X, Person Y]`, typically a spouse, adult child, or primary beneficiary) who serve without compensation or commission, entitled solely to reimbursement for reasonable out-of-pocket expenses incurred in the administration of the estate.
+   - **Structured Remuneration for Other/Alternate Executors:** Any other appointed executor is entitled to compensation in one of three standardized modalities:
+     - **Flat Sum:** A fixed dollar compensation payable from the estate upon substantial completion/passing of accounts.
+     - **Percentage Fee:** A fixed percentage of the gross value of the estate (or capital and revenue receipts).
+     - **Hourly Rate:** A stipulated hourly fee for time reasonably and necessarily expended on estate administration, supported by contemporaneous time dockets.
+   - **Annual Compound Escalation / Indexation ($(1+x)^N$):**
+     - To protect against currency inflation between will execution and probate, the compensation rate or fee may compound annually at an agreed escalation rate of $x\%$ per annum.
+     - **Commencement Date:** Escalation commences on **January 1st of the calendar year immediately following the date of execution** of the will, and compounds every January 1st thereafter.
+     - **Formula:** $\text{Effective Rate} = \text{Base Rate} \times (1 + x)^N$, where $N$ represents the number of completed calendar years elapsed between the initial January 1st benchmark date and the date of the testator's death (or date of billing/settlement).
+     - **Statutory Override:** The operative clause must explicitly declare that this testamentary fee agreement governs and supersedes default statutory remuneration tariffs under provincial *Trustee Acts* (e.g., Ontario *Trustee Act* s. 61, BC *Trustee Act* s. 88, Alberta *Trustee Act* s. 44).
 4. **Dual/Multiple Wills Executor Rules (Probate vs. Non-Probate):**
    - **Ontario Common Executor Rule (*Granovsky*):** Under established Ontario jurisprudence (*Granovsky Estate v. Ontario*, 1998; *Milne Estate*, 2019), the executor of the Primary (Probate) Will and the Secondary (Non-Probate) Will **MAY BE THE EXACT SAME PERSON**. The division between the estates is established by the limited scope of the grant of probate issued by the court (limited to assets under the Primary Will), not by trustee identity. Testators are not forced to appoint different individuals.
    - **Provincial Jurisdictional Nuances:**
@@ -92,6 +103,13 @@ For each generation run, Free-Willy produces core legal documents plus companion
      - **British Columbia:** Probate registries scrutinize multiple wills closely under WESA; while secondary wills are used, practitioners may designate distinct trustees or rely on alter ego / joint partner trusts or bare trusts due to registry practices.
      - **Alberta:** Because Alberta caps its probate grant fees at a flat maximum of $525, dual wills to save probate fees are unnecessary and discouraged.
      - **Quebec:** Because non-notarial wills have nominal court filing fees and notarial wills bypass probate entirely, dual wills are unnecessary.
+5. **Anticipatory / Deferred Executor Capacity & Devolution (Temporal Logic):**
+   - **Anticipatory Appointment of Minors:** Where a named candidate (e.g., a child or sibling) is a minor under the governing provincial age of majority (18 in ON, AB, SK, MB, QC, PE; 19 in BC, NB, NS, NL, YT, NT, NU) at the time of execution ($t_{\text{exec}}$), the clause must include an explicit recital confirming the testator is of sound mind and anticipates that the appointee will attain the age of majority prior to the will taking effect. This recital affirmatively insulates the will against probate requisitions alleging lack of capacity or confusion (*Banks v. Goodfellow*).
+   - **Dynamic Evaluation at Operative Date ($t_{\text{death}}$):** Legal capacity and eligibility to act as estate trustee speak from the date of the testator's death. If the named appointee has reached the age of majority at $t_{\text{death}}$, the grant of probate issues directly to them.
+   - **Automatic Devolution / Pass-Over:** If the named candidate is still a minor at $t_{\text{death}}$, they are legally disqualified from acting, and the appointment cleanly and automatically devolves to the next alternate executor in the designated priority sequence.
+   - **Grant During Minority vs. Permanent Pass-Over:** The system supports configuring whether:
+     - (a) The alternate acts permanently to the exclusion of the minor; or
+     - (b) The alternate acts under a limited grant during minority (*durante minore aetate*), reserving leave for the minor to apply for probate upon attaining full age.
 
 ### 4.2 Scope of Will & Asset Segregation
 Free-Willy must support distinct scoping options for the generated will:
@@ -123,10 +141,15 @@ Free-Willy must support distinct scoping options for the generated will:
 2. **Explicit *Per Capita* Designation Option:**
    - Any residuary share or bequest may be explicitly overridden and designated as ***per capita*** (by head / only among living members).
    - Under a *per capita* designation, if a beneficiary predeceases the testator, their share does not pass to their children; rather, it is divided among the surviving beneficiaries of that class or lapses into the remaining residue.
-3. **Dynamic Share Allocation Model (Variable Denominator):**
+3. **Dynamic Share Allocation Model (Variable Denominator & Heterogeneous Sets):**
    - **No Fixed Share Total:** When dividing an estate or fund into shares, the total pool of shares is **strictly determined by the sum of shares gifted**, rather than being constrained to an arbitrary constant like 100 or 100% (e.g., Alice: 3 shares, Bob: 2 shares, Charlie: 1 share = 6 total shares; Alice receives 3/6, Bob 2/6, Charlie 1/6).
-   - **Extinguishment of Unallocatable Shares (Non-Existent Shares):** If any share cannot be legally allocated to a designated recipient (e.g., the beneficiary has predeceased the testator with no surviving issue under *per stirpes*, or has predeceased under a *per capita* gift, or is legally disqualified from taking), **those unallocatable shares cease to exist**.
-   - **Automatic Denominator Contraction (Preventing Partial Intestacy):** The total number of shares automatically contracts to the sum of the remaining legally valid shares (e.g., if Charlie above is deceased without substitute beneficiaries, Charlie's 1 share ceases to exist; the total contracts to 5 shares, with Alice receiving 3/5 and Bob 2/5). This completely eliminates undisposed fractional residues and prevents partial intestacy.
+   - **Proportional Block Allocation to Heterogeneous Sets & Entities:** The system must support allocating integer or fractional blocks of shares to both individual persons and defined sets or classes of beneficiaries (e.g., 3 shares to "my children with [Person A]", 2 shares to "my children with my current spouse [Person B]", and 1 share to "my sibling [Person C]").
+   - **Intra-Group Division Rules for Share Blocks:** For any block of shares assigned to a group or set, the configuration must specify how those shares are divided among the members of the set:
+     - ***Per Stirpes* Intra-Group:** The block of shares is divided equally among the living members of the set, with the share of any deceased member descending to their living issue *per stirpes*.
+     - ***Per Capita* Intra-Group:** The block of shares is divided equally strictly among the surviving members of the set at the expiration of the 30-day survivorship period; if a member predeceases, the block divides among the remaining living members of that set.
+   - **Extinguishment of Unallocatable Shares (Non-Existent Shares):** If any share or entire share block cannot be legally allocated to a designated recipient (e.g., the individual has predeceased with no issue under *per stirpes*, or an entire beneficiary set has no surviving members or issue, or an entity has ceased to exist), **those unallocatable shares cease to exist**.
+   - **Automatic Denominator Contraction (Preventing Partial Intestacy):** The total number of shares automatically contracts to the sum of the remaining legally valid shares (e.g., if Charlie's share or an entire group's block fails without alternate takers, those shares cease to exist; the total contracts to the active sum, eliminating undisposed fractional residues and completely preventing partial intestacy).
+   - **Precise Normalization in Legal Prose:** The operative legal clause must express the shares both as proportional units and as exact irreducible fractions (e.g., "three-fifths (3/5) of my residuary estate") in standard legal English, accompanied by the dynamic contraction rule.
 4. **Distribution Models:**
    - **Spousal Rollover with Gift-Over:** 100% to spouse/partner if surviving the survival period; gift-over to children or named beneficiaries (*per stirpes* by default).
    - **Custom Share Allocations:** Custom named beneficiaries assigned relative share units, governed by the dynamic denominator and non-existent share rules.
@@ -153,11 +176,22 @@ Free-Willy must support distinct scoping options for the generated will:
    - **Ultimate Charitable Wipeout Gift:**
      - If no surviving descendants of grandparents are found on either or both sides, that portion or the entirety of the estate is **distributed to a named Canadian registered charity**.
      - **Default Registered Charity:** **Cancer Research Society** (*Société de recherche sur le cancer*), Charitable Registration Number: **`11915 3229 RR0001`**, utilizing the testamentary bequest specifications in [`docs/DEFAULT_CHARITY_BENEFICIARY.md`](file:///home/doug/code/free-willy/docs/DEFAULT_CHARITY_BENEFICIARY.md).
-8. **Beneficiary Sets & Class Gifts (Equal Division Among Survivors):**
-   - The system must support designating sets or classes of beneficiaries rather than requiring individual names and fixed shares:
-     - Kinship / Lineal sets (e.g., *"my children"*, *"my descendants"*, *"the descendants of [Person X]"*).
-     - Named groups of individuals (e.g., `["Alice Doe", "Bob Roe", "Charlie Smith"]`).
-   - **Equal Division Among Survivors:** The gifted property or fund is divided in equal shares among the members of the designated set who survive the 30-day survivorship period.
+8. **Beneficiary Sets, Relational Subsets & Class Gifts:**
+   - **Standard Relational Subsets:** The system must recognize and accurately resolve expressive relational class definitions, particularly for modern blended, extended, and multi-generational families:
+     - `all_my_children`: All legal children of the testator.
+     - `children_with_spouse`: Children born to or legally adopted with the testator's current spouse or partner.
+     - `children_with_person_x`: Children born to or legally adopted with a specific named former spouse, co-parent, or individual.
+     - `children_from_prior_relationships`: Explicit enumerated list or relational class `[Child 1, Child 2, ...]`.
+     - `my_parents`: Testator's surviving parents.
+     - `my_grandparents`: Testator's surviving grandparents.
+     - `my_cousins`: First cousins (with strict boundary qualification: maternal, paternal, or both; strictly first cousins and excluding cousins once or twice removed).
+     - `my_descendants`: Lineal issue down through subsequent generations.
+     - Named ad-hoc sets of individuals (e.g., `["Alice Doe", "Bob Roe", "Charlie Smith"]`).
+   - **Legal Invariants & Class Boundaries:**
+     - **Class Closing Date:** Classes close strictly at the date of the testator's death ($t_{\text{death}}$). No child conceived and born after the testator's death (other than a child *en ventre sa mère* conceived prior to death and subsequently born alive) enters the class.
+     - **Adoption Status:** Formally and legally adopted children are treated identically to biological children across all Canadian jurisdictions under provincial child status legislation (e.g., Ontario *Children's Law Reform Act*, BC *Adoption Act*).
+     - **Stepchildren Exclusion/Inclusion:** Unadopted stepchildren are **excluded by default** from any class designating "children" or "descendants" unless specifically enumerated or explicitly defined in the class configuration.
+   - **Equal Division Among Survivors:** The gifted property or share block is divided in equal shares among the members of the designated set who survive the 30-day survivorship period.
    - **Interaction with Distribution Rules:**
      - Under *per capita*, the pool divides strictly among living members of the set surviving 30 days; deceased members' potential shares drop out.
      - Under *per stirpes*, if any member of the set fails to survive the 30-day period leaving living issue, their equal share descends to their issue *per stirpes*.
@@ -176,10 +210,18 @@ Free-Willy must support distinct scoping options for the generated will:
     - **Optional Appendix / Schedule of Illustrative Calculations:** Where beneficial for complex share models, an attached Schedule of Construction & Examples may be incorporated, providing worked arithmetic scenarios to demonstrate testator intent.
 
 ### 4.5 Minor Testamentary Trusts & Comprehensive Administrative Powers
-1. **Staged Age of Distribution & Provincial Age of Majority (18 vs. 19):**
-   - **Provincial Minimum Age of Majority Alignment:** Milestone distribution ages must be at or above the governing provincial age of majority (minimum **18** in AB, MB, ON, PE, SK, QC; minimum **19** in BC, NB, NL, NS, YT, NT, NU).
-   - **Validation Rejection of Premature Payouts:** The validation engine strictly rejects milestone ages below the provincial age of majority, ensuring estate funds are not forced into court custody or the hands of the provincial Public Guardian and Trustee.
-   - **Contingent Gift-Overs (*Saunders v. Vautier* Rule):** Any common-law trust distributing at an age beyond majority (e.g., age 21, 25) must include explicit contingent gift-overs to prevent premature trust termination under the rule in *Saunders v. Vautier*. (In Quebec, testamentary trusts are governed under CCQ Arts. 1260–1298 as patrimonies by appropriation).
+1. **Age-Graduated Testamentary Trusts (Delayed Vesting Beyond Age of Majority):**
+   - **Delayed Distribution Age Thresholds ($X$ to $Y$):** The system must support establishing testamentary trusts for any beneficiary who is under an entry age $X$ (e.g., under age 18, 21, or 25) at the testator's death, directing the trustee to hold and manage their share in trust until they reach target distribution age $Y$ (e.g., age 21, 25, 30):
+     - **Single Distribution Milestones:** Full capital payout upon attaining age $Y$.
+     - **Phased / Staged Tranche Distributions:** Fractional capital releases across multiple age milestones (e.g., one-third (1/3) of capital at age 21, one-half (1/2) of the remaining capital at age 25, and the entire remaining balance at age 30).
+   - **Provincial Minimum Age of Majority Alignment:** Initial vesting or distribution milestones must be at or above the governing provincial age of majority (minimum **18** in AB, MB, ON, PE, SK, QC; minimum **19** in BC, NB, NL, NS, YT, NT, NU). The validation engine strictly rejects distribution ages below the provincial majority, preventing estate funds from falling into court administration or the provincial Public Guardian and Trustee.
+   - **Protection Against Premature Termination (*Saunders v. Vautier* Rule):**
+     - Under the common-law rule in *Saunders v. Vautier* (1841), an adult beneficiary with an indefeasibly vested interest can demand immediate distribution upon reaching the provincial age of majority (18 or 19), frustrating the testator's intent to postpone distribution to age 25 or 30.
+     - **Mandatory Contingent Gift-Over:** To defeat the rule in *Saunders v. Vautier* and ensure the trust remains enforceable until age $Y$, every delayed vesting trust clause must include an explicit **contingent gift-over** operative in the event the beneficiary dies prior to attaining the designated milestone age (e.g., *"If such beneficiary shall die before attaining the age of twenty-five (25) years, the remaining balance of their share shall be distributed to their living issue per stirpes, or failing issue, shall be added equally to the shares of my other surviving children"*).
+     - **Quebec Patrimony by Appropriation:** In Quebec civil law, testamentary trusts are governed under CCQ Arts. 1260–1298 as autonomous patrimonies by appropriation, where the terms of the trust act govern without application of the common-law rule.
+   - **Discretionary Interim Encroachment Powers (*HEMA*):**
+     - Prior to final distribution at age $Y$, the trustee must possess broad, absolute discretionary powers to encroach upon and pay or apply the whole or any portion of the annual income and capital of the trust fund for the **health, education, maintenance, and advancement in life (*HEMA*)** of the beneficiary.
+     - Authority to make payments directly to third-party institutions (e.g., universities, medical providers) or to guardians on behalf of minor beneficiaries without requiring court sanction.
 2. **Guardian / Tutor Nomination:**
    - Parental appointment of testamentary guardian/custodian for minor children, subject to provincial court ratification.
 3. **Comprehensive Executor & Trustee Administrative Powers (Avoiding Court Orders):**
