@@ -199,8 +199,10 @@ Free-Willy must support distinct scoping options for the generated will:
    - **Non-Revocation & Confirmation Clause:** The will contains an express declaration confirming all prior beneficiary designations for registered retirement savings plans (RRSPs), registered retirement income funds (RRIFs), tax-free savings accounts (TFSAs), first home savings accounts (FHSAs), and life insurance policies made outside the will.
    - **General Revocation Protection:** Explicitly provides that the general revocation clause in the will does **NOT** revoke any instrument designating beneficiaries for registered plans or insurance policies under provincial succession/insurance statutes.
    - **Tax Liability on Registered Accounts Borne by Residue:** Specifies that any terminal income taxes arising from the deemed collapse or disposition of registered plans on death (e.g., RRSP/RRIF deemed income inclusion under the *Income Tax Act*) shall be **borne and paid out of the general residue of the estate**, ensuring the designated beneficiary receives the proceeds without deduction unless a contrary intention is explicitly configured.
-2. **Specific Bequests & Inherited Property Identification:**
-   - Specific sums of money (pecuniary legacies) or identified personal property bequeathed to named individuals or registered charities.
+2. **Specific Bequests, Inherited Property & Capital Gains Allocation:**
+   - Specific sums of money (pecuniary legacies) or identified personal/real property bequeathed to named individuals or registered charities.
+   - **No Tax Allocation on Cash Bequests:** In Canada, general pecuniary (cash) bequests carry no inheritance or income tax; cash bequests are never subjected to tax apportionment.
+   - **Elective Capital Gains Indemnity on Appreciated Property:** Under s. 70(5) of the *Income Tax Act*, capital property (e.g., real estate, CCPC shares) is deemed disposed of at fair market value at death. By default under Canadian estate law, this terminal tax liability is an estate debt payable out of residue. However, Free-Willy supports an **elective capital gains indemnity clause**: if the testator chooses, the specific beneficiary of appreciated property must indemnify the estate for the terminal capital gains tax attributable to that specific property (via deduction from their residuary share, partial liquidation, or direct payment) as a condition of receiving the bequest. If not elected, the standard legal default applies and taxes are borne by residue.
    - **Provenance Attribution:** Inherited property is explicitly identified along with its ancestral/family source to maintain transparent estate records.
 3. **Digital Assets Provision & Password Manager Credential Management:**
    - Express executor authority to access, control, manage, modify, archive, or delete digital accounts, emails, financial portals, cryptocurrencies, cloud storage, and domain names in compliance with service provider terms of service.
@@ -210,8 +212,12 @@ Free-Willy must support distinct scoping options for the generated will:
    - Bequest of pets to designated caregivers, accompanied by an honorary cash fund or trust for veterinary care and maintenance.
 
 ### 4.7 Matrimonial Property Elections & Person Disambiguation
-1. **Spousal Matrimonial Property Rights (Family Law Harmonization):**
+1. **Spousal Matrimonial Property Rights & Common-Law Distinction:**
    - The will includes a standard declaration stating whether gifts made to a surviving spouse are **in addition to**, and not in satisfaction of, any statutory equalization claim, division of matrimonial property, or family relief allowance under governing provincial family law statutes (e.g., Ontario *Family Law Act* s. 5 & 6, Alberta *Family Property Act*, BC *Family Law Act*).
+   - **Common-Law vs. Married Harmonization:** The system strictly accounts for provincial differences:
+     - In **Ontario**, common-law partners have no statutory property equalization rights under the *Family Law Act* (they only possess dependant support rights under *SLRA* Part V). Equalization election clauses apply exclusively to legally married spouses.
+     - In **British Columbia**, partners living in a marriage-like relationship for at least 2 years are recognized as full spouses under *WESA* and the *Family Law Act*.
+     - In **Alberta**, interdependent partners are governed by the *Adult Interdependent Relationships Act*.
 2. **Machine-Generated Disambiguation of Identical Names:**
    - When identical names occur across any role (executors, trustees, guardians, specific legatees, residuary beneficiaries, or substitute takers), the template rendering engine mandates and incorporates distinguishing attributes (relationship, locality/domicile, seniority qualifier, parentage, or birth year) into the generated legal text, eliminating registry requisitions.
 3. **Data Model Representation (Entity Separation):**
@@ -231,12 +237,13 @@ Free-Willy templates are designed for three primary operational modes:
 Free-Willy must provide a dedicated, standardized **Agent Skill** (`skills/will-preparation/SKILL.md` / `.agents/skills/will-preparation/SKILL.md`) to guide AI assistants (Gemini, Antigravity, Copilot, Claude, etc.) through the entire end-to-end interactive interview and will preparation process:
 1. **Interactive Estate Interviewing & Elicitation:**
    - The skill guides the agent to conduct a structured, empathetic, step-by-step interview with the testator.
+   - **Free Agency & Undue Influence Screening (*Vout v. Hay*):** Verifies that the testator is responding freely and independently, without direction, pressure, or coercion from any prospective beneficiary.
    - Collects personal profile, domicile, marital status, children, and dependants.
    - Evaluates scoping needs: single will vs. dual wills (general probate will vs. secondary corporate will for private CCPC shares to minimize provincial probate tax), as well as foreign will preservation.
 2. **Identification of Inherited Property & Provenance Tracking:**
    - Prompts the user to identify any gifts originating from inheritance and records the donor/source estate.
-3. **Tax Apportionment on Financial Gifts:**
-   - Explains and structures beneficiary tax responsibility on specific gifts possessing financial value, selecting between residuary offset, partial property liquidation, or direct estate reimbursement.
+3. **Elective Capital Gains Tax Allocation on Appreciated Property:**
+   - Explains that general cash bequests trigger zero tax in Canada. For gifts of appreciated capital property (real estate, CCPC shares), explains that deemed disposition taxes are paid by the residue by default, but allows the testator to elect an indemnity condition where the beneficiary reimburses the estate (via residuary offset, partial property liquidation, or direct payment).
 4. **Disambiguation of Same-Named Persons:**
    - Detects duplicate names across all parties (executors, guardians, beneficiaries) and enforces distinguishing attributes (relationship, address, seniority qualifier, parentage, or birth year).
 5. **Intelligent Distribution & Arithmetic Modeling:**
@@ -246,8 +253,8 @@ Free-Willy must provide a dedicated, standardized **Agent Skill** (`skills/will-
    - Configures the 50/50 parentelic catastrophic wipeout fallback clause (splitting between testator and spouse lineages via nearest common ancestors with living descendants).
 6. **Statutory Validation & Safeguards Check:**
    - Audits the resulting estate model against provincial requirements: witness eligibility (flagging beneficiaries/spouses), age of majority, family relief / dependant support duties, and Quebec notarial vs. witnessed will formalities.
-7. **Clean Document Assembly & Separation:**
-   - Instructs the agent on compiling the four deliverables, strictly preserving the pristine Last Will and Testament free of software metadata, while compiling all validation reports, educational math walkthroughs, and legal notices into the companion Advisory Preamble.
+7. **Clean Document Assembly & Strict Separation:**
+   - Instructs the agent on compiling the complete suite of deliverables, strictly preserving the pristine Last Will and Testament free of software metadata, incorporating worked arithmetic walkthroughs into the formally executed Schedule A Appendix, and compiling all software notices, validation audit reports, and statutory warnings into the external companion Advisory Safeguards & Validation Report.
 
 ### 5.3 Programmatic & Headless Compilation
 - **Batch / Microservice Integration:** Software applications, web portals, or CLI pipelines can ingest declarative data files (YAML/JSON) and programmatically parse, assemble, and render the complete document suite.
@@ -509,8 +516,9 @@ All system components—input files (YAML/JSON), template files, internal string
 
 ### 11.1 Built-in Validation Engine
 Before generating documents, Free-Willy validates the input data against provincial legal rules:
-1. **Witness Eligibility:**
+1. **Witness Eligibility & Undue Influence Safeguards (*Vout v. Hay*):**
    - Warns if any designated executor, beneficiary, or spouse of a beneficiary is listed in execution instructions.
+   - Formally alerts the testator that beneficiaries and spouses of beneficiaries must NEVER act as attesting witnesses (rendering gifts void under provincial succession statutes) and should NOT be present in the room during will execution to eliminate any suspicion of coercion or presumption of undue influence.
 2. **Age of Majority Checks & Minor Trust Validation:**
    - **Testator Age:** Validates testator minimum age requirements (18 in AB, SK, MB, ON, PEI, QC; 19 in BC, NB, NL, NS, YT, NT, NU), flagging exceptions (e.g., military service or married minors where permitted by statute).
    - **Minor Trust Distribution Milestone Validation:** Strictly rejects any trust distribution milestone set below the governing provincial age of majority (18 or 19), preventing court transfer of funds to the provincial Public Guardian and Trustee.
@@ -542,6 +550,10 @@ Before generating documents, Free-Willy validates the input data against provinc
      - In **Ontario**, verifies inclusion of the statutory mandate requiring at least one witness to be a licensed Law Society of Ontario (LSO) lawyer or paralegal (SLRA s. 4(3)).
      - In **British Columbia**, verifies compliance with WESA s. 35.2 remote audio-visual presence and electronic/counterpart will execution standards.
      - In other common law provinces and territories, warns that physical in-person execution is legally required.
+10. **Common-Law vs. Married Matrimonial Election Audit:**
+    - Checks testator marital status and province of domicile.
+    - Ensures that statutory equalization election clauses under the Ontario *Family Law Act* (s. 5 & 6) are generated only for legally married testators, warning that Ontario common-law partners have no statutory property equalization rights (relegating claims to *SLRA* Part V dependant support or constructive trust claims).
+    - Confirms proper application of spousal rights in BC (*WESA* 2-year cohabitation) and Alberta (*Adult Interdependent Relationships Act*).
 
 ### 11.2 Separation of Software Metadata & External Advisory Safeguards Report
 - **Absolute Rule on Software Disclaimers:** Any software notice, AI metadata, execution checklist, or statutory dependant support / family relief warning generated by Free-Willy **MUST NEVER** be embedded into the Last Will and Testament.
@@ -557,44 +569,44 @@ To ensure beneficiary designations within the operative body of the will remain 
 2. **Incorporated Testamentary Appendix of Illustrative Examples (Part of the Will):**
    - Concrete mathematical walkthroughs and calculation scenarios are placed in an attached **Schedule / Appendix of Construction & Illustrative Examples** (e.g., *Schedule "A"*).
    - **Formally Executed as Part of the Will:** This appendix is an integral, legally binding part of the testamentary instrument. It is executed concurrently with the will and **receives initials on every page and witness signatures**, providing definitive evidence of testator intent for probate registries, trustees, and the courts.
-   - The Appendix sets out the following illustrative examples in plain language:
+   - The Schedule A Appendix sets out the following illustrative examples in plain language:
 
 1. **Dynamic Share Arithmetic & Non-Existent Shares:**
-   - The preamble must explicitly document how shares work:
+   - The Appendix documents how shares work with concrete examples:
      > *"How Your Estate Shares Are Calculated:*  
      > *Your estate is divided into shares rather than rigid percentages (like 100%). The total number of shares is simply the sum of all shares given out.*  
      > *If a beneficiary cannot receive their share (for example, if they have died and have no children to inherit under per stirpes), their shares simply **do not exist**. The total share count shrinks automatically, and the remaining beneficiaries divide the estate in proportion to their own shares without leaving any undisposed leftover money."*
    - Illustrate with a concrete example (e.g., 3 shares to Alice, 2 to Bob, 1 to Charlie = 6 shares. If Charlie is ineligible, total becomes 5 shares: 3/5 to Alice, 2/5 to Bob).
 
 2. **The 30-Day Survivorship Rule:**
-   - The preamble clearly explains why and how the 30-day survival rule operates:
+   - The Appendix demonstrates why and how the 30-day survival rule operates:
      > *"Survivorship Requirement (30 Days):*  
      > *To inherit under this will, a beneficiary must survive you by at least 30 days.*  
      > *This prevents your estate from passing into a deceased beneficiary's estate (avoiding double probate fees and unwanted delays) while fully preserving the spousal rollover under s. 70(6) of the Income Tax Act."*
 
 3. **Per Stirpes vs. Per Capita Distinctions:**
-   - The Advisory Preamble **must clearly explain the legal distinction and real-world implications** between *per stirpes* and *per capita* distribution:
+   - The Appendix **demonstrates the legal distinction and practical implications** between *per stirpes* and *per capita* distribution:
      - **Educational Walkthrough:** Illustrate with an intuitive example:
        > *"Per Stirpes (Default): If your estate is divided equally between two children, and one child dies before you leaving two grandchildren, that deceased child's 50% share passes down to those two grandchildren (25% each).*  
        > *Per Capita (Optional Override): Under per capita, the deceased child's share does not go to the grandchildren; instead, the entire estate goes to your surviving child."*
-     - **Explicit Confirmation of Defaults:** The preamble must state clearly that all residuary gifts in the attached will operate under *per stirpes* unless an explicit *per capita* tag was designated.
+     - **Explicit Confirmation of Defaults:** The text confirms that all residuary gifts operate under *per stirpes* unless an explicit *per capita* designation was chosen.
 
-4. **Tax Obligations on Specific Financial Gifts & Inherited Property Disclosures:**
-   - The Advisory Preamble must clearly educate the testator and beneficiaries regarding tax responsibilities on specific bequests:
+4. **Elective Capital Gains Indemnity & Inherited Property Disclosures:**
+   - The Appendix illustrates how tax obligations on specific gifts of appreciated property operate:
      > *"Taxes on Specific Gifts of Appreciated Property:*  
-     > *General cash gifts trigger no income tax in Canada. However, if you leave a specific gift of appreciated property (such as real estate or private company shares), any taxes triggered by that gift are paid by the beneficiary receiving it—not deducted from the residue meant for others.*  
-     > *The beneficiary can satisfy these taxes by having them deducted from their share of the residue (if they are a residuary beneficiary), by selling a portion of the property, or by remitting funds directly to your estate.*  
-     > *Inherited property is explicitly identified along with its original source(s) to maintain transparent provenance and family records."*
+     > *General cash gifts trigger no income or inheritance tax in Canada. By default, terminal taxes on capital property are paid out of your estate residue. However, where an elective capital gains indemnity clause is chosen, any income taxes triggered by deemed disposition of appreciated property (such as real estate or private shares) are reimbursed by the specific beneficiary receiving that property.*  
+     > *The beneficiary can satisfy this indemnity by having it deducted from their share of the residue (if they are also a residuary beneficiary), by selling a portion of the property, or by remitting funds directly to your estate.*  
+     > *Inherited property is explicitly identified along with its original donor source to maintain transparent provenance and family records."*
 
 5. **Conditional Beneficiary Mechanics & Catastrophic Family Wipeout Protection:**
-   - The Advisory Preamble must clearly explain how multi-level conditional alternates interact with *per stirpes* and how the catastrophic fallback functions:
+   - The Appendix illustrates how multi-level conditional alternates interact with *per stirpes* and how the catastrophic fallback functions:
      > *"Backup / Conditional Beneficiaries:*  
      > *You may name backup beneficiaries to any number of levels for any gift. However, if a gift is given 'per stirpes' (the default rule), your backup beneficiary will ONLY receive the gift if the primary beneficiary dies leaving NO living children or grandchildren. If the primary beneficiary leaves children, the gift passes directly down to those children instead.*  
      > *Ultimate Family Disaster / Wipeout Clause:*  
      > *If everyone you named in your entire will passes away without surviving descendants, your estate will not be lost to the government. Instead, your estate is split 50/50 between your family and your spouse's family, tracing to the closest ancestors who have living descendants up to grandparents (or great-grandparents). If no living descendants of grandparents can be found, the estate is gifted to our default registered Canadian charity, the **Cancer Research Society** (Société de recherche sur le cancer, Registration: 11915 3229 RR0001), in accordance with [`docs/DEFAULT_CHARITY_BENEFICIARY.md`](file:///home/doug/code/free-willy/docs/DEFAULT_CHARITY_BENEFICIARY.md)."*
 
 6. **Beneficiary Sets & Dual-Capacity Representation Rules:**
-   - The Advisory Preamble must clearly explain how class gifts and multiple appearances operate:
+   - The Appendix illustrates how class gifts and multiple appearances operate:
      > *"Gifts to Groups or Sets of Beneficiaries:*  
      > *You may leave gifts to a group or class (such as 'my children', 'my descendants', or 'the descendants of [Person]'). The property is divided in equal shares among the members of the group who survive you by at least 30 days (with children inheriting their parent's share under per stirpes).*  
      > *If an Individual Inherits Through Multiple Branches:*  
