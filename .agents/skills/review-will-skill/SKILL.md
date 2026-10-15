@@ -18,25 +18,28 @@ When reviewing `.agents/skills/will-preparation/SKILL.md`, verify that each of t
 
 | Invariant / Feature | Section in Requirements | Verification Criteria in `will-preparation/SKILL.md` |
 | :--- | :--- | :--- |
-| **Tripartite Architecture & Separation** | §3, §4.4.10, §11.2 | Concise operative dispositive clauses (prose or ultra-terse tabular/symbolic formal notation) with internal legal definitions in preamble; concrete illustrative examples in incorporated testamentary appendix (Schedule A, executed with initials/signatures as part of will); software notices/AI metadata/statutory warnings strictly relegated to external Advisory Safeguards Report. |
+| **Probate Certainty & Tripartite Architecture** | §1, §3, §4.4.10, §11.2 | Operative dispositive clauses formulated strictly in unambiguous legal English prose (no experimental symbolic/code notation in operative text); internal legal definitions in preamble; optional illustrative examples in incorporated appendix (Schedule A); software notices/warnings strictly relegated to external Advisory Safeguards Report. |
 | **Per Stirpes Default** | §4.4.1 | Residuary distribution defaults to *per stirpes* unless explicitly overridden to *per capita*. |
 | **Dynamic Share Arithmetic** | §4.4.3 | Total share pool equals sum of granted shares. Unallocatable shares cease to exist, automatically contracting the denominator and preventing partial intestacy. |
-| **90-Day Survivorship Rule** | §4.4.5 | Unified 90-day survival rule applies equally to pre- and post-will deaths; non-survival treats beneficiary as having predeceased. |
+| **30-Day Survivorship Rule** | §4.4.5 | Default 30-day survivorship rule applies to all gifts, protecting ITA s. 70(6) spousal rollover. Non-survival treats beneficiary as predeceased. |
+| **Testamentary Capacity Protection** | §4.4.5 | System interview screens for deceased beneficiaries; will never names a person known to be dead as a direct legatee, naming their issue directly instead. |
 | **Multi-Level Conditionals** | §4.4.6 | Arbitrary-level conditional alternates supported. Under *per stirpes*, alternates **only take if primary leaves no surviving descendants**. |
-| **50/50 Catastrophic Wipeout** | §4.4.7 | Default ultimate fallback divides estate 50/50 between spouse's and testator's families via parentelic representation capped at 5 generations of parental lineage; falls back to governing province's intestacy laws if no beneficiaries exist within 5 generations. |
+| **Catastrophic Wipeout & Charity Default** | §4.4.7 | Default fallback divides estate 50/50 between spouse's and testator's families via parentelic representation capped at descendants of **grandparents**; if none, passes to default registered charity: **Cancer Research Society** (`11915 3229 RR0001`). |
+| **Registered Plans & Insurance Confirmation** | §4.6.1 | Confirms prior designations for RRSPs, RRIFs, TFSAs, FHSAs, and life insurance, protecting them from general revocation; specifies terminal income taxes on registered accounts are borne by residue. |
+| **Comprehensive Administrative Powers** | §4.5.3 | Conveys broad powers to executors (in specie distribution, ITA s. 164(6) corporate reorganizations, tax elections, borrowing, claim settlement, real estate, investment discretion) avoiding court orders. |
 | **Inherited Property Provenance** | §4.6.2 | Inherited gifts are explicitly identified as such, documenting the source/donor estate. |
-| **Tax on Financial Gifts** | §4.6.3 | Beneficiary must pay taxes arising from specific gifts of financial value via residuary offset, partial sale, or direct reimbursement to estate. |
-| **Beneficiary Sets & Class Gifts** | §4.4.8 | Supports gifts to sets (e.g., "my children", "descendants of X") divided equally among 90-day survivors (with per stirpes representation where applicable). |
+| **Beneficiary Sets & Class Gifts** | §4.4.8 | Supports gifts to sets (e.g., "my children", "descendants of X") divided equally among 30-day survivors (with per stirpes representation where applicable). |
 | **Dual Capacity / Multiple Appearances** | §4.4.9 | Defines rules when an individual can appear twice under per stirpes (cumulative branch representation by default vs. deduplication). |
-| **Same-Name Disambiguation** | §4.7, §11.1.5 | Distinguishing attributes (relationship, address, seniority qualifier, parentage, birth year) are enforced for identical legal names. |
-| **Dual Will Strategy & Executor Independence** | §4.1.4, §4.2, §11.1.6 | Accommodates Secondary / Non-Probate Wills for CCPC shares and private assets to minimize probate fees; mandates distinct executors for probate vs. non-probate wills with express cross-disqualification provisions. |
+| **Same-Name Disambiguation** | §4.7.2, §11.1.5 | Distinguishing attributes (relationship, address, seniority qualifier, parentage, birth year) are enforced for identical legal names. |
+| **Dual Will Strategy & Ontario Granovsky** | §4.1.4, §4.2, §11.1.6 | Accommodates Secondary / Non-Probate Wills for CCPC shares and private assets to minimize probate fees; allows same executor in Ontario under *Granovsky*; warns Alberta and Quebec users that dual wills are unnecessary. |
+| **Matrimonial Property Harmonization** | §4.7.1 | Declares whether gifts to surviving spouse are in addition to statutory equalization claims (e.g., Ontario *FLA* s. 5/6, Alberta *FPA*). |
+| **Dependant Relief & Disinheritance Statement** | §11.1.3 | Audits dependant support; alerts BC testators to adult child moral claims (*WESA* s. 60); provides optional *Statement of Reasons for Disinheritance* (admissible under *WESA* s. 62). |
 | **Selective Revocation** | §4.3 | Allows preservation of foreign / extra-provincial wills. |
 | **Provincial Validation & Age of Majority** | §11.1.1-2 | Audits witness disqualification (no beneficiaries/spouses as witnesses), age of majority (18 vs 19), minor trust milestones (rejecting payouts below majority), and *Saunders v. Vautier* contingent gift-overs. |
-| **Trustee Investment Powers** | §4.5.3 | Expands trustee investment discretion beyond statutory Trustee Acts (ETFs, pooled funds, real estate, digital assets) with good-faith exculpation. |
-| **Digital Asset Privacy & Credential Memo** | §4.6.4, §11.1.7 | Enforces executor legal authority in the will while strictly isolating passwords, seeds, and vault credentials to a private unprobated memorandum. |
-| **Inter-Provincial Real Estate & Resealing** | §4.2.3, §11.1.8 | Governs Canadian land via single will with resealing alerts, or separate provincial property wills with independent executors. |
+| **Digital Asset Privacy & Credential Memo** | §4.6.3, §11.1.7 | Enforces executor legal authority in the will while strictly isolating passwords, seeds, and vault credentials to a private unprobated memorandum. |
+| **Inter-Provincial Real Estate & Resealing** | §4.2.3, §11.1.8 | Governs Canadian land via single will with resealing alerts, or separate provincial property wills with mutual carve-outs. |
 | **Virtual Witnessing Statutory Compliance** | §3, §11.1.9 | Provides physical in-person execution as default, plus provincial remote witnessing protocols (Ontario LSO lawyer requirement; BC WESA s. 35.2). |
-| **Quebec CCQ Formalities** | §2.2, §11.1.4 | Distinguishes between English-language wills before witnesses (Arts. 712–715 CCQ, requiring probate) and notarial wills (not requiring probate). |
+| **Quebec CCQ Formalities** | §2.2, §11.1.4 | Distinguishes between English-language wills before witnesses (Arts. 712–715 CCQ, requiring probate) and notarial wills (not requiring probate); warns Quebec residents against dual wills. |
 
 ---
 

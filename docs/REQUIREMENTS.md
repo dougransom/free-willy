@@ -152,7 +152,7 @@ Free-Willy must support distinct scoping options for the generated will:
      - Capping the search at grandparents eliminates the multi-generational distant cousin / "heir-hunter" trap, avoiding massive genealogical costs and court *Benjamin Orders*.
    - **Ultimate Charitable Wipeout Gift:**
      - If no surviving descendants of grandparents are found on either or both sides, that portion or the entirety of the estate is **distributed to a named Canadian registered charity**.
-     - **Default Registered Charity:** **Cancer Research Society** (*Société de recherche sur le cancer*), Charitable Registration Number: **`11915 3229 RR0001`**, utilizing the testamentary bequest language from the [Cancer Research Society Guide to Writing a Will](file:///home/doug/code/free-willy/docs/crs-guide-to-writing-a-will.pdf).
+     - **Default Registered Charity:** **Cancer Research Society** (*Société de recherche sur le cancer*), Charitable Registration Number: **`11915 3229 RR0001`**, utilizing the testamentary bequest specifications in [`docs/DEFAULT_CHARITY_BENEFICIARY.md`](file:///home/doug/code/free-willy/docs/DEFAULT_CHARITY_BENEFICIARY.md).
 8. **Beneficiary Sets & Class Gifts (Equal Division Among Survivors):**
    - The system must support designating sets or classes of beneficiaries rather than requiring individual names and fixed shares:
      - Kinship / Lineal sets (e.g., *"my children"*, *"my descendants"*, *"the descendants of [Person X]"*).
@@ -453,7 +453,7 @@ beneficiaries:
       name: "Cancer Research Society"
       french_name: "Société de recherche sur le cancer"
       registration_number: "11915 3229 RR0001"
-      bequest_guide_reference: "docs/crs-guide-to-writing-a-will.pdf"
+      bequest_guide_reference: "docs/DEFAULT_CHARITY_BENEFICIARY.md"
     enabled: true
 
 registered_plans_and_insurance:
@@ -591,7 +591,7 @@ To ensure beneficiary designations within the operative body of the will remain 
      > *"Backup / Conditional Beneficiaries:*  
      > *You may name backup beneficiaries to any number of levels for any gift. However, if a gift is given 'per stirpes' (the default rule), your backup beneficiary will ONLY receive the gift if the primary beneficiary dies leaving NO living children or grandchildren. If the primary beneficiary leaves children, the gift passes directly down to those children instead.*  
      > *Ultimate Family Disaster / Wipeout Clause:*  
-     > *If everyone you named in your entire will passes away without surviving descendants, your estate will not be lost to the government. Instead, your estate is split 50/50 between your family and your spouse's family, tracing to the closest ancestors who have living descendants up to grandparents (or great-grandparents). If no living descendants of grandparents can be found, the estate is gifted to our default registered Canadian charity, the **Cancer Research Society** (Société de recherche sur le cancer, Registration: 11915 3229 RR0001), in accordance with their [Guide to Writing a Will](file:///home/doug/code/free-willy/docs/crs-guide-to-writing-a-will.pdf)."*
+     > *If everyone you named in your entire will passes away without surviving descendants, your estate will not be lost to the government. Instead, your estate is split 50/50 between your family and your spouse's family, tracing to the closest ancestors who have living descendants up to grandparents (or great-grandparents). If no living descendants of grandparents can be found, the estate is gifted to our default registered Canadian charity, the **Cancer Research Society** (Société de recherche sur le cancer, Registration: 11915 3229 RR0001), in accordance with [`docs/DEFAULT_CHARITY_BENEFICIARY.md`](file:///home/doug/code/free-willy/docs/DEFAULT_CHARITY_BENEFICIARY.md)."*
 
 6. **Beneficiary Sets & Dual-Capacity Representation Rules:**
    - The Advisory Preamble must clearly explain how class gifts and multiple appearances operate:
@@ -614,10 +614,13 @@ To ensure beneficiary designations within the operative body of the will remain 
   │       │   └── SKILL.md
   │       ├── review-will-skill/
   │       │   └── SKILL.md
+  │       ├── review-requirements/
+  │       │   └── SKILL.md
   │       └── translate-canonical-template-to-french/
   │           └── SKILL.md
   ├── docs/
   │   ├── REQUIREMENTS.md
+  │   ├── DEFAULT_CHARITY_BENEFICIARY.md
   │   └── AI_ASSEMBLY_GUIDE.md
   ├── README.md
   ├── LICENSE
